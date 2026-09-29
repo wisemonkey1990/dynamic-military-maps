@@ -3,3 +3,5 @@ public/data
 node_modules
 package-lock.json
 data/LICENSE-CC-BY-SA-4.0.txt
+test-results
+playwright-report

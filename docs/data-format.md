@@ -90,3 +90,6 @@ ISO 8601 扩展格式，一律当作**当时当地的墙上时钟**，引擎不�
 ```
 
 已发布（`status: published`）的战役，`documented` / `reconstructed` 的数据缺来源会报 error；草稿阶段报 warning。
+
+约定：`id` 以 `geo-` 开头的来源是**坐标出处**（例如 `geo-osm`、`geo-wiki`、`geo-estimate`），
+地图详情面板会把它们单独折叠，史料来源排在前面。

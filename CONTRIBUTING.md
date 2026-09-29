@@ -31,8 +31,10 @@
 ```bash
 npm install
 npm test && npm run lint && npm run typecheck && npm run format:check
+npm run e2e   # 改动了界面或地图时运行；首次需 npx playwright install chromium
 ```
 
 - `src/engine/` 必须保持**零依赖、无 DOM、无地图库**，并配单元测试；引擎是纯函数，新增逻辑请同样保持纯函数。
-- 提交 PR 前，让以上四条命令全部通过（CI 会做同样的检查）。
+- 提交 PR 前，让以上命令全部通过（CI 会做同样的检查，包括端到端测试）。
+- 修界面 bug 时，尽量补一条 `e2e/` 用例：样式、地图 worker、标记定位这类问题，单元测试抓不到。
 - 改动尽量小而聚焦；较大的改动请先开 issue 讨论。
