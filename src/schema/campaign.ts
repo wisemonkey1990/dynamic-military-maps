@@ -84,6 +84,8 @@ export const Unit = z.object({
   id: Id,
   side: Id,
   name: Localized,
+  /** 地图图标里显示的一字/二字简称，如“一”“军委”；缺省取名称首字 */
+  short: z.string().min(1).max(3).optional(),
   kind: z.enum(UNIT_KINDS).default('infantry'),
   /** 编制层级，自由文本：师、军团、纵队…… */
   echelon: z.string().optional(),

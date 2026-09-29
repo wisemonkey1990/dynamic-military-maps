@@ -5,6 +5,8 @@ import { defineConfig } from 'vitest/config'
 export default defineConfig({
   base: process.env.VITE_BASE ?? '/',
   plugins: [react()],
+  // MapLibre v6 的 worker 是 ES 模块
+  worker: { format: 'es' },
   test: {
     include: ['src/**/*.test.ts', 'scripts/**/*.test.ts'],
   },

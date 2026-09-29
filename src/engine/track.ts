@@ -178,3 +178,15 @@ export function routeSegments(track: CompiledTrack) {
     .filter((s) => s.lengthKm > 0)
     .map((s) => ({ coords: s.coords, confidence: s.confidence, t0: s.t0, t1: s.t1 }))
 }
+
+/** 到时刻 t 为止已经走过的路线（同样按可信度分段），未到的部分不含 */
+export function routeUpTo(track: CompiledTrack, t: number) {
+  const out: { coords: LngLat[]; confidence: Confidence; t0: number; t1: number }[] = []
+  for (const s of track.segments) {
+    if (s.lengthKm === 0 || s.t0 >= t) continue
+    const f = Math.min(1, (t - s.t0) / (s.t1 - s.t0))
+    const coords = f >= 1 ? s.coords : sliceByDistance(s.coords, s.cumulative, 0, f * s.lengthKm)
+    out.push({ coords, confidence: s.confidence, t0: s.t0, t1: s.t1 })
+  }
+  return out
+}

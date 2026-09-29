@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { Waypoint } from '../schema/campaign'
-import { compileTrack, routeSegments, stateAt, trailAt } from './track'
+import { compileTrack, routeSegments, routeUpTo, stateAt, trailAt } from './track'
 import { parseHistTime } from './time'
 
 const at = (s: string) => parseHistTime(s).mid
@@ -95,5 +95,17 @@ describe('trailAt / routeSegments', () => {
     const segs = routeSegments(track)
     expect(segs).toHaveLength(2)
     expect(segs[0]!.confidence).toBe('approximate')
+  })
+})
+
+describe('routeUpTo', () => {
+  it('只包含到 t 为止走过的部分，且随时间单调变长', () => {
+    expect(routeUpTo(track, at('1934-12-31T00:00'))).toEqual([])
+    const half = routeUpTo(track, at('1935-01-01T12:00'))
+    expect(half).toHaveLength(1)
+    expect(half[0]!.coords.at(-1)![0]).toBeCloseTo(0.5, 6)
+    const all = routeUpTo(track, at('1935-02-01T00:00'))
+    expect(all).toHaveLength(2)
+    expect(all.at(-1)!.coords.at(-1)).toEqual([1, 1])
   })
 })

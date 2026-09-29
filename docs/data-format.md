@@ -44,6 +44,7 @@ ISO 8601 扩展格式，一律当作**当时当地的墙上时钟**，引擎不�
 | `conjectural`   | 有争议或推测   | 点线，图例注明 |
 
 部队轨迹中，一段路线的可信度取其两端路径点中**较差**的一个。
+地图默认只画各部队**已走过**的路线（不剧透），完整路线可在侧栏勾选显示。
 
 ## 部队与轨迹
 
@@ -51,6 +52,7 @@ ISO 8601 扩展格式，一律当作**当时当地的墙上时钟**，引擎不�
 - id: red-junwei
   side: red
   name: 中革军委纵队
+  short: 委 # 地图图标里显示的一字/二字简称，缺省取名称首字
   kind: headquarters # infantry / cavalry / armor / artillery / headquarters / mixed / fleet / other
   track:
     waypoints:
