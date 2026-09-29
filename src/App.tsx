@@ -45,11 +45,11 @@ function useRoute() {
 
 export function App() {
   const { campaignId, params } = useRoute()
-  if (campaignId) return <CampaignRoute id={campaignId} tParam={params.get('t')} />
+  if (campaignId) return <CampaignRoute id={campaignId} params={params} />
   return <Home />
 }
 
-function CampaignRoute({ id, tParam }: { id: string; tParam: string | null }) {
+function CampaignRoute({ id, params }: { id: string; params: URLSearchParams }) {
   const state = useCampaign(id)
   if (state.status === 'loading') return <p className="page">加载中…</p>
   if (state.status === 'error') {
@@ -62,7 +62,7 @@ function CampaignRoute({ id, tParam }: { id: string; tParam: string | null }) {
   }
   return (
     <Suspense fallback={<p className="page">加载地图…</p>}>
-      <CampaignPage key={state.campaign.id} campaign={state.campaign} tParam={tParam} />
+      <CampaignPage key={state.campaign.id} campaign={state.campaign} params={params} />
     </Suspense>
   )
 }

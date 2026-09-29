@@ -16,6 +16,7 @@ import { EVENT_KIND_LABEL } from './labels'
 import { Legend } from './Legend'
 import { Sidebar } from './Sidebar'
 import { Timeline } from './Timeline'
+import { encodeShareState, parseShareParams, type ViewState } from './urlState'
 import { usePlayback } from './usePlayback'
 
 function initialTime(compiled: CompiledCampaign, param: string | null): number {
@@ -29,15 +30,54 @@ function initialTime(compiled: CompiledCampaign, param: string | null): number {
   return compiled.tStart
 }
 
-export function CampaignPage({ campaign, tParam }: { campaign: Campaign; tParam: string | null }) {
+/** 复制文本：优先用异步剪贴板 API，不可用时（非 https 等）退回 execCommand */
+async function copyText(value: string): Promise<boolean> {
+  try {
+    await navigator.clipboard.writeText(value)
+    return true
+  } catch {
+    const el = document.createElement('textarea')
+    el.value = value
+    el.style.position = 'fixed'
+    el.style.opacity = '0'
+    document.body.appendChild(el)
+    el.select()
+    try {
+      return document.execCommand('copy')
+    } catch {
+      return false
+    } finally {
+      el.remove()
+    }
+  }
+}
+
+export function CampaignPage({
+  campaign,
+  params,
+}: {
+  campaign: Campaign
+  params: URLSearchParams
+}) {
   const compiled = useMemo(() => compileCampaign(campaign), [campaign])
   const { clock, pause, toggle, seekTo, setSpeed } = usePlayback(
     compiled,
-    initialTime(compiled, tParam),
+    initialTime(compiled, params.get('t')),
   )
   const snapshot = useMemo(() => getSnapshot(compiled, clock.t), [compiled, clock.t])
 
-  const [selected, setSelected] = useState<Selection | undefined>()
+  // 分享链接里的视野与选中项（选中项必须真实存在，否则忽略）
+  const [shared] = useState(() => {
+    const { view, selection } = parseShareParams(params)
+    const valid =
+      selection &&
+      (selection.type === 'unit'
+        ? campaign.units.some((u) => u.id === selection.id)
+        : campaign.events.some((e) => e.id === selection.id))
+    return { view, selection: valid ? selection : undefined }
+  })
+  const [selected, setSelected] = useState<Selection | undefined>(shared.selection)
+  const [view, setView] = useState<ViewState | undefined>(shared.view)
   const [hiddenSides, setHiddenSides] = useState<ReadonlySet<string>>(new Set())
   const [followChapters, setFollowChapters] = useState(true)
   const [pauseOnEvent, setPauseOnEvent] = useState(false)
@@ -49,8 +89,12 @@ export function CampaignPage({ campaign, tParam }: { campaign: Campaign; tParam:
   const closeMenu = useCallback(() => setMenuOpen(false), [])
   const [camera, setCamera] = useState<CameraTarget | undefined>()
   const nonce = useRef(0)
-  // 打开带 t 的链接时，镜头直接对准当时所在章节
-  const [initialCamera] = useState(() => chapterAt(compiled, clock.t)?.camera ?? campaign.camera)
+  // 初始镜头：分享链接里的视野 > 当时所在章节的镜头 > 战役默认镜头
+  const [initialCamera] = useState(() =>
+    shared.view
+      ? { ...shared.view, exact: true }
+      : (chapterAt(compiled, clock.t)?.camera ?? campaign.camera),
+  )
 
   const fly = useCallback((center: [number, number], zoom: number) => {
     nonce.current += 1
@@ -94,19 +138,44 @@ export function CampaignPage({ campaign, tParam }: { campaign: Campaign; tParam:
     [chapterById, seekTo, fly],
   )
 
+  const jumpToEvent = useCallback(
+    (id: string) => {
+      const ev = compiled.events.find((e) => e.event.id === id)
+      if (!ev) return
+      seekTo(ev.start)
+      setSelected({ type: 'event', id })
+      fly(ev.event.pos, 10)
+      setMenuOpen(false)
+    },
+    [compiled, seekTo, fly],
+  )
+
+  const shareHash = useCallback(
+    () => encodeShareState(campaign.id, { t: toHistTime(clock.t), view, selection: selected }),
+    [campaign.id, clock.t, view, selected],
+  )
+
+  const copyShareLink = useCallback(
+    () =>
+      copyText(
+        `${window.location.origin}${window.location.pathname}${window.location.search}${shareHash()}`,
+      ),
+    [shareHash],
+  )
+
   const resetView = useCallback(
     () => fly(campaign.camera.center, campaign.camera.zoom),
     [campaign, fly],
   )
 
-  // URL 同步：暂停时把当前时刻写进地址栏，方便分享
+  // URL 同步：暂停时把当前时刻、视野和选中项写进地址栏，方便分享
   useEffect(() => {
     if (clock.playing) return
     const h = window.setTimeout(() => {
-      window.history.replaceState(null, '', `#/c/${campaign.id}?t=${toHistTime(clock.t)}`)
+      window.history.replaceState(null, '', shareHash())
     }, 300)
     return () => window.clearTimeout(h)
-  }, [clock.t, clock.playing, campaign.id])
+  }, [clock.playing, shareHash])
 
   useEffect(() => {
     document.title = `${text(campaign.title)} · 战史地图`
@@ -174,6 +243,9 @@ export function CampaignPage({ campaign, tParam }: { campaign: Campaign; tParam:
         onShowPlaces={setShowPlaces}
         onShowFullRoutes={setShowFullRoutes}
         onResetView={resetView}
+        currentEventId={currentEvent?.id}
+        onEvent={jumpToEvent}
+        onShare={copyShareLink}
         open={menuOpen}
         onClose={closeMenu}
       />
@@ -198,6 +270,7 @@ export function CampaignPage({ campaign, tParam }: { campaign: Campaign; tParam:
           showFullRoutes={showFullRoutes}
           initialCamera={initialCamera}
           camera={camera}
+          onViewChange={setView}
           onSelect={setSelected}
         />
         {currentEvent && !selected && (

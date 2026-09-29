@@ -7,7 +7,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import type { CompiledCampaign, LngLat, Snapshot } from '../engine'
 import { text } from '../schema/campaign'
 import { buildBasemapStyle } from './basemapStyle'
-import { areasFC, arrowsFC, EMPTY, routesFC, trailsFC } from './geojson'
+import { areasFC, arrowsFC, EMPTY, routesFC, selectedRouteFC, trailsFC } from './geojson'
 import { collectPlaces, createEventElement, createPlaceElement, createUnitElement } from './markers'
 import { spreadOffsets } from './spread'
 
@@ -26,7 +26,9 @@ interface Props {
   selected: Selection | undefined
   showPlaces: boolean
   showFullRoutes: boolean
-  initialCamera: { center: LngLat; zoom: number }
+  /** exact=true：来自分享链接的实际视野，不再按屏幕宽度调整缩放 */
+  initialCamera: { center: LngLat; zoom: number; exact?: boolean }
+  onViewChange: (view: { center: LngLat; zoom: number }) => void
   camera: CameraTarget | undefined
   onSelect: (s: Selection | undefined) => void
 }
@@ -76,6 +78,7 @@ export function MapView({
   showFullRoutes,
   initialCamera,
   camera,
+  onViewChange,
   onSelect,
 }: Props) {
   const container = useRef<HTMLDivElement>(null)
@@ -87,11 +90,13 @@ export function MapView({
   const snapshotRef = useRef(snapshot)
   const hiddenRef = useRef(hiddenSides)
   const onSelectRef = useRef(onSelect)
+  const onViewChangeRef = useRef(onViewChange)
   // “最新值”引用：让地图事件回调总能读到最新的 props，而不必重建地图
   useEffect(() => {
     snapshotRef.current = snapshot
     hiddenRef.current = hiddenSides
     onSelectRef.current = onSelect
+    onViewChangeRef.current = onViewChange
   })
 
   const initialCameraRef = useRef(initialCamera)
@@ -106,7 +111,9 @@ export function MapView({
       container: container.current!,
       style: buildBasemapStyle(),
       center: initialCameraRef.current.center,
-      zoom: adaptZoom(initialCameraRef.current.zoom),
+      zoom: initialCameraRef.current.exact
+        ? initialCameraRef.current.zoom
+        : adaptZoom(initialCameraRef.current.zoom),
       minZoom: 5,
       maxZoom: 13,
       maxBounds: [
@@ -125,6 +132,7 @@ export function MapView({
       map.addImage('arrow-head', arrowHeadImage(), { sdf: true })
       map.addSource('areas', { type: 'geojson', data: EMPTY })
       map.addSource('routes', { type: 'geojson', data: EMPTY })
+      map.addSource('selected-route', { type: 'geojson', data: EMPTY })
       map.addSource('trails', { type: 'geojson', data: EMPTY })
       map.addSource('arrow-lines', { type: 'geojson', data: EMPTY })
       map.addSource('arrow-heads', { type: 'geojson', data: EMPTY })
@@ -154,6 +162,29 @@ export function MapView({
             'line-color': ['get', 'color'],
             'line-width': conf === 'reconstructed' ? 1.6 : 2,
             'line-opacity': 0.32,
+            ...(dash ? { 'line-dasharray': dash } : {}),
+          },
+        })
+      }
+      // 选中部队的完整路线：白色描边 + 阵营色，压在普通路线之上、箭头与尾迹之下
+      map.addLayer({
+        id: 'selected-route-casing',
+        type: 'line',
+        source: 'selected-route',
+        layout: { 'line-cap': 'round', 'line-join': 'round' },
+        paint: { 'line-color': '#ffffff', 'line-width': 8, 'line-opacity': 0.85 },
+      })
+      for (const [conf, dash] of Object.entries(CONFIDENCE_DASH)) {
+        map.addLayer({
+          id: `selected-route-${conf}`,
+          type: 'line',
+          source: 'selected-route',
+          filter: ['==', ['get', 'confidence'], conf],
+          layout: { 'line-cap': dash ? 'round' : 'butt', 'line-join': 'round' },
+          paint: {
+            'line-color': ['get', 'color'],
+            'line-width': 4,
+            'line-opacity': 0.95,
             ...(dash ? { 'line-dasharray': dash } : {}),
           },
         })
@@ -236,9 +267,16 @@ export function MapView({
           new maplibregl.Marker({ element: el }).setLngLat(unit.track.waypoints[0]!.pos).addTo(map),
         )
       }
+      // 先上报一次初始视野：用户没动过地图时，分享链接里也要有视野
+      const c = map.getCenter()
+      onViewChangeRef.current({ center: [c.lng, c.lat], zoom: map.getZoom() })
       setReady(true)
     })
     map.on('click', () => onSelectRef.current(undefined))
+    map.on('moveend', () => {
+      const c = map.getCenter()
+      onViewChangeRef.current({ center: [c.lng, c.lat], zoom: map.getZoom() })
+    })
 
     const markers = { units: unitMarkers.current, events: eventMarkers.current }
     return () => {
@@ -304,6 +342,17 @@ export function MapView({
       el.dataset.selected = String(selected?.type === 'event' && selected.id === ev.id)
     }
   }, [ready, compiled, snapshot, hiddenSides, selected, showFullRoutes])
+
+  // 选中部队时高亮其完整路线
+  const selectedUnitId = selected?.type === 'unit' ? selected.id : undefined
+  useEffect(() => {
+    const map = mapRef.current
+    if (!ready || !map) return
+    const data = selectedRouteFC(compiled, selectedUnitId, hiddenSides)
+    ;(map.getSource('selected-route') as maplibregl.GeoJSONSource | undefined)?.setData(data)
+    // 诊断属性：端到端测试据此确认高亮路线确实写进了图层
+    container.current?.setAttribute('data-selected-route-segments', String(data.features.length))
+  }, [ready, compiled, selectedUnitId, hiddenSides])
 
   useEffect(() => {
     for (const m of placeMarkers.current) m.getElement().hidden = !showPlaces

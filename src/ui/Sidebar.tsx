@@ -1,5 +1,5 @@
-import { useEffect, useRef } from 'react'
-import type { CompiledCampaign } from '../engine'
+import { useEffect, useRef, useState } from 'react'
+import { formatHistTimeShortZh, parseHistTime, type CompiledCampaign } from '../engine'
 import { text } from '../schema/campaign'
 
 interface Props {
@@ -17,6 +17,11 @@ interface Props {
   onShowPlaces: (v: boolean) => void
   onShowFullRoutes: (v: boolean) => void
   onResetView: () => void
+  /** 事件列表：当前（最近发生的）事件 id，以及点击某个事件的回调 */
+  currentEventId: string | undefined
+  onEvent: (id: string) => void
+  /** 复制分享链接，返回是否成功 */
+  onShare: () => Promise<boolean>
   /** 窄屏抽屉是否打开，以及关闭它的回调 */
   open: boolean
   onClose: () => void
@@ -25,6 +30,15 @@ interface Props {
 export function Sidebar(p: Props) {
   const closeRef = useRef<HTMLButtonElement>(null)
   const { open } = p
+  const [shareMsg, setShareMsg] = useState('')
+  const shareTimer = useRef<number | undefined>(undefined)
+  useEffect(() => () => window.clearTimeout(shareTimer.current), [])
+  const share = async () => {
+    const ok = await p.onShare()
+    setShareMsg(ok ? '已复制链接' : '复制失败，请直接复制地址栏')
+    window.clearTimeout(shareTimer.current)
+    shareTimer.current = window.setTimeout(() => setShareMsg(''), 2500)
+  }
   // 抽屉打开时把焦点移到 × 按钮，键盘用户可以直接关闭
   useEffect(() => {
     if (open) closeRef.current?.focus()
@@ -66,6 +80,27 @@ export function Sidebar(p: Props) {
           </li>
         ))}
       </ol>
+
+      <details className="events-section">
+        <summary>事件（{p.compiled.events.length}）</summary>
+        <ol className="event-list">
+          {p.compiled.events.map(({ event, start }) => (
+            <li key={event.id}>
+              <button
+                type="button"
+                aria-current={event.id === p.currentEventId ? 'true' : undefined}
+                onClick={() => p.onEvent(event.id)}
+              >
+                <span className={`event-list-dot kind-${event.kind}`} aria-hidden="true" />
+                <span className="event-list-date">
+                  {formatHistTimeShortZh(start, parseHistTime(event.t, event.precision).precision)}
+                </span>
+                <span>{text(event.title)}</span>
+              </button>
+            </li>
+          ))}
+        </ol>
+      </details>
 
       <h2>图层</h2>
       <ul className="layers">
@@ -130,6 +165,14 @@ export function Sidebar(p: Props) {
       <button type="button" className="secondary" onClick={p.onResetView}>
         重置视野
       </button>
+
+      <h2>分享</h2>
+      <button type="button" className="secondary" onClick={share}>
+        复制当前视图的链接
+      </button>
+      <p className="muted" role="status">
+        {shareMsg || '链接包含当前时刻、地图视野和选中的对象。'}
+      </p>
     </nav>
   )
 }

@@ -50,6 +50,27 @@ export function routesFC(
   return fc(features)
 }
 
+/** 选中部队的完整路线（含尚未走到的），用来在重叠的多条路线里看清这一支 */
+export function selectedRouteFC(
+  c: CompiledCampaign,
+  unitId: string | undefined,
+  hidden: ReadonlySet<string>,
+): FeatureCollection {
+  const cu = unitId ? c.units.find((u) => u.unit.id === unitId) : undefined
+  if (!cu || hidden.has(cu.unit.side)) return EMPTY
+  const color = sideColors(c).get(cu.unit.side) ?? '#666'
+  return fc(
+    routeSegments(cu.track).map((seg) =>
+      line(seg.coords, {
+        unitId: cu.unit.id,
+        side: cu.unit.side,
+        color,
+        confidence: seg.confidence,
+      }),
+    ),
+  )
+}
+
 /** 部队最近走过的尾迹 */
 export function trailsFC(
   c: CompiledCampaign,

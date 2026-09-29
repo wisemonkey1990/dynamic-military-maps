@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { compileCampaign, getSnapshot, parseHistTime } from '../engine'
 import { makeCampaign } from '../engine/testFixture'
-import { areasFC, arrowsFC, routesFC, trailsFC } from './geojson'
+import { areasFC, arrowsFC, routesFC, selectedRouteFC, trailsFC } from './geojson'
 
 const c = compileCampaign(makeCampaign())
 const at = (s: string) => parseHistTime(s).start
@@ -52,5 +52,19 @@ describe('trailsFC / arrowsFC / areasFC', () => {
   it('区域按阶跃快照输出，消失后为空', () => {
     expect(areasFC(c, getSnapshot(c, at('1935-01-03')), none).features).toHaveLength(1)
     expect(areasFC(c, getSnapshot(c, at('1935-01-07')), none).features).toHaveLength(0)
+  })
+})
+
+describe('selectedRouteFC', () => {
+  it('给出所选部队的完整路线，与当前时刻无关', () => {
+    const fcs = selectedRouteFC(c, 'unit-a', none)
+    expect(fcs.features).toHaveLength(2)
+    expect(fcs.features.every((f) => f.properties!.unitId === 'unit-a')).toBe(true)
+  })
+
+  it('未选中、未知部队或阵营被隐藏时为空', () => {
+    expect(selectedRouteFC(c, undefined, none).features).toHaveLength(0)
+    expect(selectedRouteFC(c, 'nope', none).features).toHaveLength(0)
+    expect(selectedRouteFC(c, 'unit-a', new Set(['a'])).features).toHaveLength(0)
   })
 })
