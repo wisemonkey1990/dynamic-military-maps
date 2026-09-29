@@ -785,3 +785,13 @@ h1 {
     top: 0.6rem;
   }
 }
+
+.geo-sources {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.geo-sources summary {
+  cursor: pointer;
+  color: var(--muted);
+}

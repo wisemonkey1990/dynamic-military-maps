@@ -20,7 +20,8 @@
 ```bash
 npm install
 npm run dev          # 校验并构建数据，启动开发服务器
-npm test             # 引擎与数据校验的单元测试
+npm test             # 引擎、地图映射与数据校验的单元测试
+npm run e2e          # 端到端冒烟测试（Playwright，会先构建并启动预览；首次需 npx playwright install chromium）
 npm run lint && npm run typecheck && npm run format:check
 npm run data:validate  # 只校验 data/campaigns
 npm run build        # 生产构建，输出 dist/
