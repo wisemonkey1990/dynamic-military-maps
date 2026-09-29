@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react'
 import type { CompiledCampaign } from '../engine'
 import { text } from '../schema/campaign'
 
@@ -16,12 +17,30 @@ interface Props {
   onShowPlaces: (v: boolean) => void
   onShowFullRoutes: (v: boolean) => void
   onResetView: () => void
+  /** 窄屏抽屉是否打开，以及关闭它的回调 */
+  open: boolean
+  onClose: () => void
 }
 
 export function Sidebar(p: Props) {
+  const closeRef = useRef<HTMLButtonElement>(null)
+  const { open } = p
+  // 抽屉打开时把焦点移到 × 按钮，键盘用户可以直接关闭
+  useEffect(() => {
+    if (open) closeRef.current?.focus()
+  }, [open])
   const c = p.compiled.campaign
   return (
     <nav className="sidebar" aria-label="战役导航">
+      <button
+        ref={closeRef}
+        type="button"
+        className="drawer-close"
+        onClick={p.onClose}
+        aria-label="关闭菜单"
+      >
+        ×
+      </button>
       <a className="back" href="#/">
         ← 全部战役
       </a>

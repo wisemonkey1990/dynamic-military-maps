@@ -44,6 +44,9 @@ export function CampaignPage({ campaign, tParam }: { campaign: Campaign; tParam:
   const [showPlaces, setShowPlaces] = useState(true)
   const [showFullRoutes, setShowFullRoutes] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const menuButtonRef = useRef<HTMLButtonElement>(null)
+  const menuWasOpen = useRef(false)
+  const closeMenu = useCallback(() => setMenuOpen(false), [])
   const [camera, setCamera] = useState<CameraTarget | undefined>()
   const nonce = useRef(0)
   // 打开带 t 的链接时，镜头直接对准当时所在章节
@@ -112,6 +115,18 @@ export function CampaignPage({ campaign, tParam }: { campaign: Campaign; tParam:
     }
   }, [campaign.title])
 
+  // 窄屏抽屉：关闭后焦点还给菜单按钮；Esc 关闭（打开时的聚焦在 Sidebar 里）
+  useEffect(() => {
+    if (!menuOpen && menuWasOpen.current) menuButtonRef.current?.focus()
+    menuWasOpen.current = menuOpen
+    if (!menuOpen) return
+    const onEsc = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setMenuOpen(false)
+    }
+    window.addEventListener('keydown', onEsc)
+    return () => window.removeEventListener('keydown', onEsc)
+  }, [menuOpen])
+
   // 键盘：空格播放/暂停，左右键 ±1 天
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -159,10 +174,14 @@ export function CampaignPage({ campaign, tParam }: { campaign: Campaign; tParam:
         onShowPlaces={setShowPlaces}
         onShowFullRoutes={setShowFullRoutes}
         onResetView={resetView}
+        open={menuOpen}
+        onClose={closeMenu}
       />
+      {menuOpen && <div className="backdrop" onClick={closeMenu} aria-hidden="true" />}
       <div className="stage">
         <button
           type="button"
+          ref={menuButtonRef}
           className="menu-button"
           onClick={() => setMenuOpen((v) => !v)}
           aria-expanded={menuOpen}
