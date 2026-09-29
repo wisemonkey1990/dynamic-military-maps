@@ -316,4 +316,6 @@ dynamic-military-maps/
 - [x] **M0 脚手架**：Vite + React + TS、ESLint/Prettier、Vitest、CI、GitHub Pages 部署流水线、许可证与贡献文档。
 - [x] **M1 引擎**：schema（zod）、时间解析（含公元前与精度）、轨迹插值、`getSnapshot`、虚拟时钟、语义校验；单元测试覆盖。
 - [x] **数据草稿**：`data/campaigns/sidu-chishui-1935`（待审核，见该目录 `REVIEW.md`）。
-- [ ] **M2 垂直切片**：地图 + 部队移动 + 时间轴 + 事件卡片（四渡赤水）。
+- [x] **M2 垂直切片**：地图 + 部队移动 + 时间轴 + 事件卡片 + 章节 + 详情面板 + 图例（四渡赤水）。
+      底图为自托管 PMTiles 区域切片（12 MB），部署在 GitHub Pages 与之后的腾讯云均无需境外地图服务。
+- [ ] **M3 叙事与可信度**：区域/战线、路线贴合道路与河流（`via`）、URL 分享视野、来源面板完善、数据审核后升级为 `reviewed`。

@@ -113,6 +113,15 @@ export function parseHistTime(input: string, precision?: TimePrecision): TimeSpa
   return { start, end, mid: p === 'minute' ? start : (start + end) / 2, precision: p }
 }
 
+/** parseHistTime 的反向：毫秒 → "YYYY-MM-DDTHH:mm"（公元前按天文纪年，如 "-0215-08-02T00:00"），用于 URL 等 */
+export function toHistTime(ms: number): string {
+  const d = new Date(ms)
+  const y = d.getUTCFullYear()
+  const year = (y < 0 ? '-' : '') + String(Math.abs(y)).padStart(4, '0')
+  const p2 = (n: number) => String(n).padStart(2, '0')
+  return `${year}-${p2(d.getUTCMonth() + 1)}-${p2(d.getUTCDate())}T${p2(d.getUTCHours())}:${p2(d.getUTCMinutes())}`
+}
+
 /** 界面显示用：1935年1月29日 06:30 / 公元前216年 */
 export function formatHistTimeZh(ms: number, precision: TimePrecision = 'day'): string {
   const d = new Date(ms)

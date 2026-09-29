@@ -2,6 +2,7 @@
 - id: red-junwei
   side: red
   name: 中革军委纵队
+  short: 委
   kind: headquarters
   echelon: 军委纵队
   commander: 朱德（总司令）、毛泽东（前敌政委）、周恩来等
@@ -171,6 +172,7 @@
 - id: red-1st-corps
   side: red
   name: 红一军团
+  short: 一
   kind: infantry
   echelon: 军团
   commander: 林彪（军团长）、聂荣臻（政委）
@@ -287,6 +289,7 @@
 - id: red-3rd-corps
   side: red
   name: 红三军团
+  short: 三
   kind: infantry
   echelon: 军团
   commander: 彭德怀（军团长）、杨尚昆（政委）
@@ -404,6 +407,7 @@
 - id: red-5th-corps
   side: red
   name: 红五军团
+  short: 五
   kind: infantry
   echelon: 军团
   commander: 董振堂（军团长）、李卓然（政委）
@@ -503,6 +507,7 @@
 - id: red-9th-corps
   side: red
   name: 红九军团
+  short: 九
   kind: infantry
   echelon: 军团
   commander: 罗炳辉（军团长）
@@ -525,6 +530,7 @@
 - id: sc-guo-pan
   side: sichuan
   name: 川军郭勋祺旅、潘佐旅
+  short: 川
   kind: infantry
   echelon: 旅
   commander: 郭勋祺、潘佐
@@ -542,6 +548,7 @@
 - id: gz-du-zhaohua
   side: guizhou
   name: 黔军杜肇华第1旅
+  short: 黔
   kind: infantry
   echelon: 旅
   commander: 杜肇华
@@ -559,6 +566,7 @@
 - id: cn-wu-qiwei
   side: central
   name: 中央军吴奇伟纵队
+  short: 吴
   kind: infantry
   echelon: 纵队
   commander: 吴奇伟
@@ -576,6 +584,7 @@
 - id: cn-zhou-hunyuan
   side: central
   name: 中央军周浑元纵队
+  short: 周
   kind: infantry
   echelon: 纵队
   commander: 周浑元
@@ -593,6 +602,7 @@
 - id: yn-sun-du
   side: yunnan
   name: 滇军孙渡部
+  short: 滇
   kind: infantry
   echelon: 纵队
   commander: 孙渡

@@ -21,3 +21,8 @@
   相关来源保留署名 “© OpenStreetMap contributors”。若将来直接导入 OSM 的几何数据（河流、道路等），
   须单独存放并遵守 ODbL。
 - 提交贡献时，请只提交你自己创作的内容，或公有领域 / 与 CC BY-SA 4.0 兼容的内容，并在 `sources.yaml` 中登记出处与许可。
+
+## 例外：底图切片
+
+`public/tiles/basemap.pmtiles` 不属于战役数据，它是 OpenStreetMap（ODbL 1.0）的衍生数据库，
+经 Protomaps 加工，遵循其自身条款，见 [`docs/basemap.md`](../docs/basemap.md)。
