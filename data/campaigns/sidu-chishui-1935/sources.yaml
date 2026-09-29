@@ -1,0 +1,49 @@
+# sources.yaml — 四渡赤水 数据草稿 v0（待审核，见 REVIEW.md）
+- {
+    id: wiki-sidu,
+    citation: 维基百科（中文）「四渡赤水」条目，2026 年 9 月访问。仅采用其中事实性内容并自行改写，未复制原文。,
+    url: 'https://zh.wikipedia.org/wiki/四渡赤水',
+    kind: reference,
+    license: CC BY-SA 4.0（条目文字）,
+    note: 条目转引《红军长征史》《长征》等书。起草时未直接查阅原书页码，须逐条回查后再升级为 reviewed。,
+  }
+- {
+    id: wiki-jinsha,
+    citation: 维基百科（中文）「中央红军渡过金沙江战斗」条目，2026 年 9 月访问。,
+    url: 'https://zh.wikipedia.org/wiki/中央红军渡过金沙江战斗',
+    kind: reference,
+    license: CC BY-SA 4.0（条目文字）,
+    note: 条目自带 refimprove（需要更多可靠来源）标记，相关内容须回查原始史料。,
+  }
+- {
+    id: book-czs,
+    citation: 中共中央党史研究室第一研究部：《红军长征史》，中共党史出版社，2006 年。,
+    kind: secondary,
+    note: 经维基条目转引，尚未直接核对页码。,
+  }
+- {
+    id: geo-wiki,
+    citation: 部分地名坐标取自中文维基百科对应地名条目（鲁班场、土城、元厚、鸡鸣三省、茅台镇、贵阳、遵义、扎佐等）。,
+    url: 'https://zh.wikipedia.org',
+    kind: reference,
+    license: CC BY-SA 4.0；坐标属事实信息,
+  }
+- {
+    id: geo-osm,
+    citation:
+      部分地名坐标经 OpenStreetMap Nominatim 检索（娄山关、桐梓、苟坝、古蔺、太平镇、二郎镇、盘州、扎西、皎平渡、江界河大桥等）。© OpenStreetMap
+      contributors,
+    url: 'https://www.openstreetmap.org/copyright',
+    kind: reference,
+    license: ODbL 1.0,
+    note: 取的是今日地名点位，与
+      1935 年的具体渡口、村镇位置可能相差数公里。,
+  }
+- {
+    id: geo-estimate,
+    citation:
+      作者（起草者）对部分地点的估计坐标：镇雄、寻甸、大定（今大方）、遵义—仁怀大道示意点、贵阳—龙里之间、北盘江渡口。未经查证，全部按 approximate 或 conjectural
+      处理。,
+    kind: reference,
+    note: 审核时须逐点替换为有出处的坐标。,
+  }

@@ -1,0 +1,234 @@
+# events.yaml — 四渡赤水 数据草稿 v0（待审核，见 REVIEW.md）
+- id: plan-crossing-yangtze
+  t: '1935-01-19'
+  until: '1935-01-20'
+  pos: [106.927, 27.725]
+  kind: other
+  title: 《关于渡江的作战计划》
+  body: 中革军委发布作战计划，决定进入四川，与红四方面军协同作战；同日红军分三路向土城方向前进。发布地点取遵义为示意。
+  confidence: approximate
+  sources: &id001 [wiki-sidu, book-czs]
+- id: occupy-tucheng
+  t: '1935-01-24'
+  until: '1935-01-25'
+  pos: [105.993, 28.284]
+  kind: occupation
+  title: 红一军团占领土城
+  body: 右纵队红一军团占领土城，先头红一师占领赤水东南的旺隆场、复兴场；左纵队红三军团进占回龙场等地。
+  confidence: documented
+  units: [red-1st-corps]
+  sources: *id001
+- id: battle-tucheng
+  t: '1935-01-28'
+  until: '1935-01-29'
+  pos: [105.993, 28.284]
+  kind: battle
+  title: 土城战役（青杠坡战斗）
+  body: 红三、红五军团在彭德怀指挥下进攻枫村坝、青杠坡的川军郭勋祺旅，随后潘佐旅赶到合兵反击。红军原判断川军仅四个团，实际约六个团一万余人；朱德到红五军团指挥所指挥反击，毛泽东投入干部团后击退川军。激战一日，双方损失惨重，夺取赤水城、北渡长江的计划未能实现。红军伤亡数字各书不一（常见说法为四千余人），此处不采信具体数字。
+  confidence: documented
+  units: [red-3rd-corps, red-5th-corps, sc-guo-pan]
+  sources: *id001
+- id: crossing-1
+  t: '1935-01-29'
+  until: '1935-01-30'
+  pos: [105.993, 28.284]
+  kind: crossing
+  title: 一渡赤水
+  body: 红军兵分三路，从猿猴场、土城上下渡口等地向西渡过赤水河，进入川南。后卫烧毁浮桥，迫使川军暂时无法追击。
+  confidence: documented
+  sources: *id001
+- id: jiming-conference
+  t: '1935-02-05'
+  until: '1935-02-06'
+  pos: [105.303, 27.711]
+  kind: conference
+  title: 鸡鸣三省会议
+  body: 中共中央政治局在贵州毕节林口镇鸡鸣三省村召开会议，确定由张闻天负总的责任（关于其职务称谓，学界有不同讨论）。
+  confidence: documented
+  sources: *id001
+- id: zhaxi-conference
+  t: '1935-02-08'
+  until: '1935-02-11'
+  pos: [105.046, 27.85]
+  kind: conference
+  title: 扎西会议与整编
+  body: 中央红军各部陆续抵达云南扎西地区，召开扎西会议，确定机动作战方案。2 月 10 日整编部队为十六个团，并组建中共川南特委与川南游击纵队。
+  confidence: documented
+  sources: *id001
+- id: crossing-2
+  t: '1935-02-18'
+  until: '1935-02-21'
+  pos: [106.037, 28.139]
+  kind: crossing
+  title: 二渡赤水
+  body: 2 月 18 日红一军团前卫第二师抵达太平渡，红三军团十二、十三团抵达二郎滩，迅速渡河并控制两岸；20 日中央红军全部渡过赤水河进入黔北。红五、红九军团在镇雄方向佯攻以牵制滇军。
+  confidence: documented
+  sources: *id001
+- id: occupy-tongzi
+  t: '1935-02-24'
+  until: '1935-02-25'
+  pos: [106.822, 28.137]
+  kind: occupation
+  title: 攻占桐梓
+  body: 红一军团红一团攻占桐梓县城。
+  confidence: documented
+  units: [red-1st-corps]
+  sources: *id001
+- id: battle-loushanguan
+  t: '1935-02-25'
+  until: '1935-02-26'
+  pos: [106.854, 28.026]
+  kind: battle
+  title: 娄山关战斗
+  body: 黔军第 1 旅旅长杜肇华率部死守娄山关，等待中央军吴奇伟纵队。红三军团为主攻，红十三团与黔军拉锯，红十二团正面进攻，红十、十三团迂回两侧，红十一团奔袭板桥切断退路，黔军溃败。毛泽东后来作《忆秦娥·娄山关》。
+  confidence: documented
+  units: [red-3rd-corps, gz-du-zhaohua]
+  sources: *id001
+- id: battle-zunyi
+  t: '1935-02-27'
+  until: '1935-03-01'
+  pos: [106.927, 27.725]
+  kind: battle
+  title: 遵义战役
+  body:
+    2 月 27 日黄昏红军攻入遵义新城，红三军团参谋长邓萍在观察部署时牺牲；28 日凌晨占领老城。28 日红三军团固守老鸦山、红花岗，红一军团迂回攻击吴奇伟指挥部，吴奇伟纵队败退乌江南岸，被红军俘获一千余人及大批辎重，第
+    59、93 师大部被歼。红军称之为长征以来最大的一次胜利。俘获与歼灭的具体数字各书不一，此处不采信。
+  confidence: documented
+  units: [red-1st-corps, red-3rd-corps, cn-wu-qiwei]
+  sources: *id001
+- id: front-hq
+  t: '1935-03-04'
+  until: '1935-03-05'
+  pos: [106.927, 27.725]
+  kind: other
+  title: 设立前敌司令部
+  body: 中革军委发布命令，设前敌司令部，朱德为司令员，毛泽东为政治委员。发布地点取遵义为示意，待核。
+  confidence: approximate
+  sources: *id001
+- id: gouba-conference
+  t: '1935-03-10'
+  until: '1935-03-13'
+  pos: [106.567, 27.638]
+  kind: conference
+  title: 苟坝会议
+  body: 3 月 10 日军委纵队进驻苟坝。政治局会议讨论是否攻打打鼓新场，多数人主张进攻，毛泽东反对；会后毛泽东说服周恩来，11 日会议改变决定并恢复其前敌政委职务。12 日会议决定成立三人军事指挥小组。会议细节据回忆和后人研究，说法不完全一致，待核。
+  confidence: documented
+  sources: *id001
+- id: dagu-cancelled
+  t: '1935-03-10'
+  until: '1935-03-12'
+  pos: [106.217, 27.462]
+  kind: other
+  title: 打鼓新场之战的决定与取消
+  body: 3 月 10 日林彪、聂荣臻建议进攻黔军所在的打鼓新场；政治局会议曾通过进攻决定，次日撤销，军委发出《关于不进攻新场的指令》。此地并未发生战斗。
+  confidence: documented
+  sources: *id001
+- id: battle-luban
+  t: '1935-03-15'
+  until: '1935-03-16'
+  pos: [106.311, 27.725]
+  kind: battle
+  title: 鲁班场战斗
+  body: 红军各部进攻周浑元纵队在鲁班场的工事，双方展开白刃战。当晚吴奇伟纵队抵达枫香坝、川军郭勋祺部抵达两河口驰援，形成夹击之势，军委下令撤出战斗。红军伤亡数字见于回忆和媒体文章，待核，此处不采信。
+  confidence: documented
+  units: [red-1st-corps, red-3rd-corps, cn-zhou-hunyuan]
+  sources: *id001
+- id: crossing-3
+  t: '1935-03-16'
+  until: '1935-03-17'
+  pos: [106.368, 27.855]
+  kind: crossing
+  title: 三渡赤水
+  body: 红军由茅台及其附近地区用浮桥第三次渡过赤水河，陈赓、宋任穷任全军渡河司令员和政委。渡河行动很快被国军侦察机发现，蒋介石判断红军仍将北渡长江。
+  confidence: documented
+  sources: *id001
+- id: zhenlongshan
+  t: '1935-03-19'
+  until: '1935-03-20'
+  pos: [105.74, 28.385]
+  kind: battle
+  title: 镇龙山战斗
+  body: 红军在镇龙山与川军魏楷部接触并击溃之，进入两河口地区，促使蒋介石更加确信红军意在北渡长江。镇龙山、两河口的具体位置待核，此处取赤水市两河口镇为示意。
+  confidence: approximate
+  sources: *id001
+- id: crossing-4
+  t: '1935-03-21'
+  until: '1935-03-22'
+  pos: [106.171, 28.149]
+  kind: crossing
+  title: 四渡赤水
+  body: 3 月 20 日中革军委下达命令，21 日红军以一个团伪装主力在铁厂、两河口地区牵制国军，其余部队由二郎滩、九溪口、太平渡东渡赤水；工兵连事先秘密维修二渡时的浮桥。
+  confidence: documented
+  sources: *id001
+- id: chiang-guiyang
+  t: '1935-03-24'
+  until: '1935-03-25'
+  pos: [106.706, 26.573]
+  kind: other
+  title: 蒋介石亲赴贵阳指挥
+  body: 蒋介石因贵州战局紧张亲自到贵阳指挥，陈诚、晏道刚随同。同日红军主力穿越遵义、怀仁间大道，继续隐蔽南下；红九军团伪装主力向习水方向行动。
+  confidence: documented
+  sources: *id001
+- id: crossing-wujiang
+  t: '1935-03-30'
+  until: '1935-04-01'
+  pos: [107.372, 27.299]
+  kind: crossing
+  title: 南渡乌江
+  body: 3 月 28 日红军主力进入乌江北部，29 日红一师第 3 团夺取乌江渡口，30—31 日主力南渡乌江，进入息烽西北的黄冈、牛场等地。红九军团因渡口被阻断，被迫独立行动。渡口名称与位置（江界河等）待核，此处位置为示意。
+  confidence: approximate
+  sources: *id001
+- id: feint-guiyang
+  t: '1935-04-02'
+  until: '1935-04-05'
+  pos: [106.719, 26.859]
+  kind: march
+  title: 佯攻息烽，直逼贵阳
+  body: 红军佯攻贵阳正北的息烽，主力进至扎佐、狗场地区，威胁贵阳机场。蒋介石飞离贵阳，并调滇军孙渡部自大定急行军（四天四百余里）赶到贵阳固守机场。
+  confidence: reconstructed
+  sources: *id001
+- id: escape-guiyang
+  t: '1935-04-08'
+  until: '1935-04-09'
+  pos: [106.85, 26.55]
+  kind: march
+  title: 跳出包围圈
+  body: 滇军主力东调后，红军突然南进，从贵阳、龙里之间跳出国军包围圈。具体位置为示意。
+  confidence: approximate
+  sources: *id001
+- id: cross-beipanjiang
+  t: '1935-04-15'
+  until: '1935-04-16'
+  pos: [105.6, 25.8]
+  kind: crossing
+  title: 渡过北盘江
+  body: 红军主力调转西南，日行约六十公里，15 日渡过北盘江，并相继攻克贞丰、兴仁、兴义等城。渡口位置待考，此处为示意。
+  confidence: conjectural
+  sources: *id001
+- id: enter-yunnan
+  t: '1935-04-23'
+  until: '1935-04-25'
+  pos: [104.47, 25.722]
+  kind: occupation
+  title: 攻占盘县，分三路入滇
+  body: 23 日攻下贵州盘县；24 日红军分三路进入云南，一军团经曲靖，三军团经平彝，军委纵队经益肠营。
+  confidence: documented
+  sources: *id001
+- id: jinsha-order
+  t: '1935-04-29'
+  until: '1935-04-30'
+  pos: [103.26, 25.56]
+  kind: other
+  title: 决定速渡金沙江
+  body: 中革军委发布《关于我军速渡金沙江在川西建立苏区的指示》，部署三路渡江。发布地点在寻甸鲁口哨一带，位置取寻甸为示意。
+  confidence: approximate
+  sources: [wiki-jinsha]
+- id: cross-jinsha
+  t: '1935-05-01'
+  until: '1935-05-10'
+  pos: [102.385, 26.291]
+  kind: crossing
+  title: 巧渡金沙江
+  body: 5 月 1 日至 9 日，中央红军在云南禄劝、四川会理交界的皎平渡等渡口渡过金沙江。
+  confidence: documented
+  sources: [wiki-jinsha]

@@ -1,0 +1,90 @@
+:root {
+  color-scheme: light dark;
+  --bg: #faf8f4;
+  --fg: #221f1c;
+  --muted: #6b645c;
+  --card: #ffffff;
+  --border: #ddd6cb;
+  --accent: #c8102e;
+  font-family:
+    system-ui,
+    -apple-system,
+    'PingFang SC',
+    'Microsoft YaHei',
+    'Noto Sans SC',
+    sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #171513;
+    --fg: #ece7e0;
+    --muted: #a29a90;
+    --card: #211e1b;
+    --border: #3a352f;
+    --accent: #ff5a6e;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.6;
+}
+
+.page {
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 2rem 1rem 4rem;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.lead {
+  color: var(--muted);
+}
+
+.cards {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  padding: 1rem 1.25rem;
+}
+
+.card h3 {
+  margin: 0.25rem 0;
+}
+
+.card p {
+  margin: 0.25rem 0;
+}
+
+.meta,
+.note {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0 0.5rem;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  color: var(--accent);
+  font-size: 0.8rem;
+}

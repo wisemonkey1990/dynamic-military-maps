@@ -1,0 +1,113 @@
+# campaign.yaml — 四渡赤水 数据草稿 v0（待审核，见 REVIEW.md）
+id: sidu-chishui-1935
+schemaVersion: 1
+status: draft
+title: { zh: 四渡赤水, en: Four Crossings of the Chishui River }
+subtitle:
+  {
+    zh: 1935 年 1 月—5 月，中央红军在川黔滇边的机动作战,
+    en: 'Central Red Army maneuvers in the Sichuan-Guizhou-Yunnan borderlands,
+      Jan–May 1935',
+  }
+summary: 遵义会议后，中央红军（约三万人）计划北渡长江，与红四方面军会合。土城一战受挫后，红军四次往返渡过赤水河，在数十万国民党军的围追堵截之间穿插机动：重占遵义、痛击吴奇伟纵队，又佯攻贵阳、调动滇军，最终南渡乌江、西进云南、巧渡金沙江，摆脱了被围歼的危险。本页数据为草稿，各条目的时间、地点与可信度见图例，待审核。
+period: { start: '1935-01-19', end: '1935-05-09' }
+bbox: [102.0, 25.0, 108.0, 29.0]
+defaultHoursPerSecond: 24
+camera:
+  center: [105.6, 27.6]
+  zoom: 7
+tags: [中国, 第二次国内革命战争, 长征, '1935']
+sides:
+  - id: red
+    name: { zh: 中国工农红军（中央红军）, en: Chinese Workers' and Peasants' Red Army }
+    color: '#c8102e'
+    icon: star
+  - id: central
+    name: { zh: 国民革命军中央军, en: National Revolutionary Army (Central) }
+    color: '#1f4e9c'
+    icon: square
+  - id: sichuan
+    name: { zh: 川军, en: Sichuan clique forces }
+    color: '#d97a00'
+    icon: diamond
+  - id: guizhou
+    name: { zh: 黔军, en: Guizhou clique forces }
+    color: '#2a8f7f'
+    icon: triangle
+  - id: yunnan
+    name: { zh: 滇军, en: Yunnan clique forces }
+    color: '#7b4fa0'
+    icon: circle
+chapters:
+  - id: ch1-tucheng
+    title: 一渡赤水：土城之战
+    start: '1935-01-19'
+    end: '1935-01-29'
+    hoursPerSecond: 12
+    narration: 遵义会议后，红军计划北渡长江与红四方面军会合。土城一战因对敌情判断有误未能取胜，红军决定西渡赤水。
+    camera:
+      center: [105.993, 28.284]
+      zoom: 9.5
+  - id: ch2-zhaxi
+    title: 转向扎西与整编
+    start: '1935-01-30'
+    end: '1935-02-10'
+    hoursPerSecond: 24
+    narration: 川军、滇军、中央军合围川南，北渡长江难以实现。红军转入云南扎西，整编为十六个团。
+    camera:
+      center: [105.4, 27.95]
+      zoom: 8.5
+  - id: ch3-second
+    title: 二渡赤水：回师黔北
+    start: '1935-02-11'
+    end: '1935-02-23'
+    hoursPerSecond: 36
+    narration: 利用黔北空虚，红军突然东返，二渡赤水，声东击西。
+    camera:
+      center: [106.1, 28.1]
+      zoom: 8.5
+  - id: ch4-loushan-zunyi
+    title: 娄山关与遵义大捷
+    start: '1935-02-24'
+    end: '1935-03-01'
+    hoursPerSecond: 8
+    narration: 红军攻占桐梓，强夺娄山关，两天内两占遵义，击溃吴奇伟纵队。
+    camera:
+      center: [106.87, 27.85]
+      zoom: 9.5
+  - id: ch5-gouba-luban
+    title: 苟坝会议与鲁班场
+    start: '1935-03-02'
+    end: '1935-03-15'
+    hoursPerSecond: 36
+    narration: 打鼓新场之战的决定被撤销；鲁班场强攻不利，红军决定转移。
+    camera:
+      center: [106.45, 27.7]
+      zoom: 9.5
+  - id: ch6-third-fourth
+    title: 三渡、四渡赤水
+    start: '1935-03-16'
+    end: '1935-03-24'
+    hoursPerSecond: 12
+    narration: 三渡赤水诱使蒋介石相信红军将北渡长江，红军随即回师东渡，四渡赤水。
+    camera:
+      center: [106.2, 28.0]
+      zoom: 9.5
+  - id: ch7-wujiang
+    title: 南渡乌江，佯攻贵阳
+    start: '1935-03-25'
+    end: '1935-04-08'
+    hoursPerSecond: 24
+    narration: 红军南渡乌江，逼近贵阳，调动滇军东援后从贵阳、龙里之间跳出包围圈。
+    camera:
+      center: [107.0, 27.1]
+      zoom: 8.5
+  - id: ch8-jinsha
+    title: 西进云南，巧渡金沙江
+    start: '1935-04-09'
+    end: '1935-05-09'
+    hoursPerSecond: 48
+    narration: 红军挥师西进，直趋金沙江，在皎平渡渡江，彻底甩开追兵。
+    camera:
+      center: [104.0, 26.2]
+      zoom: 7.5

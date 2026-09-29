@@ -1,0 +1,98 @@
+# arrows.yaml — 四渡赤水 数据草稿 v0（待审核，见 REVIEW.md）
+- id: arrow-crossing-1
+  side: red
+  kind: maneuver
+  from: '1935-01-29'
+  to: '1935-02-03'
+  path:
+    - [105.993, 28.284]
+    - [105.809, 28.042]
+    - [105.303, 27.711]
+    - [105.046, 27.85]
+  label: 一渡赤水，转向扎西
+  confidence: approximate
+  sources: &id001 [wiki-sidu, book-czs]
+- id: arrow-crossing-2
+  side: red
+  kind: maneuver
+  from: '1935-02-11'
+  to: '1935-02-20'
+  path:
+    - [105.046, 27.85]
+    - [106.037, 28.139]
+  label: 二渡赤水，回师黔北
+  confidence: approximate
+  sources: *id001
+- id: arrow-tongzi-zunyi
+  side: red
+  kind: advance
+  from: '1935-02-20'
+  to: '1935-02-28'
+  path:
+    - [106.037, 28.139]
+    - [106.822, 28.137]
+    - [106.854, 28.026]
+    - [106.927, 27.725]
+  label: 桐梓—娄山关—遵义
+  confidence: approximate
+  sources: *id001
+- id: arrow-crossing-3
+  side: red
+  kind: maneuver
+  from: '1935-03-16'
+  to: '1935-03-21'
+  path:
+    - [106.368, 27.855]
+    - [106.171, 28.149]
+  label: 三渡赤水，西岸机动
+  confidence: approximate
+  sources: *id001
+- id: arrow-crossing-4
+  side: red
+  kind: maneuver
+  from: '1935-03-21'
+  to: '1935-03-31'
+  path:
+    - [106.171, 28.149]
+    - [106.6, 27.8]
+    - [107.372, 27.299]
+  label: 四渡赤水，南渡乌江
+  confidence: approximate
+  sources: *id001
+- id: arrow-feint-guiyang
+  side: red
+  kind: feint
+  from: '1935-04-01'
+  to: '1935-04-08'
+  path:
+    - [107.372, 27.299]
+    - [106.719, 26.859]
+    - [106.85, 26.55]
+  label: 佯攻贵阳
+  confidence: approximate
+  sources: *id001
+- id: arrow-to-jinsha
+  side: red
+  kind: maneuver
+  from: '1935-04-09'
+  to: '1935-05-05'
+  path:
+    - [106.85, 26.55]
+    - [105.6, 25.8]
+    - [104.47, 25.722]
+    - [103.26, 25.56]
+    - [102.385, 26.291]
+  label: 西进云南，直趋金沙江
+  confidence: approximate
+  sources: [wiki-sidu, book-czs, wiki-jinsha]
+- id: arrow-sun-du
+  side: yunnan
+  kind: advance
+  from: '1935-04-02'
+  to: '1935-04-06'
+  path:
+    - [105.61, 27.14]
+    - [106.706, 26.573]
+  label: 滇军急行军驰援贵阳
+  confidence: approximate
+  sources: *id001

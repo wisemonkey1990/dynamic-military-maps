@@ -1,0 +1,48 @@
+{
+  "name": "dynamic-military-maps",
+  "version": "0.1.0",
+  "private": true,
+  "description": "把历史上真实发生的军事行动，在地图上按时间动态展示出来。",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "data:build": "tsx scripts/build-data.ts",
+    "data:validate": "tsx scripts/build-data.ts --check",
+    "predev": "npm run data:build",
+    "dev": "vite",
+    "prebuild": "npm run data:build",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^26.6.3",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.1",
+    "eslint": "^10.11.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "globals": "^17.12.0",
+    "prettier": "^3.9.9",
+    "tsx": "^4.23.15",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.71.0",
+    "vite": "^8.3.1",
+    "vitest": "^5.0.2",
+    "yaml": "^2.9.1"
+  }
+}

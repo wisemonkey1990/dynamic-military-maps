@@ -1,0 +1,615 @@
+# units.yaml — 四渡赤水 数据草稿 v0（待审核，见 REVIEW.md）
+- id: red-junwei
+  side: red
+  name: 中革军委纵队
+  kind: headquarters
+  echelon: 军委纵队
+  commander: 朱德（总司令）、毛泽东（前敌政委）、周恩来等
+  description: 中央领导机关与红军总部所在。3 月 4 日起设前敌司令部，朱德任司令员、毛泽东任政治委员。
+  track:
+    waypoints:
+      - t: '1935-01-19'
+        pos: [106.927, 27.725]
+        confidence: reconstructed
+        place: 遵义
+        note: 中革军委发布《关于渡江的作战计划》，红军分三路向土城方向前进
+        sources: &id001 [wiki-sidu, book-czs]
+      - t: '1935-01-25'
+        pos: [106.22, 28.312]
+        confidence: documented
+        place: 东皇殿（习水）
+        note: 军委纵队抵达东皇殿，与川军郭勋祺旅（抵达温水）相距一日路程
+        sources: *id001
+      - t: '1935-01-27'
+        pos: [105.993, 28.284]
+        confidence: documented
+        place: 土城
+        note: 军委抵达土城
+        sources: *id001
+      - t: '1935-01-29'
+        pos: [105.993, 28.284]
+        confidence: documented
+        place: 土城渡口
+        note: 一渡赤水，进入川南
+        sources: *id001
+      - t: '1935-02-01'
+        pos: [105.809, 28.042]
+        confidence: approximate
+        place: 古蔺南部
+        note: 一渡后向古蔺南部行进，2 月 3 日转向云南扎西；具体日期待核
+      - t: '1935-02-05'
+        pos: [105.303, 27.711]
+        confidence: documented
+        place: 鸡鸣三省
+        note: 中共中央政治局会议
+        sources: *id001
+      - t: '1935-02-08'
+        pos: [105.046, 27.85]
+        confidence: documented
+        place: 扎西
+        note: 各部陆续抵达扎西地区；扎西会议
+        sources: *id001
+      - t: '1935-02-10'
+        pos: [105.046, 27.85]
+        confidence: documented
+        place: 扎西
+        note: 整编为十六个团
+        sources: *id001
+      - t: '1935-02-19'
+        pos: [106.037, 28.139]
+        confidence: reconstructed
+        place: 太平渡
+        note: 二渡赤水，2 月 18 日前卫抵达渡口，20 日全部渡毕；军委纵队具体日期待核
+        sources: *id001
+      - t: '1935-02-24'
+        pos: [106.822, 28.137]
+        confidence: reconstructed
+        place: 桐梓
+        note: 红一团攻占桐梓县城；军委纵队位置为推定
+        sources: *id001
+      - t: '1935-02-26'
+        pos: [106.854, 28.026]
+        confidence: reconstructed
+        place: 娄山关
+        note: 娄山关战斗后通过；军委纵队位置为推定
+        sources: *id001
+      - t: '1935-02-28'
+        pos: [106.927, 27.725]
+        confidence: documented
+        place: 遵义
+        note: 红军 2 月 28 日凌晨完全占领遵义老城
+        sources: *id001
+      - t: '1935-03-07'
+        pos: [106.927, 27.725]
+        confidence: approximate
+        place: 遵义一带
+        note: 遵义一带休整，出发日期待核
+      - t: '1935-03-10'
+        pos: [106.567, 27.638]
+        confidence: documented
+        place: 苟坝
+        note: 军委纵队进驻苟坝；政治局会议讨论是否攻打打鼓新场
+        sources: *id001
+      - t: '1935-03-12'
+        pos: [106.567, 27.638]
+        confidence: documented
+        place: 苟坝
+        note: 苟坝会议，成立三人军事指挥小组
+        sources: *id001
+      - t: '1935-03-15'
+        pos: [106.311, 27.725]
+        confidence: reconstructed
+        place: 鲁班场
+        note: 各部进攻鲁班场；军委纵队具体位置待核
+        sources: *id001
+      - t: '1935-03-16'
+        pos: [106.368, 27.855]
+        confidence: documented
+        place: 茅台
+        note: 由茅台及附近用浮桥三渡赤水
+        sources: *id001
+      - t: '1935-03-21'
+        pos: [106.171, 28.149]
+        confidence: documented
+        place: 二郎滩
+        note: 从二郎滩、九溪口、太平渡东渡赤水（四渡）；三渡至四渡间路线待考
+        sources: *id001
+      - t: '1935-03-24'
+        pos: [106.6, 27.8]
+        confidence: approximate
+        place: 遵义—仁怀大道
+        note: 主力穿越遵义、怀仁（今仁怀）大道，位置为示意
+      - t: '1935-03-30'
+        pos: [107.372, 27.299]
+        confidence: approximate
+        place: 乌江渡口（江界河）
+        note: 3 月 30—31 日南渡乌江；渡口名称与位置待核
+        sources: *id001
+      - t: '1935-04-02'
+        pos: [106.719, 26.859]
+        confidence: reconstructed
+        place: 扎佐
+        note: 佯攻息烽，主力进至扎佐、狗场地区
+        sources: *id001
+      - t: '1935-04-08'
+        pos: [106.85, 26.55]
+        confidence: approximate
+        place: 贵阳—龙里之间
+        note: 从贵阳、龙里间跳出包围圈；位置为示意
+        sources: *id001
+      - t: '1935-04-15'
+        pos: [105.6, 25.8]
+        confidence: conjectural
+        place: 北盘江渡口
+        note: 4 月 15 日渡过北盘江；渡口位置待考
+        sources: *id001
+      - t: '1935-04-23'
+        pos: [104.47, 25.722]
+        confidence: documented
+        place: 盘县
+        note: 攻下盘县；24 日分三路进入云南
+        sources: *id001
+      - t: '1935-04-28'
+        pos: [103.26, 25.56]
+        confidence: documented
+        place: 寻甸
+        note: 中央纵队抵达寻甸县鲁口哨、大汤姑一带
+        sources: [wiki-jinsha]
+      - t: '1935-05-05'
+        pos: [102.385, 26.291]
+        confidence: reconstructed
+        place: 皎平渡
+        note: 军委电令拟于 5 月 5 日到达江边；实际渡江 5 月 1—9 日
+        sources: [wiki-jinsha]
+      - t: '1935-05-09'
+        pos: [102.385, 26.291]
+        confidence: documented
+        place: 皎平渡
+        note: 渡江完毕
+        sources: [wiki-jinsha]
+  sources: [wiki-sidu, book-czs, wiki-jinsha, geo-wiki, geo-osm, geo-estimate]
+- id: red-1st-corps
+  side: red
+  name: 红一军团
+  kind: infantry
+  echelon: 军团
+  commander: 林彪（军团长）、聂荣臻（政委）
+  track:
+    waypoints:
+      - t: '1935-01-19'
+        pos: [106.927, 27.725]
+        confidence: reconstructed
+        place: 遵义
+        note: 红军分三路向土城方向前进；红一军团为右纵队
+        sources: *id001
+      - t: '1935-01-24'
+        pos: [105.993, 28.284]
+        confidence: documented
+        place: 土城
+        note: 红一军团占领土城，先头红一师占领旺隆场、复兴场
+        sources: *id001
+      - t: '1935-01-29'
+        pos: [105.935, 28.368]
+        confidence: approximate
+        place: 猿猴场一带
+        note: 一渡赤水；渡口位置为推定
+      - t: '1935-02-08'
+        pos: [105.046, 27.85]
+        confidence: approximate
+        place: 扎西一带
+        note: 2 月 3 日红一军团率先进入滇境，8 日前后各部抵达扎西
+        sources: *id001
+      - t: '1935-02-18'
+        pos: [106.037, 28.139]
+        confidence: documented
+        place: 太平渡
+        note: 前卫红二师抵达太平渡渡口，顺利控制两岸
+        sources: *id001
+      - t: '1935-02-24'
+        pos: [106.822, 28.137]
+        confidence: documented
+        place: 桐梓
+        note: 红一团攻占桐梓县城
+        sources: *id001
+      - t: '1935-02-28'
+        pos: [106.927, 27.725]
+        confidence: reconstructed
+        place: 遵义
+        note: 参加遵义战役，迂回直攻吴奇伟指挥部
+        sources: *id001
+      - t: '1935-03-07'
+        pos: [106.927, 27.725]
+        confidence: approximate
+        place: 遵义一带
+        note: 休整，出发日期待核
+      - t: '1935-03-15'
+        pos: [106.311, 27.725]
+        confidence: approximate
+        place: 鲁班场
+        note: 参加鲁班场进攻，具体位置待核
+        sources: *id001
+      - t: '1935-03-16'
+        pos: [106.368, 27.855]
+        confidence: approximate
+        place: 茅台
+        note: 与军委纵队同向行动，此处沿用其锚点，各部具体位置待逐日核对
+      - t: '1935-03-21'
+        pos: [106.171, 28.149]
+        confidence: approximate
+        place: 二郎滩
+        note: 与军委纵队同向行动，此处沿用其锚点，各部具体位置待逐日核对
+      - t: '1935-03-24'
+        pos: [106.6, 27.8]
+        confidence: approximate
+        place: 遵义—仁怀大道
+        note: 与军委纵队同向行动，此处沿用其锚点，各部具体位置待逐日核对
+      - t: '1935-03-30'
+        pos: [107.372, 27.299]
+        confidence: approximate
+        place: 乌江渡口（江界河）
+        note: 与军委纵队同向行动，此处沿用其锚点，各部具体位置待逐日核对
+      - t: '1935-04-02'
+        pos: [106.719, 26.859]
+        confidence: approximate
+        place: 扎佐
+        note: 与军委纵队同向行动，此处沿用其锚点，各部具体位置待逐日核对
+      - t: '1935-04-08'
+        pos: [106.85, 26.55]
+        confidence: approximate
+        place: 贵阳—龙里之间
+        note: 与军委纵队同向行动，此处沿用其锚点，各部具体位置待逐日核对
+      - t: '1935-04-15'
+        pos: [105.6, 25.8]
+        confidence: conjectural
+        place: 北盘江渡口
+        note: 渡口位置待考
+      - t: '1935-04-23'
+        pos: [104.47, 25.722]
+        confidence: approximate
+        place: 盘县
+        note: 与军委纵队同向行动，此处沿用其锚点，各部具体位置待逐日核对
+      - t: '1935-04-28'
+        pos: [103.26, 25.56]
+        confidence: approximate
+        place: 寻甸
+        note: 与军委纵队同向行动，此处沿用其锚点，各部具体位置待逐日核对
+      - t: '1935-05-05'
+        pos: [102.385, 26.291]
+        confidence: approximate
+        place: 皎平渡
+        note: 与军委纵队同向行动，此处沿用其锚点，各部具体位置待逐日核对
+      - t: '1935-05-09'
+        pos: [102.385, 26.291]
+        confidence: approximate
+        place: 皎平渡
+        note: 与军委纵队同向行动，此处沿用其锚点，各部具体位置待逐日核对
+  sources: [wiki-sidu, book-czs, geo-wiki, geo-osm, geo-estimate]
+- id: red-3rd-corps
+  side: red
+  name: 红三军团
+  kind: infantry
+  echelon: 军团
+  commander: 彭德怀（军团长）、杨尚昆（政委）
+  track:
+    waypoints:
+      - t: '1935-01-19'
+        pos: [106.927, 27.725]
+        confidence: reconstructed
+        place: 遵义
+        note: 红军分三路向土城方向前进；红三军团为左纵队
+        sources: *id001
+      - t: '1935-01-28'
+        pos: [105.993, 28.284]
+        confidence: documented
+        place: 土城
+        note: 红三、红五军团对枫村坝、青杠坡川军发起进攻，由彭德怀统一指挥
+        sources: *id001
+      - t: '1935-01-29'
+        pos: [105.993, 28.284]
+        confidence: documented
+        place: 土城渡口
+        note: 一渡赤水
+        sources: *id001
+      - t: '1935-02-08'
+        pos: [105.046, 27.85]
+        confidence: approximate
+        place: 扎西一带
+        note: 各部陆续抵达扎西地区
+        sources: *id001
+      - t: '1935-02-18'
+        pos: [106.171, 28.149]
+        confidence: documented
+        place: 二郎滩
+        note: 红十二团、十三团抵达二郎滩渡口，迅速渡河并控制两岸
+        sources: *id001
+      - t: '1935-02-25'
+        pos: [106.854, 28.026]
+        confidence: documented
+        place: 娄山关
+        note: 红三军团主攻娄山关，击溃黔军
+        sources: *id001
+      - t: '1935-02-28'
+        pos: [106.927, 27.725]
+        confidence: documented
+        place: 遵义
+        note: 攻占遵义老城；固守老鸦山、红花岗
+        sources: *id001
+      - t: '1935-03-07'
+        pos: [106.927, 27.725]
+        confidence: approximate
+        place: 遵义一带
+        note: 休整，出发日期待核
+      - t: '1935-03-15'
+        pos: [106.311, 27.725]
+        confidence: approximate
+        place: 鲁班场
+        note: 参加鲁班场进攻，具体位置待核
+        sources: *id001
+      - t: '1935-03-16'
+        pos: [106.368, 27.855]
+        confidence: approximate
+        place: 茅台
+        note: 与军委纵队同向行动，此处沿用其锚点，各部具体位置待逐日核对
+      - t: '1935-03-21'
+        pos: [106.171, 28.149]
+        confidence: approximate
+        place: 二郎滩
+        note: 与军委纵队同向行动，此处沿用其锚点，各部具体位置待逐日核对
+      - t: '1935-03-24'
+        pos: [106.6, 27.8]
+        confidence: approximate
+        place: 遵义—仁怀大道
+        note: 与军委纵队同向行动，此处沿用其锚点，各部具体位置待逐日核对
+      - t: '1935-03-30'
+        pos: [107.372, 27.299]
+        confidence: approximate
+        place: 乌江渡口（江界河）
+        note: 与军委纵队同向行动，此处沿用其锚点，各部具体位置待逐日核对
+      - t: '1935-04-02'
+        pos: [106.719, 26.859]
+        confidence: approximate
+        place: 扎佐
+        note: 与军委纵队同向行动，此处沿用其锚点，各部具体位置待逐日核对
+      - t: '1935-04-08'
+        pos: [106.85, 26.55]
+        confidence: approximate
+        place: 贵阳—龙里之间
+        note: 与军委纵队同向行动，此处沿用其锚点，各部具体位置待逐日核对
+      - t: '1935-04-15'
+        pos: [105.6, 25.8]
+        confidence: conjectural
+        place: 北盘江渡口
+        note: 渡口位置待考
+      - t: '1935-04-23'
+        pos: [104.47, 25.722]
+        confidence: approximate
+        place: 盘县
+        note: 与军委纵队同向行动，此处沿用其锚点，各部具体位置待逐日核对
+      - t: '1935-04-28'
+        pos: [103.26, 25.56]
+        confidence: approximate
+        place: 寻甸
+        note: 与军委纵队同向行动，此处沿用其锚点，各部具体位置待逐日核对
+      - t: '1935-05-05'
+        pos: [102.385, 26.291]
+        confidence: approximate
+        place: 皎平渡
+        note: 与军委纵队同向行动，此处沿用其锚点，各部具体位置待逐日核对
+      - t: '1935-05-09'
+        pos: [102.385, 26.291]
+        confidence: approximate
+        place: 皎平渡
+        note: 与军委纵队同向行动，此处沿用其锚点，各部具体位置待逐日核对
+  sources: [wiki-sidu, book-czs, geo-wiki, geo-osm, geo-estimate]
+- id: red-5th-corps
+  side: red
+  name: 红五军团
+  kind: infantry
+  echelon: 军团
+  commander: 董振堂（军团长）、李卓然（政委）
+  description: 担任后卫和总预备队。
+  track:
+    waypoints:
+      - t: '1935-01-24'
+        pos: [106.22, 28.312]
+        confidence: documented
+        place: 习水
+        note: 红五、红九军团攻占三元场、习水
+        sources: *id001
+      - t: '1935-01-28'
+        pos: [105.993, 28.284]
+        confidence: documented
+        place: 土城
+        note: 红五军团参加土城战斗
+        sources: *id001
+      - t: '1935-02-12'
+        pos: [104.86, 27.44]
+        confidence: approximate
+        place: 镇雄
+        note: 红五、九军团担任佯攻，改入镇雄县对滇军发动攻击；日期与位置待核
+        sources: *id001
+      - t: '1935-02-24'
+        pos: [106.822, 28.137]
+        confidence: documented
+        place: 桐梓
+        note: 红五、九军团在桐梓一线阻击南下川军
+        sources: *id001
+      - t: '1935-03-07'
+        pos: [106.927, 27.725]
+        confidence: approximate
+        place: 遵义一带
+        note: 休整，出发日期待核
+      - t: '1935-03-15'
+        pos: [106.311, 27.725]
+        confidence: approximate
+        place: 鲁班场
+        note: 作为总预备队参战，具体位置待核
+      - t: '1935-03-16'
+        pos: [106.368, 27.855]
+        confidence: approximate
+        place: 茅台
+        note: 与军委纵队同向行动，此处沿用其锚点，各部具体位置待逐日核对
+      - t: '1935-03-21'
+        pos: [106.171, 28.149]
+        confidence: approximate
+        place: 二郎滩
+        note: 与军委纵队同向行动，此处沿用其锚点，各部具体位置待逐日核对
+      - t: '1935-03-24'
+        pos: [106.6, 27.8]
+        confidence: approximate
+        place: 遵义—仁怀大道
+        note: 与军委纵队同向行动，此处沿用其锚点，各部具体位置待逐日核对
+      - t: '1935-03-30'
+        pos: [107.372, 27.299]
+        confidence: approximate
+        place: 乌江渡口（江界河）
+        note: 与军委纵队同向行动，此处沿用其锚点，各部具体位置待逐日核对
+      - t: '1935-04-02'
+        pos: [106.719, 26.859]
+        confidence: approximate
+        place: 扎佐
+        note: 与军委纵队同向行动，此处沿用其锚点，各部具体位置待逐日核对
+      - t: '1935-04-08'
+        pos: [106.85, 26.55]
+        confidence: approximate
+        place: 贵阳—龙里之间
+        note: 与军委纵队同向行动，此处沿用其锚点，各部具体位置待逐日核对
+      - t: '1935-04-15'
+        pos: [105.6, 25.8]
+        confidence: conjectural
+        place: 北盘江渡口
+        note: 渡口位置待考
+      - t: '1935-04-23'
+        pos: [104.47, 25.722]
+        confidence: approximate
+        place: 盘县
+        note: 与军委纵队同向行动，此处沿用其锚点，各部具体位置待逐日核对
+      - t: '1935-04-28'
+        pos: [103.26, 25.56]
+        confidence: approximate
+        place: 寻甸
+        note: 与军委纵队同向行动，此处沿用其锚点，各部具体位置待逐日核对
+      - t: '1935-05-05'
+        pos: [102.385, 26.291]
+        confidence: approximate
+        place: 皎平渡
+        note: 与军委纵队同向行动，此处沿用其锚点，各部具体位置待逐日核对
+      - t: '1935-05-09'
+        pos: [102.385, 26.291]
+        confidence: approximate
+        place: 皎平渡
+        note: 与军委纵队同向行动，此处沿用其锚点，各部具体位置待逐日核对
+  sources: [wiki-sidu, book-czs, geo-wiki, geo-osm, geo-estimate]
+- id: red-9th-corps
+  side: red
+  name: 红九军团
+  kind: infantry
+  echelon: 军团
+  commander: 罗炳辉（军团长）
+  description: 3 月下旬奉命伪装主力，向习水方向行动以牵制中央军；渡乌江时渡口被阻断，一度独立行动。仅绘出 3 月 22—31 日的部分。
+  track:
+    waypoints:
+      - t: '1935-03-22'
+        pos: [106.037, 28.139]
+        confidence: approximate
+        place: 太平渡
+        note: 四渡赤水后东渡，位置为推定
+      - t: '1935-03-24'
+        pos: [106.22, 28.312]
+        confidence: reconstructed
+        place: 习水
+        note: 奉命伪装主力，进军习水等地，牵制中央军
+        sources: *id001
+  lifespan: { from: '1935-03-22', to: '1935-03-31' }
+  sources: [wiki-sidu, book-czs, geo-wiki, geo-osm, geo-estimate]
+- id: sc-guo-pan
+  side: sichuan
+  name: 川军郭勋祺旅、潘佐旅
+  kind: infantry
+  echelon: 旅
+  commander: 郭勋祺、潘佐
+  description: 刘湘部模范师所属，土城战役中的主要对手，实际兵力约六个团一万余人。仅在战斗当日标出。
+  track:
+    waypoints:
+      - t: '1935-01-28'
+        pos: [105.993, 28.284]
+        confidence: approximate
+        place: 土城—青杠坡一带
+        note: 战场在土城附近的青杠坡、枫村坝一带；此处取土城镇位置为示意
+        sources: *id001
+  lifespan: { from: '1935-01-28', to: '1935-01-29' }
+  sources: [wiki-sidu, book-czs, geo-wiki, geo-osm, geo-estimate]
+- id: gz-du-zhaohua
+  side: guizhou
+  name: 黔军杜肇华第1旅
+  kind: infantry
+  echelon: 旅
+  commander: 杜肇华
+  description: 率全旅及第 15 团死守娄山关，等待吴奇伟纵队。仅在战斗当日标出。
+  track:
+    waypoints:
+      - t: '1935-02-25'
+        pos: [106.854, 28.026]
+        confidence: reconstructed
+        place: 娄山关
+        note: 被红三军团击溃，退守黑神庙一线
+        sources: *id001
+  lifespan: { from: '1935-02-25', to: '1935-02-25' }
+  sources: [wiki-sidu, book-czs, geo-wiki, geo-osm, geo-estimate]
+- id: cn-wu-qiwei
+  side: central
+  name: 中央军吴奇伟纵队
+  kind: infantry
+  echelon: 纵队
+  commander: 吴奇伟
+  description: 下辖第 59、93 师。2 月 28 日与红军在遵义南郊交战后败退乌江南岸。仅在战斗当日标出。
+  track:
+    waypoints:
+      - t: '1935-02-28'
+        pos: [106.927, 27.725]
+        confidence: approximate
+        place: 遵义南郊（忠字铺一带）
+        note: 取遵义城位置为示意；忠字铺、老鸦山、红花岗一线位置待核
+        sources: *id001
+  lifespan: { from: '1935-02-28', to: '1935-02-28' }
+  sources: [wiki-sidu, book-czs, geo-wiki, geo-osm, geo-estimate]
+- id: cn-zhou-hunyuan
+  side: central
+  name: 中央军周浑元纵队
+  kind: infantry
+  echelon: 纵队
+  commander: 周浑元
+  description: 奉蒋介石命令以三个师在鲁班场构筑工事死守。仅在鲁班场战斗前后标出。
+  track:
+    waypoints:
+      - t: '1935-03-15'
+        pos: [106.311, 27.725]
+        confidence: reconstructed
+        place: 鲁班场
+        note: 构筑工事固守；具体布防位置待核
+        sources: *id001
+  lifespan: { from: '1935-03-13', to: '1935-03-15' }
+  sources: [wiki-sidu, book-czs, geo-wiki, geo-osm, geo-estimate]
+- id: yn-sun-du
+  side: yunnan
+  name: 滇军孙渡部
+  kind: infantry
+  echelon: 纵队
+  commander: 孙渡
+  description: 接蒋介石调令，自大定（今大方）急行军（约四天四百余里）赶往贵阳固守机场。
+  track:
+    waypoints:
+      - t: '1935-04-02'
+        pos: [105.61, 27.14]
+        confidence: approximate
+        place: 大定（今大方）
+        note: 起点为示意位置
+        sources: *id001
+      - t: '1935-04-06'
+        pos: [106.706, 26.573]
+        confidence: reconstructed
+        place: 贵阳
+        note: 到达日期由“四天”推算，待核
+        sources: *id001
+  lifespan: { from: '1935-04-02', to: '1935-04-07' }
+  sources: [wiki-sidu, book-czs, geo-wiki, geo-osm, geo-estimate]
