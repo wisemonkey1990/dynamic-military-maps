@@ -137,5 +137,13 @@ export function formatHistTimeZh(ms: number, precision: TimePrecision = 'day'): 
   return `${date} ${hh}:${mm}`
 }
 
+/** 列表里用的短格式，省略年份：1月28日 / 3月 / 1935年（年精度时保留年） */
+export function formatHistTimeShortZh(ms: number, precision: TimePrecision = 'day'): string {
+  const d = new Date(ms)
+  if (precision === 'year') return formatHistTimeZh(ms, 'year')
+  if (precision === 'month' || precision === 'season') return `${d.getUTCMonth() + 1}月`
+  return `${d.getUTCMonth() + 1}月${d.getUTCDate()}日`
+}
+
 export const HOUR_MS = MS.hour
 export const DAY_MS = MS.day

@@ -1,5 +1,12 @@
 import { describe, expect, it } from 'vitest'
-import { DAY_MS, TimeParseError, formatHistTimeZh, parseHistTime, toHistTime } from './time'
+import {
+  DAY_MS,
+  TimeParseError,
+  formatHistTimeShortZh,
+  formatHistTimeZh,
+  parseHistTime,
+  toHistTime,
+} from './time'
 
 describe('parseHistTime', () => {
   it('按字符串粒度推断精度', () => {
@@ -67,5 +74,15 @@ describe('toHistTime', () => {
     ]) {
       expect(toHistTime(parseHistTime(s).start)).toBe(s)
     }
+  })
+})
+
+describe('formatHistTimeShortZh', () => {
+  it('省略年份，按精度取舍', () => {
+    const ms = parseHistTime('1944-06-06T06:30').start
+    expect(formatHistTimeShortZh(ms, 'minute')).toBe('6月6日')
+    expect(formatHistTimeShortZh(ms, 'day')).toBe('6月6日')
+    expect(formatHistTimeShortZh(ms, 'month')).toBe('6月')
+    expect(formatHistTimeShortZh(ms, 'year')).toBe('1944年')
   })
 })
