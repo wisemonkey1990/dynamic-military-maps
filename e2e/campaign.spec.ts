@@ -108,4 +108,27 @@ test.describe('手机窄屏', () => {
     await page.getByRole('button', { name: /南渡乌江/ }).click()
     await expect(readout(page)).toHaveText('1935年3月25日')
   })
+
+  test('抽屉菜单可以关闭：× 按钮、点遮罩、Esc 键', async ({ page, errors }) => {
+    void errors
+    await page.goto(`${CAMPAIGN}?t=1935-03-16T12:00`)
+    const nav = page.getByRole('navigation', { name: '战役导航' })
+    await expect(nav).toBeHidden() // 默认收起，且不在 Tab 顺序里
+
+    const open = () => page.getByRole('button', { name: '章节与图层' }).click()
+    await open()
+    await expect(nav).toBeVisible()
+    await nav.getByRole('button', { name: '关闭菜单' }).click()
+    await expect(nav).toBeHidden()
+
+    await open()
+    await expect(nav).toBeVisible()
+    await page.locator('.backdrop').click({ position: { x: 375, y: 400 } })
+    await expect(nav).toBeHidden()
+
+    await open()
+    await expect(nav).toBeVisible()
+    await page.keyboard.press('Escape')
+    await expect(nav).toBeHidden()
+  })
 })
