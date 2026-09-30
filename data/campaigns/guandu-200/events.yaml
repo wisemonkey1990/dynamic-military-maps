@@ -1,0 +1,195 @@
+# events.yaml — 官渡之战 数据草稿 v0（待审核，见 REVIEW.md）
+- id: cao-at-guandu
+  t: 0200-01
+  pos: [114.0843, 34.7336]
+  kind: march
+  title: 曹操军屯官渡
+  body: 建安四年十二月，曹操军屯官渡。此前八月，曹操曾进军黎阳，派臧霸入青州，留于禁屯河上；九月还许，分兵守官渡。（农历建安四年十二月，折算见来源 cal-sxtwl）
+  confidence: documented
+  units: [cao-main]
+  sources: &id001 [sgz-wudi, zztj]
+- id: east-campaign-liubei
+  t: 0200-02
+  pos: [117.874, 34.119]
+  kind: battle
+  title: 东征刘备
+  body:
+    建安五年正月，董承等谋泄，被诛。曹操不听诸将“袁绍将至而弃之东”的顾虑，东击刘备，破之，刘备奔袁绍；关羽守下邳，被围后降；又击破昌豨。曹操随后“还官渡，绍卒不出”。田丰曾劝袁绍乘机袭曹操后方，袁绍以儿子生病为由未行。（农历五年正月，折算见来源
+    cal-sxtwl）
+  confidence: documented
+  units: [cao-main, liu-bei]
+  sources: *id001
+- id: yuan-advance-liyang
+  t: 0200-03
+  pos: [114.5678, 35.6794]
+  kind: march
+  title: 袁绍进军黎阳
+  body: 袁绍已并公孙瓒，兼有四州之地，欲攻许。田丰主张以持久之策、分兵奇袭骚扰，沮授、崔琰亦谏，袁绍不从，田丰被囚。二月，袁绍进军黎阳，准备渡河，同时派颜良攻白马。（农历二月，折算见来源 cal-sxtwl）
+  confidence: documented
+  units: [yuan-main]
+  sources: *id001
+- id: baima-siege
+  t: 0200-03
+  until: 0200-05
+  pos: [114.6, 35.62]
+  kind: battle
+  title: 颜良围攻白马
+  body: 二月，袁绍遣郭图、淳于琼、颜良攻东郡太守刘延于白马。沮授谏：颜良性促狭，虽骁勇不可独任，袁绍不听。白马位置为示意（今滑县东北）。（农历二月，折算见来源 cal-sxtwl）
+  confidence: documented
+  units: [yuan-yanliang]
+  sources: *id001
+- id: battle-baima
+  t: 0200-05
+  pos: [114.6, 35.62]
+  kind: battle
+  title: 白马之战
+  body:
+    四月，曹操北救刘延。荀攸献计：先到延津，作渡河袭其后的姿态，袁绍必分兵西应，然后以轻兵袭白马，颜良可擒。曹操兼行趋白马，离颜良十余里时颜良才惊觉迎战；张辽、关羽先登，关羽策马刺颜良于万众之中，斩其首而还，白马之围遂解，曹军迁徙当地民众沿河而西。具体日期无载。（农历四月，折算见来源
+    cal-sxtwl）
+  confidence: documented
+  units: [cao-main, cao-vanguard, yuan-yanliang]
+  sources: *id001
+- id: battle-yanjin
+  t: 0200-05
+  pos: [114.1946, 35.1491]
+  kind: battle
+  title: 延津之战
+  body:
+    袁绍渡河追击，至延津南。曹操驻营南阪下，令骑兵解鞍放马，以白马的辎重为饵；文丑与刘备率五六千骑前后赶到，袁军争夺辎重，曹军以不满六百骑（据《三国志》）趁机出击，大破之，斩文丑。颜良、文丑都是袁绍名将，袁军士气受挫。此后曹操还官渡，袁绍进保阳武。（农历四月，折算见来源
+    cal-sxtwl）
+  confidence: documented
+  units: [cao-main, yuan-main, yuan-wenchou, liu-bei]
+  sources: *id001
+- id: guanyu-leaves
+  t: 0200-05
+  pos: [114.1946, 35.1491]
+  kind: other
+  title: 关羽辞曹归刘备
+  body: 曹操欣赏关羽，关羽也感其厚待，但称受刘备之恩、誓共生死，不可背之，要“立效以报曹公乃去”。斩颜良后，关羽将所赐尽封，拜书告辞，奔刘备于袁军。曹操说：“彼各为其主，勿追也。”发生的具体地点与日期无载，此处位置为示意。
+  confidence: approximate
+  sources: [zztj, sgz-wudi]
+- id: yuan-hold-yangwu
+  t: 0200-06
+  pos: [113.99, 34.99]
+  kind: march
+  title: 袁绍进保阳武
+  body: 延津之战后，曹操还官渡，袁绍进保阳武。沮授献策：北军人多而劲果不及南军，南军粮少而资储不如北军，应徐徐持久。袁绍不从。时间只知在四月之后、八月之前；阳武位置为示意（今原阳县东南）。
+  confidence: approximate
+  units: [yuan-main]
+  sources: [sgz-wudi, sgz-yuanshao, zztj]
+- id: yujin-flank
+  t: 0200-07
+  pos: [113.7793, 34.9991]
+  kind: battle
+  title: 于禁守延津，袭扰袁军别营
+  body: 曹操使于禁率步卒二千守延津拒袁绍，袁绍攻之不能拔；于禁又与乐进等率步骑五千，从延津西南沿河至汲、获嘉，击袁军别营，焚保聚三十余屯，斩首获生数千，降何茂、王摩等二十余人；后别将屯原武，破袁军别营于杜氏津。具体月份无载，置于四月之后、八月之前。
+  confidence: approximate
+  units: [cao-yujin]
+  sources: [sgz-yujin]
+- id: runan-revolt
+  t: 0200-08
+  pos: [114.3434, 33.0059]
+  kind: battle
+  title: 汝南叛乱，曹仁击破刘备
+  body: 七月，汝南黄巾刘辟等叛曹应袁绍，袁绍遣刘备助之，郡县多应。曹操使曹仁率骑击备，破走之，尽复诸叛县。刘备回到袁军，后又被遣至汝南，与龚都等合，众数千人；曹操遣蔡扬击之，为刘备所杀。（农历七月，折算见来源 cal-sxtwl）
+  confidence: documented
+  units: [liu-bei]
+  sources: [sgz-wudi, zztj]
+- id: yuan-camp-forward
+  t: 0200-09
+  pos: [114.0843, 34.7336]
+  kind: other
+  title: 袁绍连营逼官渡
+  body: 八月，袁绍连营稍前，依沙堆为屯，东西数十里；曹操亦分营与相当，合战不利，复退而坚壁。袁营在官渡以北，此处位置取官渡为示意。（农历八月，折算见来源 cal-sxtwl）
+  confidence: documented
+  units: [yuan-main, cao-main]
+  sources: [sgz-wudi, zztj]
+- id: guandu-siege-works
+  t: 0200-10
+  until: 0200-11
+  pos: [114.0843, 34.7336]
+  kind: battle
+  title: 土山、地道与霹雳车
+  body:
+    袁绍造高橹、起土山，向曹营射箭，曹营士卒持盾而行，众大惧。曹操造发石车（时称“霹雳车”）击毁袁军高橹；袁绍又挖地道，曹操在营内挖长堑阻挡。《三国志》系于八月之后，《资治通鉴》系于九月朔之后，此处取九月（约公历十月）。（农历八月至九月，折算见来源
+    cal-sxtwl）
+  confidence: documented
+  units: [cao-main, yuan-main]
+  sources: [sgz-wudi, sgz-yuanshao, zztj]
+- id: xunyu-letter
+  t: 0200-10
+  pos: [113.852, 34.036]
+  kind: other
+  title: 曹操议还许，荀彧劝坚守
+  body:
+    曹军粮少，士卒疲乏，百姓困于征赋，多叛归袁绍。曹操写信给留守许都的荀彧，议欲退回许昌以引诱袁军。荀彧回信力劝：曹军以十分之一的兵力“画地而守之，扼其喉而不得进，已半年矣”，情见势竭，必将有变，“此用奇之时，不可失也”。曹操听从，坚壁持之。（农历九月，折算见来源
+    cal-sxtwl）
+  confidence: documented
+  sources: [sgz-wudi, zztj]
+- id: xuhuang-hanmeng
+  t: 0200-10
+  pos: [114.0843, 34.7336]
+  kind: battle
+  title: 徐晃、史涣击破韩猛运粮车
+  body: 袁绍运谷车数千乘将至官渡。荀攸献计：运车的将领韩猛锐而轻敌，可击破。曹操遣徐晃、史涣邀击，破走韩猛，尽烧其辎重。发生地点无载（官渡附近），此处位置为示意；月份据《资治通鉴》叙事顺序推定。
+  confidence: approximate
+  sources: [sgz-wudi, zztj]
+- id: xuyou-defects
+  t: 0200-11
+  pos: [114.0843, 34.7336]
+  kind: other
+  title: 许攸投奔曹操
+  body:
+    十月，袁绍再遣淳于琼等将兵万余人送粮，宿于袁营北四十里。许攸献计轻军袭许，袁绍不从；又因家人犯法被审配收押，许攸愤而投奔曹操，告以袁军辎重在故市、乌巢，守备不严，可以轻兵袭之。曹操“跣出迎之”。（农历十月，折算见来源
+    cal-sxtwl）
+  confidence: documented
+  sources: [sgz-wudi, zztj]
+- id: battle-wuchao
+  t: 0200-11
+  pos: [114.2923, 35.1018]
+  kind: battle
+  title: 乌巢之战
+  body:
+    曹操留曹洪、荀攸守营，亲率步骑五千，皆用袁军旗号，衔枚缚马口，夜从间道出发，黎明到达乌巢。曹军放火围攻，淳于琼出阵不胜，退保营；袁绍遣轻骑救援，曹军“士卒皆殊死战”，大破之，斩淳于琼等，尽焚粮谷。乌巢在今延津县东南，确切地点有争议，此处位置为示意。（农历十月，折算见来源
+    cal-sxtwl）
+  confidence: documented
+  units: [cao-main, yuan-chunyuqiong]
+  sources: [sgz-wudi, sgz-yuanshao, zztj]
+- id: zhanghe-defects
+  t: 0200-11
+  pos: [114.0843, 34.7336]
+  kind: other
+  title: 张郃、高览攻营不下，转而降曹
+  body: 袁绍闻曹操击乌巢，以重兵攻曹营，张郃主张先救乌巢，袁绍不从；曹营坚固，攻之不下。乌巢失守后，郭图进谗，张郃、高览焚攻具，到曹营投降；曹洪疑不敢受，荀攸说服接纳。（农历十月，折算见来源 cal-sxtwl）
+  confidence: documented
+  units: [cao-guandu-camp]
+  sources: [sgz-wudi, sgz-yuanshao, zztj]
+- id: yuan-collapse
+  t: 0200-11
+  pos: [114.0843, 34.7336]
+  kind: battle
+  title: 袁军溃败，袁绍渡河北逃
+  body:
+    袁军大溃，袁绍与袁谭幅巾乘马，率八百骑渡河（据《资治通鉴》），曹操追之不及，尽收其辎重图书珍宝。降者多被坑杀，沮授未及渡河被俘，后因谋归袁氏被杀。史书所载杀俘数字很大且各书不一（七万、八万），本页不采信具体数字。（农历十月，折算见来源
+    cal-sxtwl）
+  confidence: documented
+  units: [yuan-main]
+  sources: [sgz-wudi, sgz-yuanshao, zztj]
+- id: yuan-retreat-liyang
+  t: 0200-12
+  until: 0201-06
+  pos: [114.5678, 35.6794]
+  kind: march
+  title: 袁绍退至黎阳北岸，冀州城邑多降曹
+  body: 袁绍走至黎阳北岸，入将军蒋义渠营，将士渐渐聚集。冀州城邑多降曹操，袁绍陆续击定。袁绍杀田丰。此后袁绍“发病”，建安七年忧死。时间为推定。
+  confidence: documented
+  units: [yuan-main]
+  sources: [sgz-yuanshao, zztj]
+- id: battle-cangting
+  t: 0201-06
+  pos: [115.7858, 36.1143]
+  kind: battle
+  title: 仓亭之战
+  body: 建安六年夏四月，曹操扬兵河上，击袁绍仓亭军，破之。袁绍归，复收散卒，攻定诸叛郡县。事件见于《三国志·武帝纪》，仓亭的具体位置有争议（山东阳谷一带等说），此处位置仅为示意。（农历建安六年四月，折算见来源 cal-sxtwl）
+  confidence: conjectural
+  sources: [sgz-wudi]

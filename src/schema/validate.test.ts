@@ -11,6 +11,11 @@ describe('schema', () => {
     const c = makeCampaign()
     expect(c.defaultHoursPerSecond).toBe(24)
     expect(c.units[0]!.kind).toBe('infantry')
+    // 时间尺度相关的默认值保持四渡赤水（以天计）的行为
+    expect(c.displayPrecision).toBe('day')
+    expect(c.stepDays).toBe(1)
+    expect(c.trailDays).toBe(3)
+    expect(c.lingerDays).toBe(1)
   })
 
   it('拒绝非法时间、颜色、id', () => {

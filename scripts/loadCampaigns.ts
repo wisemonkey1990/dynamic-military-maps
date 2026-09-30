@@ -86,6 +86,7 @@ export function summarize(c: Campaign) {
     title: c.title,
     subtitle: c.subtitle,
     period: c.period,
+    displayPrecision: c.displayPrecision,
     tags: c.tags,
     counts: { units: c.units.length, events: c.events.length, sources: c.sources.length },
   }

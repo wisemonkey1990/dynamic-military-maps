@@ -1,0 +1,280 @@
+# units.yaml — 官渡之战 数据草稿 v0（待审核，见 REVIEW.md）
+- id: cao-main
+  side: cao
+  name: 曹操军主力
+  short: 曹
+  kind: mixed
+  commander: 曹操
+  description: 曹操亲统的军队，屯官渡与袁绍相持。史书所载双方兵力（袁绍“十余万”、曹军“不满万”等）悬殊且有争议，裴松之已提出质疑，本页不采信具体数字。
+  track:
+    waypoints:
+      - t: 0200-01
+        pos: [114.0843, 34.7336]
+        confidence: documented
+        place: 官渡
+        note: 建安四年十二月，曹操军屯官渡。
+        sources: [sgz-wudi]
+      - t: 0200-02
+        pos: [117.874, 34.119]
+        confidence: approximate
+        place: 下邳
+        note: 五年正月，曹操东征刘备，破之，进拔下邳、降关羽。具体所在为示意。
+        sources: [sgz-wudi, zztj]
+      - t: 0200-03
+        pos: [114.0843, 34.7336]
+        confidence: approximate
+        place: 官渡
+        note: 东征后“公还官渡，绍卒不出”；返回的具体月份无载，在东征之后、袁绍二月进军之前。
+        sources: [sgz-wudi]
+      - t: 0200-05
+        pos: [114.6, 35.62]
+        confidence: approximate
+        place: 白马
+        note: 四月：北救白马，先至延津作渡河姿态，再兼行袭白马，后循河西撤至延津南阪，复还官渡；月内先后顺序见事件与箭头，具体日期无载。
+        sources: [sgz-wudi, zztj]
+      - t: 0200-06
+        pos: [114.0843, 34.7336]
+        confidence: approximate
+        place: 官渡
+        note: 延津之战后“公还军官渡”；返回时间只知在四月之后、八月之前。
+        sources: [sgz-wudi]
+      - t: 0200-09
+        pos: [114.0843, 34.7336]
+        confidence: documented
+        place: 官渡
+        note: 八月，袁绍连营稍前，曹操“亦分营与相当”。
+        sources: [sgz-wudi]
+      - t: 0200-10
+        pos: [114.0843, 34.7336]
+        confidence: documented
+        place: 官渡
+        note: 坚壁固守，与袁军隔营对峙。
+        sources: [sgz-wudi, zztj]
+      - t: 0200-11
+        pos: [114.2923, 35.1018]
+        confidence: approximate
+        place: 乌巢
+        note: 十月：曹操留曹洪、荀攸守营，亲率步骑五千夜袭乌巢，黎明到达。乌巢的确切地点有争议。
+        sources: [sgz-wudi, zztj]
+      - t: 0200-12
+        pos: [114.0843, 34.7336]
+        confidence: approximate
+        place: 官渡
+        note: 破乌巢后返回官渡（张郃、高览在曹操未回营时来降）；返回时间为推定。
+        sources: [sgz-yuanshao, zztj]
+  lifespan: { to: 0200-12 }
+  sources: [sgz-wudi, zztj, geo-wiki, geo-osm, geo-estimate, geo-wiki-guandu, cal-sxtwl]
+- id: cao-guandu-camp
+  side: cao
+  name: 官渡大营守军
+  short: 洪
+  kind: infantry
+  commander: 曹洪、荀攸
+  description: 曹操夜袭乌巢时留守大营的部队。
+  track:
+    waypoints:
+      - t: 0200-11
+        pos: [114.0843, 34.7336]
+        confidence: documented
+        place: 官渡大营
+        note: 曹操夜袭乌巢期间，由曹洪、荀攸留守官渡大营；袁绍以重兵攻营，“不能下”。
+        sources: [sgz-wudi, zztj]
+  lifespan: { from: 0200-11, to: 0200-12 }
+  sources: [sgz-wudi, zztj, geo-wiki, geo-osm, geo-estimate, geo-wiki-guandu, cal-sxtwl]
+- id: cao-vanguard
+  side: cao
+  name: 张辽、关羽前锋
+  short: 关
+  kind: cavalry
+  commander: 张辽、关羽
+  description: 白马之战中先登击杀颜良的前锋。仅在战斗当月标出。
+  track:
+    waypoints:
+      - t: 0200-05
+        pos: [114.6, 35.62]
+        confidence: documented
+        place: 白马
+        note: 张辽、关羽先登，关羽刺杀颜良于万众之中，白马围解。
+        sources: [sgz-wudi, zztj]
+  lifespan: { from: 0200-05, to: 0200-05 }
+  sources: [sgz-wudi, zztj, geo-wiki, geo-osm, geo-estimate, geo-wiki-guandu, cal-sxtwl]
+- id: cao-yujin
+  side: cao
+  name: 于禁部
+  short: 于
+  kind: infantry
+  commander: 于禁
+  description: 守延津、屯原武，在河岸一线袭扰袁军别营。月份为推定。
+  track:
+    waypoints:
+      - t: 0200-05
+        pos: [114.1946, 35.1491]
+        confidence: reconstructed
+        place: 延津
+        note: 曹操使于禁率步卒二千守延津以拒袁绍；时间据《于禁传》叙事顺序推定。
+        sources: [sgz-yujin]
+      - t: 0200-07
+        pos: [113.7793, 34.9991]
+        confidence: approximate
+        place: 原武
+        note: 于禁别将屯原武，袭破袁军别营于杜氏津；具体月份无载，置于四月之后、八月之前。
+        sources: [sgz-yujin]
+  lifespan: { from: 0200-05, to: 0200-08 }
+  sources: [sgz-yujin, geo-wiki, geo-osm, geo-estimate, geo-wiki-guandu, cal-sxtwl]
+- id: yuan-main
+  side: yuan
+  name: 袁绍军主力
+  short: 袁
+  kind: mixed
+  commander: 袁绍
+  description: 袁绍统率的冀、青、幽、并四州之军。田丰、沮授等主张持久之策，未被采纳。
+  track:
+    waypoints:
+      - t: 0200-03
+        pos: [114.5678, 35.6794]
+        confidence: documented
+        place: 黎阳
+        note: 二月，袁绍进军黎阳，将渡河。
+        sources: [sgz-wudi, zztj]
+      - t: 0200-05
+        pos: [114.1946, 35.1491]
+        confidence: reconstructed
+        place: 延津南
+        note: 白马失利后，袁绍渡河追击，至延津南。
+        sources: [sgz-wudi, zztj]
+      - t: 0200-06
+        pos: [113.99, 34.99]
+        confidence: approximate
+        place: 阳武
+        note: 延津之战后“绍进保阳武”；时间只知在四月之后、八月之前。
+        sources: [sgz-wudi, sgz-yuanshao]
+      - t: 0200-09
+        pos: [114.0843, 34.7336]
+        confidence: reconstructed
+        place: 官渡北
+        note: 八月，连营稍前，依沙堆为屯，东西数十里，进逼官渡。营垒在官渡以北，此处取官渡为示意。
+        sources: [sgz-wudi, zztj]
+      - t: 0200-10
+        pos: [114.0843, 34.7336]
+        confidence: reconstructed
+        place: 官渡北
+        note: 筑高橹、起土山，掘地道攻曹营；与曹军相持。
+        sources: [sgz-wudi, zztj]
+      - t: 0200-11
+        pos: [114.0843, 34.7336]
+        confidence: reconstructed
+        place: 官渡北
+        note: 十月：乌巢失守、张郃高览来降，袁军大溃；此时主力仍在官渡北。
+        sources: [sgz-yuanshao, zztj]
+      - t: 0200-12
+        pos: [114.5678, 35.6794]
+        confidence: documented
+        place: 黎阳北岸
+        note: 乌巢失守后大溃，与袁谭渡河北逃，走至黎阳北岸，入将军蒋义渠营。
+        sources: [sgz-yuanshao, zztj]
+  sources: [sgz-wudi, zztj, geo-wiki, geo-osm, geo-estimate, geo-wiki-guandu, cal-sxtwl]
+- id: yuan-yanliang
+  side: yuan
+  name: 颜良部
+  short: 颜
+  kind: cavalry
+  commander: 颜良
+  description: 袁绍先锋，围攻白马。沮授曾谏“良性促狭，不可独任”。
+  track:
+    waypoints:
+      - t: 0200-03
+        pos: [114.6, 35.62]
+        confidence: documented
+        place: 白马
+        note: 二月，袁绍遣颜良等攻东郡太守刘延于白马；位置为示意。
+        sources: [sgz-wudi, zztj]
+      - t: 0200-05
+        pos: [114.6, 35.62]
+        confidence: documented
+        place: 白马
+        note: 四月，被关羽刺杀，白马之围解。
+        sources: [sgz-wudi, zztj]
+  lifespan: { from: 0200-03, to: 0200-05 }
+  sources: [sgz-wudi, zztj, geo-wiki, geo-osm, geo-estimate, geo-wiki-guandu, cal-sxtwl]
+- id: yuan-wenchou
+  side: yuan
+  name: 文丑骑兵
+  short: 文
+  kind: cavalry
+  commander: 文丑（与刘备同至）
+  description: 延津南追击曹军的骑兵。仅在战斗当月标出。
+  track:
+    waypoints:
+      - t: 0200-05
+        pos: [114.1946, 35.1491]
+        confidence: reconstructed
+        place: 延津南
+        note: 文丑与刘备率五六千骑前后赶到，被曹军击破，文丑被斩。
+        sources: [sgz-wudi, zztj]
+  lifespan: { from: 0200-05, to: 0200-05 }
+  sources: [sgz-wudi, zztj, geo-wiki, geo-osm, geo-estimate, geo-wiki-guandu, cal-sxtwl]
+- id: yuan-chunyuqiong
+  side: yuan
+  name: 淳于琼运粮部队
+  short: 琼
+  kind: infantry
+  commander: 淳于琼
+  description: 护送粮车的万余人，屯乌巢。仅在战斗当月标出。
+  track:
+    waypoints:
+      - t: 0200-11
+        pos: [114.2923, 35.1018]
+        confidence: approximate
+        place: 乌巢
+        note: 十月，袁绍遣淳于琼等将兵万余人护送粮车，宿于袁营北四十里的乌巢；被曹操夜袭击破。
+        sources: [sgz-wudi, sgz-yuanshao, zztj]
+  lifespan: { from: 0200-11, to: 0200-11 }
+  sources:
+    [sgz-wudi, sgz-yuanshao, zztj, geo-wiki, geo-osm, geo-estimate, geo-wiki-guandu, cal-sxtwl]
+- id: liu-bei
+  side: liu
+  name: 刘备
+  short: 刘
+  kind: mixed
+  commander: 刘备
+  description: 先败于曹操，投奔袁绍；先后参与延津之战和汝南的牵制行动。关羽在白马之战后离曹归刘。
+  track:
+    waypoints:
+      - t: 0200-02
+        pos: [116.9311, 34.7617]
+        confidence: approximate
+        place: 沛
+        note: 建安四年刘备杀徐州刺史车胄，举兵屯沛；五年正月被曹操击破，奔袁绍。所在为示意。
+        sources: [sgz-wudi, zztj]
+      - t: 0200-03
+        pos: [114.5976, 36.3342]
+        confidence: approximate
+        place: 邺
+        note: 袁绍出邺二百里迎接刘备，同驻月余；具体地点无考，取邺为示意。
+        sources: [zztj]
+      - t: 0200-05
+        pos: [114.1946, 35.1491]
+        confidence: reconstructed
+        place: 延津南
+        note: 与文丑率五六千骑前后赶到延津南，被曹军击破。
+        sources: [sgz-wudi, zztj]
+      - t: 0200-08
+        pos: [114.3434, 33.0059]
+        confidence: documented
+        place: 汝南
+        note: 七月，汝南刘辟叛曹应袁绍，袁绍遣刘备助之；被曹仁击破。
+        sources: [sgz-wudi, zztj]
+      - t: 0200-09
+        pos: [114.0843, 34.7336]
+        confidence: approximate
+        place: 官渡北
+        note: 败走，还袁绍军；位置取官渡为示意。
+        sources: [zztj]
+      - t: 0200-10
+        pos: [114.3434, 33.0059]
+        confidence: approximate
+        place: 汝南
+        note: 后袁绍遣刘备将本兵复至汝南，与龚都等合，众数千人。
+        sources: [zztj]
+  lifespan: { from: 0200-02, to: 0200-10 }
+  sources: [sgz-wudi, zztj, geo-wiki, geo-osm, geo-estimate, geo-wiki-guandu, cal-sxtwl]

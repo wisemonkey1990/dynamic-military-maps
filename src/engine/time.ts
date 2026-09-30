@@ -126,7 +126,8 @@ export function toHistTime(ms: number): string {
 export function formatHistTimeZh(ms: number, precision: TimePrecision = 'day'): string {
   const d = new Date(ms)
   const y = d.getUTCFullYear()
-  const year = y <= 0 ? `公元前${1 - y}年` : `${y}年`
+  // 古代年份加“公元”，避免 “200年” 被误读成别的意思
+  const year = y <= 0 ? `公元前${1 - y}年` : y < 1000 ? `公元${y}年` : `${y}年`
   if (precision === 'year') return year
   const month = `${d.getUTCMonth() + 1}月`
   if (precision === 'month' || precision === 'season') return `${year}${month}`

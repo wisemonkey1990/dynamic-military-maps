@@ -86,3 +86,19 @@ describe('formatHistTimeShortZh', () => {
     expect(formatHistTimeShortZh(ms, 'year')).toBe('1944年')
   })
 })
+
+describe('古代年份的显示', () => {
+  it('公元 1000 年以前加“公元”前缀，1000 年以后不加，公元前不变', () => {
+    expect(formatHistTimeZh(parseHistTime('0200-05').start, 'month')).toBe('公元200年5月')
+    expect(formatHistTimeZh(parseHistTime('0200-05-16').start, 'day')).toBe('公元200年5月16日')
+    expect(formatHistTimeZh(parseHistTime('1935-01').start, 'month')).toBe('1935年1月')
+    expect(formatHistTimeZh(parseHistTime('-0215-08-02').start, 'day')).toBe('公元前216年8月2日')
+  })
+
+  it('月精度的时间点区间是整月，中点在月中', () => {
+    const s = parseHistTime('0200-05')
+    expect(s.precision).toBe('month')
+    expect(new Date(s.start).toISOString().slice(0, 10)).toBe('0200-05-01')
+    expect(new Date(s.end).toISOString().slice(0, 10)).toBe('0200-06-01')
+  })
+})

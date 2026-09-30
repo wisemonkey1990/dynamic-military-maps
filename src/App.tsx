@@ -14,6 +14,7 @@ interface CampaignSummary {
   title: Localized
   subtitle?: Localized
   period: { start: string; end: string }
+  displayPrecision: 'day' | 'month'
   counts: { units: number; events: number; sources: number }
 }
 
@@ -23,8 +24,12 @@ const STATUS_LABEL: Record<CampaignSummary['status'], string> = {
   published: '已发布',
 }
 
-function periodLabel({ start, end }: CampaignSummary['period']): string {
-  return `${formatHistTimeZh(parseHistTime(start).start)} — ${formatHistTimeZh(parseHistTime(end).start)}`
+function periodLabel(
+  { start, end }: CampaignSummary['period'],
+  precision: 'day' | 'month',
+): string {
+  const fmt = (iso: string) => formatHistTimeZh(parseHistTime(iso).start, precision)
+  return `${fmt(start)} — ${fmt(end)}`
 }
 
 /** hash 路由：#/ 首页；#/c/<战役id>?t=<历史时间> 战役页。静态托管下刷新不会 404 */
@@ -100,7 +105,8 @@ function Home() {
                 <h3>{text(c.title)}</h3>
                 {c.subtitle && <p>{text(c.subtitle)}</p>}
                 <p className="meta">
-                  {periodLabel(c.period)} · {c.counts.units} 支部队 · {c.counts.events} 个事件
+                  {periodLabel(c.period, c.displayPrecision)} · {c.counts.units} 支部队 ·{' '}
+                  {c.counts.events} 个事件
                 </p>
               </a>
             </li>

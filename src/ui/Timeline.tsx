@@ -27,6 +27,9 @@ export function Timeline({
   onSpeed,
 }: Props) {
   const { tStart, tEnd } = compiled
+  const { displayPrecision, stepDays } = compiled.campaign
+  const stepMs = stepDays * DAY
+  const stepLabel = stepDays === 1 ? '一天' : stepDays === 30 ? '一个月' : `${stepDays}天`
   const span = tEnd - tStart
   const pct = (ms: number) => `${(((ms - tStart) / span) * 100).toFixed(3)}%`
   const chapter = compiled.chapters.find((c) => c.chapter.id === chapterId)?.chapter
@@ -39,9 +42,9 @@ export function Timeline({
         </button>
         <button
           type="button"
-          onClick={() => onSeek(t - DAY)}
-          aria-label="后退一天"
-          title="后退一天（←）"
+          onClick={() => onSeek(t - stepMs)}
+          aria-label={`后退${stepLabel}`}
+          title={`后退${stepLabel}（←）`}
         >
           ◀
         </button>
@@ -56,9 +59,9 @@ export function Timeline({
         </button>
         <button
           type="button"
-          onClick={() => onSeek(t + DAY)}
-          aria-label="前进一天"
-          title="前进一天（→）"
+          onClick={() => onSeek(t + stepMs)}
+          aria-label={`前进${stepLabel}`}
+          title={`前进${stepLabel}（→）`}
         >
           ▶
         </button>
@@ -76,7 +79,7 @@ export function Timeline({
 
       <div className="scrub">
         <div className="scrub-readout">
-          <strong>{formatHistTimeZh(t, 'day')}</strong>
+          <strong>{formatHistTimeZh(t, displayPrecision)}</strong>
           {chapter && <span className="chapter-name">{text(chapter.title)}</span>}
         </div>
         <div className="scrub-track">
@@ -109,7 +112,7 @@ export function Timeline({
             value={Math.round(((t - tStart) / span) * 1000)}
             onChange={(e) => onSeek(tStart + (Number(e.target.value) / 1000) * span)}
             aria-label="时间轴"
-            aria-valuetext={formatHistTimeZh(t, 'day')}
+            aria-valuetext={formatHistTimeZh(t, displayPrecision)}
           />
         </div>
       </div>

@@ -200,10 +200,20 @@ export const CampaignMeta = z.object({
   title: Localized,
   subtitle: Localized.optional(),
   summary: Localized,
+  /** 地图上方常驻的提示（可关闭），用来说明底图与史实不符之处，如古今河道不同 */
+  mapNote: Localized.optional(),
   period: z.object({ start: HistTime, end: HistTime }),
   /** 战场范围 [西, 南, 东, 北]，用于校验坐标与初始视野 */
   bbox: z.tuple([z.number(), z.number(), z.number(), z.number()]),
   defaultHoursPerSecond: z.number().positive().default(24),
+  /** 时间读数的精度：史料只到“月”的战役用 month，界面就不会显示编造出来的“日” */
+  displayPrecision: z.enum(['day', 'month']).default('day'),
+  /** 时间轴“前进/后退一步”的天数 */
+  stepDays: z.number().positive().default(1),
+  /** 部队尾迹的长度（天）；应与战役的时间尺度匹配 */
+  trailDays: z.number().positive().default(3),
+  /** 箭头画完后继续显示的天数，也是事件最短停留时长（半个该值）的基数 */
+  lingerDays: z.number().positive().default(1),
   camera: z.object({ center: LngLat, zoom: z.number().min(0).max(22) }),
   sides: z.array(Side).min(1),
   chapters: z.array(Chapter).default([]),

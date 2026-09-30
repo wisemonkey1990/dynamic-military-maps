@@ -138,6 +138,64 @@ test('无效的分享参数被忽略，页面照常打开', async ({ page, error
   await expect(page.getByRole('complementary', { name: '详情' })).toBeHidden()
 })
 
+test.describe('官渡之战（月精度、古今河道不同）', () => {
+  const GUANDU = '/#/c/guandu-200'
+
+  test('时间读数按月显示，前进/后退按一个月', async ({ page, errors }) => {
+    void errors
+    await page.goto(`${GUANDU}?t=0200-05-16T00:00`)
+    await expect(page.locator('.unit-marker:visible').first()).toBeVisible()
+    await expect(readout(page)).toHaveText('公元200年5月') // 不显示编造出来的“日”
+    await page.getByRole('button', { name: '前进一个月' }).click()
+    await expect(readout(page)).toHaveText('公元200年6月')
+    await page.getByRole('button', { name: '后退一个月' }).click()
+    await expect(readout(page)).toHaveText('公元200年5月')
+  })
+
+  test('底图提示说明古今黄河不同，可关闭；四渡赤水没有这条提示', async ({ page, errors }) => {
+    void errors
+    await page.goto(`${GUANDU}?t=0200-11-16T00:00`)
+    const note = page.getByRole('note')
+    await expect(note).toContainText('黄河')
+    await page.getByRole('button', { name: '关闭底图提示' }).click()
+    await expect(note).toBeHidden()
+
+    await page.goto(`${CAMPAIGN}?t=1935-02-25T12:00`)
+    await expect(page.locator('.unit-marker:visible').first()).toBeVisible()
+    await expect(page.getByRole('note')).toHaveCount(0)
+  })
+
+  test('同一地点的多个事件圆点不会叠在一起', async ({ page, errors }) => {
+    void errors
+    await page.goto(`${GUANDU}?t=0200-11-16T00:00`)
+    await expect(page.locator('.unit-marker:visible').first()).toBeVisible()
+    await page.waitForTimeout(800)
+    const minGap = await page.evaluate(() => {
+      const pts = [...document.querySelectorAll<HTMLElement>('.event-marker:not([hidden])')].map(
+        (el) => {
+          const r = el.getBoundingClientRect()
+          return [r.x + r.width / 2, r.y + r.height / 2] as const
+        },
+      )
+      let min = Infinity
+      for (let i = 0; i < pts.length; i++)
+        for (let j = i + 1; j < pts.length; j++)
+          min = Math.min(min, Math.hypot(pts[i]![0] - pts[j]![0], pts[i]![1] - pts[j]![1]))
+      return { count: pts.length, min }
+    })
+    expect(minGap.count).toBeGreaterThan(8) // 官渡一带累计了十多个事件
+    expect(minGap.min).toBeGreaterThan(8)
+  })
+
+  test('首页卡片按月精度显示起止时间', async ({ page, errors }) => {
+    void errors
+    await page.goto('/')
+    const card = page.getByRole('link', { name: /官渡之战/ })
+    await expect(card).toContainText('公元200年1月')
+    await expect(card).not.toContainText('1月1日')
+  })
+})
+
 test.describe('复制链接', () => {
   test.use({ permissions: ['clipboard-read', 'clipboard-write'] })
 
