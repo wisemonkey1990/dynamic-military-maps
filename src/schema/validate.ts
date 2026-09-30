@@ -16,6 +16,7 @@ const SPEED_WARN_KM_PER_DAY: Record<Unit['kind'], number> = {
   artillery: 80,
   headquarters: 100,
   mixed: 100,
+  airborne: 12000,
   fleet: 700,
   other: 300,
 }

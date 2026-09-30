@@ -1,0 +1,160 @@
+# arrows.yaml — 诺曼底登陆 数据草稿 v0（待审核，见 REVIEW.md）
+- id: arrow-tonga-gliders
+  side: uk
+  kind: advance
+  from: 1944-06-05T22:56
+  to: 1944-06-06T00:16
+  path:
+    - [-2.0905, 50.8522]
+    - [-0.2744, 49.2422]
+  label: 滑翔机突击：夺取飞马桥
+  confidence: approximate
+  sources: [wp-tonga, wp-pegasus, geo-estimate, cal-timezone]
+- id: arrow-us-drop
+  side: us
+  kind: advance
+  from: 1944-06-06T00:15
+  to: 1944-06-06T02:30
+  path:
+    - [-1.85, 49.4]
+    - [-1.34, 49.405]
+    - [-1.1764, 49.4181]
+  label: 美军机群自西向东飞越半岛
+  confidence: approximate
+  sources: [wp-landings, geo-estimate, cal-timezone]
+- id: arrow-utah
+  side: us
+  kind: advance
+  from: 1944-06-06T06:00
+  to: 1944-06-06T09:00
+  path:
+    - [-1.17, 49.52]
+    - [-1.1764, 49.4181]
+    - [-1.19, 49.395]
+  label: 犹他登陆
+  confidence: approximate
+  sources: [wp-utah, wp-landings, geo-estimate, cal-timezone]
+- id: arrow-omaha-west
+  side: us
+  kind: advance
+  from: 1944-06-06T06:00
+  to: 1944-06-06T09:00
+  path:
+    - [-0.87, 49.46]
+    - [-0.888, 49.3715]
+    - [-0.9041, 49.3745]
+  label: 奥马哈西段登陆
+  confidence: approximate
+  sources: [wp-omaha, wp-landings, geo-estimate, cal-timezone]
+- id: arrow-omaha-east
+  side: us
+  kind: advance
+  from: 1944-06-06T06:00
+  to: 1944-06-06T12:00
+  path:
+    - [-0.87, 49.46]
+    - [-0.85, 49.369]
+    - [-0.848, 49.362]
+  label: 奥马哈东段登陆
+  confidence: approximate
+  sources: [wp-omaha, wp-landings, geo-estimate, cal-timezone]
+- id: arrow-pointe
+  side: us
+  kind: advance
+  from: 1944-06-06T05:45
+  to: 1944-06-06T07:10
+  path:
+    - [-0.985, 49.428]
+    - [-0.9889, 49.3958]
+  label: 游骑兵攀登角点
+  confidence: approximate
+  sources: [wp-pointe, geo-estimate, cal-timezone]
+- id: arrow-gold
+  side: uk
+  kind: advance
+  from: 1944-06-06T06:55
+  to: 1944-06-06T07:25
+  path:
+    - [-0.57, 49.43]
+    - [-0.5717, 49.3453]
+  label: 金滩登陆
+  confidence: approximate
+  sources: [wp-gold, wp-landings, geo-estimate, cal-timezone]
+- id: arrow-juno
+  side: ca
+  kind: advance
+  from: 1944-06-06T07:05
+  to: 1944-06-06T07:35
+  path:
+    - [-0.42, 49.43]
+    - [-0.4153, 49.3353]
+  label: 朱诺登陆
+  confidence: approximate
+  sources: [wp-juno, wp-landings, geo-estimate, cal-timezone]
+- id: arrow-sword
+  side: uk
+  kind: advance
+  from: 1944-06-06T07:00
+  to: 1944-06-06T07:30
+  path:
+    - [-0.32, 49.41]
+    - [-0.3211, 49.3064]
+  label: 剑滩登陆
+  confidence: approximate
+  sources: [wp-sword, wp-landings, geo-estimate, cal-timezone]
+- id: arrow-commandos
+  side: uk
+  kind: advance
+  from: 1944-06-06T08:00
+  to: 1944-06-06T13:00
+  path:
+    - [-0.3211, 49.3064]
+    - [-0.2744, 49.2422]
+  label: 突击队赶往奥恩河桥
+  confidence: approximate
+  sources: [wp-sword, wp-landings, geo-estimate, cal-timezone]
+- id: arrow-canadian
+  side: ca
+  kind: advance
+  from: 1944-06-06T07:35
+  to: 1944-06-06T18:00
+  path:
+    - [-0.4153, 49.3353]
+    - [-0.445, 49.215]
+  label: 加军向卡尔皮凯推进
+  confidence: approximate
+  sources: [wp-juno, geo-estimate, cal-timezone]
+- id: arrow-21pz
+  side: de
+  kind: advance
+  from: 1944-06-06T16:00
+  to: 1944-06-06T20:00
+  path:
+    - [-0.365, 49.245]
+    - [-0.3155, 49.3006]
+  label: 第 21 装甲师反击
+  confidence: approximate
+  sources: [wp-landings, wp-sword, geo-estimate, cal-timezone]
+- id: arrow-bayeux
+  side: uk
+  kind: advance
+  from: 1944-06-06T07:25
+  to: '1944-06-07'
+  path:
+    - [-0.5717, 49.3453]
+    - [-0.7028, 49.2794]
+  label: 向巴约推进
+  confidence: approximate
+  sources: [wp-gold, wp-bayeux, geo-estimate, cal-timezone]
+- id: arrow-carentan
+  side: us
+  kind: advance
+  from: '1944-06-10'
+  to: '1944-06-12'
+  path:
+    - [-1.2742, 49.3355]
+    - [-1.262, 49.32]
+    - [-1.2494, 49.305]
+  label: 沿堤道进攻卡朗唐
+  confidence: approximate
+  sources: [wp-carentan, geo-estimate, cal-timezone]

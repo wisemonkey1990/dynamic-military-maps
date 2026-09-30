@@ -21,6 +21,7 @@ export const UNIT_KIND_LABEL: Record<Unit['kind'], string> = {
   artillery: '炮兵',
   headquarters: '指挥机关',
   mixed: '混合兵种',
+  airborne: '空降部队',
   fleet: '舰队',
   other: '其他',
 }
@@ -31,5 +32,7 @@ export const EVENT_KIND_LABEL: Record<string, string> = {
   conference: '会议',
   occupation: '占领',
   march: '行军',
+  landing: '登陆',
+  airdrop: '空降',
   other: '其他',
 }

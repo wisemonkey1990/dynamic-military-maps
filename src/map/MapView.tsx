@@ -302,6 +302,17 @@ export function MapView({
         })
       const offsets = spreadOffsets(pts)
       for (const [id, m] of unitMarkers.current) m.setOffset(offsets.get(id) ?? [0, 0])
+      // 同一地点的多个事件圆点也散开，避免互相盖住（月精度战役里一个地点常有好几个事件）
+      const eventPts = snapshotRef.current.events
+        .filter((e) => e.phase !== 'upcoming')
+        .flatMap((e) => {
+          const m = eventMarkers.current.get(e.id)
+          if (!m) return []
+          const p = map.project(m.getLngLat())
+          return [{ id: e.id, x: p.x, y: p.y }]
+        })
+      const eventOffsets = spreadOffsets(eventPts, 20)
+      for (const [id, m] of eventMarkers.current) m.setOffset(eventOffsets.get(id) ?? [0, 0])
     }
     layout()
     map.on('zoom', layout)

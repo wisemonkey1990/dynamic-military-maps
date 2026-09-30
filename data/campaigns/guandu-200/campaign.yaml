@@ -1,0 +1,82 @@
+# campaign.yaml — 官渡之战 数据草稿 v0（待审核，见 REVIEW.md）
+id: guandu-200
+schemaVersion: 1
+status: draft
+title: { zh: 官渡之战, en: Battle of Guandu }
+subtitle:
+  {
+    zh: 公元 200 年（建安五年），曹操与袁绍在黄河南北的决战,
+    en: 'Cao Cao versus Yuan Shao along the Yellow River, AD 200',
+  }
+summary: 东汉末年，袁绍兼并公孙瓒后拥有冀、青、幽、并四州，决心南攻曹操所在的许都。建安五年，曹操先东征刘备，随后在白马、延津以声东击西击杀袁军两员大将，又在官渡与袁军相持数月，最终亲率五千人夜袭乌巢、焚尽袁军粮谷，袁军大溃，袁绍渡河北逃，北方的力量对比从此改变。注意：史料只记到“月”，且用农历，页面上的时间均为月精度；东汉时黄河的河道在今道以北，经浚县、滑县一带，而底图上的黄河是今天的河道，仅作地形参照。本页数据为草稿，待审核。
+mapNote: 底图上的黄河是今天的河道，仅作地形参照。东汉时的黄河在其以北（经今浚县、滑县一带）：黎阳在北岸，白马、延津、官渡都在南岸，所以图中箭头与今日河道的位置关系，不能当作当时的渡河路线。
+period: { start: 0200-01, end: 0201-06 }
+bbox: [112.6, 32.7, 118.3, 37.0]
+defaultHoursPerSecond: 168
+displayPrecision: month
+stepDays: 30
+trailDays: 45
+lingerDays: 20
+camera:
+  center: [114.6, 35.0]
+  zoom: 7.2
+tags: [中国, 东汉末年, 三国, 公元200年]
+sides:
+  - id: cao
+    name: { zh: 曹操军, en: Cao Cao's army }
+    color: '#1f4e9c'
+    icon: square
+  - id: yuan
+    name: { zh: 袁绍军, en: Yuan Shao's army }
+    color: '#c46200'
+    icon: diamond
+  - id: liu
+    name: { zh: 刘备, en: Liu Bei }
+    color: '#2a8f7f'
+    icon: triangle
+chapters:
+  - id: ch1-prelude
+    title: 战前：屯官渡，东征刘备
+    start: 0200-01
+    end: 0200-02
+    hoursPerSecond: 240
+    narration: 袁绍并公孙瓒，兼有四州，欲南攻许。曹操屯兵官渡，先东征刘备，刘备奔袁绍。
+    camera:
+      center: [115.6, 34.5]
+      zoom: 7.5
+  - id: ch2-baima-yanjin
+    title: 白马、延津：声东击西
+    start: 0200-03
+    end: 0200-05
+    hoursPerSecond: 120
+    narration: 袁绍进军黎阳，遣颜良围白马。曹操用荀攸计，佯渡延津，兼行奔袭白马，关羽斩颜良；延津南又以辎重诱敌，斩文丑。
+    camera:
+      center: [114.4, 35.35]
+      zoom: 9
+  - id: ch3-standoff
+    title: 官渡相持
+    start: 0200-06
+    end: 0200-10
+    hoursPerSecond: 168
+    narration: 双方在官渡对峙数月：袁军筑土山、挖地道，曹军造霹雳车、挖长堑；曹军粮尽，几欲退还，荀彧劝坚守。
+    camera:
+      center: [114.1, 34.9]
+      zoom: 9.5
+  - id: ch4-wuchao
+    title: 乌巢：夜袭焚粮
+    start: 0200-11
+    end: 0200-11
+    hoursPerSecond: 72
+    narration: 许攸叛袁投曹，献策袭乌巢。曹操亲率五千人夜袭，焚尽袁军粮谷；张郃、高览来降，袁军大溃。
+    camera:
+      center: [114.2, 34.93]
+      zoom: 9.5
+  - id: ch5-aftermath
+    title: 战后：袁军溃退
+    start: 0200-12
+    end: 0201-06
+    hoursPerSecond: 240
+    narration: 袁绍退至黎阳北岸，冀州城邑多降曹操；次年曹操又击破袁绍仓亭军。袁绍于建安七年忧死。
+    camera:
+      center: [114.7, 35.6]
+      zoom: 8.5

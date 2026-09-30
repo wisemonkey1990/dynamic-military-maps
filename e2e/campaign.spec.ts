@@ -138,6 +138,122 @@ test('无效的分享参数被忽略，页面照常打开', async ({ page, error
   await expect(page.getByRole('complementary', { name: '详情' })).toBeHidden()
 })
 
+test.describe('官渡之战（月精度、古今河道不同）', () => {
+  const GUANDU = '/#/c/guandu-200'
+
+  test('时间读数按月显示，前进/后退按一个月', async ({ page, errors }) => {
+    void errors
+    await page.goto(`${GUANDU}?t=0200-05-16T00:00`)
+    await expect(page.locator('.unit-marker:visible').first()).toBeVisible()
+    await expect(readout(page)).toHaveText('公元200年5月') // 不显示编造出来的“日”
+    await page.getByRole('button', { name: '前进一个月' }).click()
+    await expect(readout(page)).toHaveText('公元200年6月')
+    await page.getByRole('button', { name: '后退一个月' }).click()
+    await expect(readout(page)).toHaveText('公元200年5月')
+  })
+
+  test('底图提示说明古今黄河不同，可关闭；四渡赤水没有这条提示', async ({ page, errors }) => {
+    void errors
+    await page.goto(`${GUANDU}?t=0200-11-16T00:00`)
+    const note = page.getByRole('note')
+    await expect(note).toContainText('黄河')
+    await page.getByRole('button', { name: '关闭底图提示' }).click()
+    await expect(note).toBeHidden()
+
+    await page.goto(`${CAMPAIGN}?t=1935-02-25T12:00`)
+    await expect(page.locator('.unit-marker:visible').first()).toBeVisible()
+    await expect(page.getByRole('note')).toHaveCount(0)
+  })
+
+  test('同一地点的多个事件圆点不会叠在一起', async ({ page, errors }) => {
+    void errors
+    await page.goto(`${GUANDU}?t=0200-11-16T00:00`)
+    await expect(page.locator('.unit-marker:visible').first()).toBeVisible()
+    await page.waitForTimeout(800)
+    const minGap = await page.evaluate(() => {
+      const pts = [...document.querySelectorAll<HTMLElement>('.event-marker:not([hidden])')].map(
+        (el) => {
+          const r = el.getBoundingClientRect()
+          return [r.x + r.width / 2, r.y + r.height / 2] as const
+        },
+      )
+      let min = Infinity
+      for (let i = 0; i < pts.length; i++)
+        for (let j = i + 1; j < pts.length; j++)
+          min = Math.min(min, Math.hypot(pts[i]![0] - pts[j]![0], pts[i]![1] - pts[j]![1]))
+      return { count: pts.length, min }
+    })
+    expect(minGap.count).toBeGreaterThan(8) // 官渡一带累计了十多个事件
+    expect(minGap.min).toBeGreaterThan(8)
+  })
+
+  test('首页卡片按月精度显示起止时间', async ({ page, errors }) => {
+    void errors
+    await page.goto('/')
+    const card = page.getByRole('link', { name: /官渡之战/ })
+    await expect(card).toContainText('公元200年1月')
+    await expect(card).not.toContainText('1月1日')
+  })
+})
+
+test.describe('诺曼底登陆（分钟读数、章节级时间尺度）', () => {
+  const NORMANDY = '/#/c/normandy-1944'
+  // 同一页面里只改 # 后面的 t= 参数不会重新加载页面（初始时刻只在页面打开时读取），
+  // 所以每次都先回到空白页，等价于用户在新标签页里打开分享链接
+  const open = async (page: Page, t: string) => {
+    await page.goto('about:blank')
+    await page.goto(`${NORMANDY}?t=${t}`)
+  }
+
+  test('D 日按分钟读数，步长随章节缩小', async ({ page, errors }) => {
+    void errors
+    await open(page, '1944-06-06T00:20')
+    await expect(readout(page)).toHaveText('1944年6月6日 00:20')
+    await page.getByRole('button', { name: '前进30分钟' }).click()
+    await expect(readout(page)).toHaveText('1944年6月6日 00:50')
+
+    await open(page, '1944-06-06T06:30')
+    await expect(readout(page)).toHaveText('1944年6月6日 06:30')
+    await page.getByRole('button', { name: '前进15分钟' }).click()
+    await expect(readout(page)).toHaveText('1944年6月6日 06:45')
+    await page.getByRole('button', { name: '后退15分钟' }).click()
+    await expect(readout(page)).toHaveText('1944年6月6日 06:30')
+  })
+
+  test('越过章节边界后读数改按天、步长改为一天', async ({ page, errors }) => {
+    void errors
+    await open(page, '1944-06-06T23:30')
+    await expect(readout(page)).toHaveText('1944年6月6日 23:30')
+    await page.getByRole('button', { name: '前进一小时' }).click()
+    // 00:30 已经在 6 月 7 日的章节里：只显示到日，不显示编造出来的钟点
+    await expect(readout(page)).toHaveText('1944年6月7日')
+    await page.getByRole('button', { name: '前进一天' }).click()
+    await expect(readout(page)).toHaveText('1944年6月8日')
+  })
+
+  test('部队只在有记载的时刻出现：滑翔机 22:56 起飞，首波 06:30 上岸', async ({ page, errors }) => {
+    void errors
+    await open(page, '1944-06-05T22:00')
+    await expect(page.locator('[data-unit="fleet-u"]')).toBeVisible()
+    await expect(page.locator('[data-unit="uk-ox-bucks"]')).toBeHidden()
+    await expect(page.locator('[data-unit="us-4th-div"]')).toBeHidden()
+    await open(page, '1944-06-06T00:20')
+    await expect(page.locator('[data-unit="uk-ox-bucks"]')).toBeVisible()
+    await open(page, '1944-06-06T06:30')
+    await expect(page.locator('[data-unit="us-4th-div"]')).toBeVisible()
+    await expect(page.locator('[data-unit="ca-3rd-div"]')).toBeHidden() // 朱诺 07:35 才登陆
+  })
+
+  test('首页卡片只列出起止日期，不显示钟点', async ({ page, errors }) => {
+    void errors
+    await page.goto('/')
+    const card = page.getByRole('link', { name: /诺曼底登陆/ })
+    await expect(card).toContainText('1944年6月5日')
+    await expect(card).toContainText('1944年6月12日')
+    await expect(card).not.toContainText('21:00')
+  })
+})
+
 test.describe('复制链接', () => {
   test.use({ permissions: ['clipboard-read', 'clipboard-write'] })
 

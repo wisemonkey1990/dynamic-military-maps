@@ -53,7 +53,7 @@ ISO 8601 扩展格式，一律当作**当时当地的墙上时钟**，引擎不�
   side: red
   name: 中革军委纵队
   short: 委 # 地图图标里显示的一字/二字简称，缺省取名称首字
-  kind: headquarters # infantry / cavalry / armor / artillery / headquarters / mixed / fleet / other
+  kind: headquarters # infantry / cavalry / armor / artillery / headquarters / mixed / airborne / fleet / other
   track:
     waypoints:
       - t: '1935-01-27'
@@ -75,7 +75,7 @@ ISO 8601 扩展格式，一律当作**当时当地的墙上时钟**，引擎不�
 
 ## 事件、箭头、区域、章节
 
-- `events`：`t`、`pos`、`kind`（battle / crossing / conference / occupation / march / other）、`title`、`body`；`until` 可选，缺省停留至少 12 小时（或其精度区间）。
+- `events`：`t`、`pos`、`kind`（battle / crossing / conference / occupation / march / landing / airdrop / other）、`title`、`body`；`until` 可选，缺省停留至少 12 小时（或其精度区间）。
 - `arrows`：`from`、`to`、`path`（折线）；从 `from` 起逐步画出，画完后再显示约一天。
 - `areas`：`keyframes: [{t, geometry}]`，`geometry` 为 GeoJSON `Polygon` / `MultiPolygon`，为 `null` 表示该区域消失；相邻快照之间阶跃切换（史料通常只有快照）。
 - `chapters`：`start`、`end`、`hoursPerSecond`（该章 1× 速度下每真实秒经过多少历史小时）、`camera`、`narration`。
@@ -92,7 +92,8 @@ ISO 8601 扩展格式，一律当作**当时当地的墙上时钟**，引擎不�
 已发布（`status: published`）的战役，`documented` / `reconstructed` 的数据缺来源会报 error；草稿阶段报 warning。
 
 约定：`id` 以 `geo-` 开头的来源是**坐标出处**（例如 `geo-osm`、`geo-wiki`、`geo-estimate`），
-地图详情面板会把它们单独折叠，史料来源排在前面。
+以 `cal-` 开头的是**历法折算依据**（例如 `cal-sxtwl`）。地图详情面板会把它们合并折叠为
+“坐标与日期折算”，史料来源排在前面。
 
 ## 分享链接
 
@@ -110,3 +111,50 @@ ISO 8601 扩展格式，一律当作**当时当地的墙上时钟**，引擎不�
 
 暂停时地址栏会自动更新；侧栏的“复制当前视图的链接”随时生成最新链接。
 格式不对、或 `s` 指向不存在的对象时，对应参数会被忽略，页面照常打开。
+
+## 时间尺度不同的战役
+
+四渡赤水的史料精确到日，官渡之战只到月，诺曼底 D 日要到分钟。战役元数据里有几个字段让界面按各自的尺度工作：
+
+| 字段               | 默认  | 作用                                                                                                  |
+| ------------------ | ----- | ----------------------------------------------------------------------------------------------------- |
+| `displayPrecision` | `day` | 时间读数的精度：`month` / `day` / `hour` / `minute`。`month` 时只显示到月，**不会显示编造出来的“日”** |
+| `stepDays`         | `1`   | 时间轴“前进/后退一步”的天数，可以是小数（官渡用 30，按钮显示“一个月”；`1/24` 是“一小时”）             |
+| `trailDays`        | `3`   | 部队尾迹长度（天）                                                                                    |
+| `lingerDays`       | `1`   | 箭头画完后的停留天数，也是事件最短停留时长的基数                                                      |
+| `mapNote`          | 无    | 地图上方常驻、可关闭的提示，用来说明底图与史实不符之处（如古今河道不同）                              |
+
+年份小于 1000 时界面会加“公元”前缀（如“公元200年5月”）。
+
+### 章节级覆盖：同一战役里切换尺度
+
+一个战役里的时间尺度也可以不同：诺曼底 D 日按分钟，D 日之后按天。每个章节可以写 `scale`，逐项覆盖上面四个字段（`displayPrecision`、`stepDays`、`trailDays`、`lingerDays`），没写的项沿用战役的设置：
+
+```yaml
+chapters:
+  - id: ch2-h-hour
+    title: H 时刻：五个滩头
+    start: 1944-06-06T05:45
+    end: 1944-06-06T13:59
+    hoursPerSecond: 0.15
+    scale:
+      displayPrecision: minute
+      stepDays: 0.0104166667 # 15 分钟 = 1/96 天
+      trailDays: 0.0416666667
+      lingerDays: 0.0625
+```
+
+时间轴读数、前进/后退按钮和键盘方向键、尾迹长度、箭头与事件的停留时长，都以“当前时刻所在章节”的尺度为准，越过章节边界时自动切换。
+事件的最短停留时长是 `lingerDays × 12 小时`（取事件开始时所在章节的值）；事件写了 `until` 时以 `until` 为准。
+写 `stepDays` 等小数时，YAML 里直接写小数（`1/96` 不是合法的 YAML 数字）。
+
+分钟级战役的时间戳要写到分钟（`1944-06-06T07:35`）；引擎不做时区换算，按条目原样记录，并把时区或钟点制式的疑点登记为一个 `cal-` 前缀的来源。
+
+## 农历与古代历法
+
+史料里的农历月份，请折算成公历月写进数据，并把原始说法写进 `note` 或事件说明里。做法参见 `data/campaigns/guandu-200`：
+
+- 用 `sxtwl`（寿星万年历）之类的工具算出每个农历月的初一，**取月中所在的公历月**。
+  注意不是简单的“农历月 + 1”：闰月的位置会让个别月份错位（建安六年四月是 201 年 6 月）。
+- 找一个有干支记载的日期（如日食）核对折算是否正确，并把方法登记为一个 `cal-` 前缀的来源。
+- 东汉实行四分历，与现代推算的朔日可能差几天；只用月精度时不受影响，但要在来源说明里写明。

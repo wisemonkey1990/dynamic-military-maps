@@ -1,4 +1,4 @@
-import { formatHistTimeZh, type CompiledCampaign } from '../engine'
+import { formatHistTimeZh, formatStepZh, timeSettingsAt, type CompiledCampaign } from '../engine'
 import { text } from '../schema/campaign'
 
 const SPEEDS = [0.5, 1, 2, 4]
@@ -27,6 +27,10 @@ export function Timeline({
   onSpeed,
 }: Props) {
   const { tStart, tEnd } = compiled
+  // 读数精度与步长随当前章节变化（如诺曼底：D 日按分钟，之后按天）
+  const { displayPrecision, stepDays } = timeSettingsAt(compiled, t)
+  const stepMs = stepDays * DAY
+  const stepLabel = formatStepZh(stepDays)
   const span = tEnd - tStart
   const pct = (ms: number) => `${(((ms - tStart) / span) * 100).toFixed(3)}%`
   const chapter = compiled.chapters.find((c) => c.chapter.id === chapterId)?.chapter
@@ -39,9 +43,9 @@ export function Timeline({
         </button>
         <button
           type="button"
-          onClick={() => onSeek(t - DAY)}
-          aria-label="后退一天"
-          title="后退一天（←）"
+          onClick={() => onSeek(t - stepMs)}
+          aria-label={`后退${stepLabel}`}
+          title={`后退${stepLabel}（←）`}
         >
           ◀
         </button>
@@ -56,9 +60,9 @@ export function Timeline({
         </button>
         <button
           type="button"
-          onClick={() => onSeek(t + DAY)}
-          aria-label="前进一天"
-          title="前进一天（→）"
+          onClick={() => onSeek(t + stepMs)}
+          aria-label={`前进${stepLabel}`}
+          title={`前进${stepLabel}（→）`}
         >
           ▶
         </button>
@@ -76,7 +80,7 @@ export function Timeline({
 
       <div className="scrub">
         <div className="scrub-readout">
-          <strong>{formatHistTimeZh(t, 'day')}</strong>
+          <strong>{formatHistTimeZh(t, displayPrecision)}</strong>
           {chapter && <span className="chapter-name">{text(chapter.title)}</span>}
         </div>
         <div className="scrub-track">
@@ -109,7 +113,7 @@ export function Timeline({
             value={Math.round(((t - tStart) / span) * 1000)}
             onChange={(e) => onSeek(tStart + (Number(e.target.value) / 1000) * span)}
             aria-label="时间轴"
-            aria-valuetext={formatHistTimeZh(t, 'day')}
+            aria-valuetext={formatHistTimeZh(t, displayPrecision)}
           />
         </div>
       </div>

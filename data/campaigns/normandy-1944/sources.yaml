@@ -1,0 +1,138 @@
+# sources.yaml — 诺曼底登陆 数据草稿 v0（待审核，见 REVIEW.md）
+- {
+    id: wp-landings,
+    kind: reference,
+    citation: 维基百科（英文）「Normandy landings」条目，2026 年 9 月访问。,
+    url: 'https://en.wikipedia.org/wiki/Normandy_landings',
+    license: CC BY-SA 4.0（条目文字）；本数据只引用其中的事实，不照搬原文,
+    note:
+      综述条目，D 日总体时间线（空降、炮击、各滩头、德军反应、后续）主要取自这里。官方战史（美国陆军军事历史中心的《Utah
+      Beach to Cherbourg》《Omaha Beachhead》等）在本次起草时无法访问，尚未核对。,
+  }
+- {
+    id: wp-utah,
+    kind: reference,
+    citation: 维基百科（英文）「Utah Beach」条目，2026 年 9 月访问。,
+    url: 'https://en.wikipedia.org/wiki/Utah_Beach',
+    license: CC BY-SA 4.0（条目文字）；本数据只引用其中的事实，不照搬原文,
+  }
+- {
+    id: wp-omaha,
+    kind: reference,
+    citation: 维基百科（英文）「Omaha Beach」条目，2026 年 9 月访问。,
+    url: 'https://en.wikipedia.org/wiki/Omaha_Beach',
+    license: CC BY-SA 4.0（条目文字）；本数据只引用其中的事实，不照搬原文,
+  }
+- {
+    id: wp-gold,
+    kind: reference,
+    citation: 维基百科（英文）「Gold Beach」条目，2026 年 9 月访问。,
+    url: 'https://en.wikipedia.org/wiki/Gold_Beach',
+    license: CC BY-SA 4.0（条目文字）；本数据只引用其中的事实，不照搬原文,
+  }
+- {
+    id: wp-juno,
+    kind: reference,
+    citation: 维基百科（英文）「Juno Beach」条目，2026 年 9 月访问。,
+    url: 'https://en.wikipedia.org/wiki/Juno_Beach',
+    license: CC BY-SA 4.0（条目文字）；本数据只引用其中的事实，不照搬原文,
+  }
+- {
+    id: wp-sword,
+    kind: reference,
+    citation: 维基百科（英文）「Sword Beach」条目，2026 年 9 月访问。,
+    url: 'https://en.wikipedia.org/wiki/Sword_Beach',
+    license: CC BY-SA 4.0（条目文字）；本数据只引用其中的事实，不照搬原文,
+  }
+- {
+    id: wp-pointe,
+    kind: reference,
+    citation: 维基百科（英文）「Pointe du Hoc」条目，2026 年 9 月访问。,
+    url: 'https://en.wikipedia.org/wiki/Pointe_du_Hoc',
+    license: CC BY-SA 4.0（条目文字）；本数据只引用其中的事实，不照搬原文,
+  }
+- {
+    id: wp-tonga,
+    kind: reference,
+    citation: 维基百科（英文）「Operation Tonga」条目，2026 年 9 月访问。,
+    url: 'https://en.wikipedia.org/wiki/Operation_Tonga',
+    license: CC BY-SA 4.0（条目文字）；本数据只引用其中的事实，不照搬原文,
+    note: '英军第 6 空降师的行动，分钟级时刻（22:56 起飞、00:15–00:20 降落、01:30、04:00、04:30
+      等）主要取自这里。',
+  }
+- {
+    id: wp-pegasus,
+    kind: reference,
+    citation: 维基百科（英文）「Pegasus Bridge」条目，2026 年 9 月访问。,
+    url: 'https://en.wikipedia.org/wiki/Pegasus_Bridge',
+    license: CC BY-SA 4.0（条目文字）；本数据只引用其中的事实，不照搬原文,
+  }
+- {
+    id: wp-carentan,
+    kind: reference,
+    citation: 维基百科（英文）「Battle of Carentan」条目，2026 年 9 月访问。,
+    url: 'https://en.wikipedia.org/wiki/Battle_of_Carentan',
+    license: CC BY-SA 4.0（条目文字）；本数据只引用其中的事实，不照搬原文,
+  }
+- {
+    id: wp-21pz,
+    kind: reference,
+    citation: 维基百科（英文）「21st Panzer Division」条目，2026 年 9 月访问。,
+    url: 'https://en.wikipedia.org/wiki/21st_Panzer_Division',
+    license: CC BY-SA 4.0（条目文字）；本数据只引用其中的事实，不照搬原文,
+  }
+- {
+    id: wp-352nd,
+    kind: reference,
+    citation: 维基百科（英文）「352nd Infantry Division」条目，2026 年 9 月访问。,
+    url: 'https://en.wikipedia.org/wiki/352nd_Infantry_Division',
+    license: CC BY-SA 4.0（条目文字）；本数据只引用其中的事实，不照搬原文,
+  }
+- {
+    id: wp-bayeux,
+    kind: reference,
+    citation: 维基百科（英文）「Bayeux」条目，2026 年 9 月访问。,
+    url: 'https://en.wikipedia.org/wiki/Bayeux',
+    license: CC BY-SA 4.0（条目文字）；本数据只引用其中的事实，不照搬原文,
+  }
+- {
+    id: wp-stmere,
+    kind: reference,
+    citation: 维基百科（英文）「Sainte-Mère-Église」条目，2026 年 9 月访问。,
+    url: 'https://en.wikipedia.org/wiki/Sainte-M%C3%A8re-%C3%89glise',
+    license: CC BY-SA 4.0（条目文字）；本数据只引用其中的事实，不照搬原文,
+  }
+- {
+    id: cal-timezone,
+    kind: reference,
+    citation: 钟点制式：所引维基条目都没有说明时区。本数据的时刻一律按条目原样记录，不做任何换算。,
+    note:
+      '起草者的背景知识（未在所引条目中核实）：盟军当时使用英国双夏令时（GMT+2）。若如此，界面显示的就是盟军的钟点，与法国当地太阳时、德军钟点各差一到两小时；德军方面的时刻（如
+      02:00、09:00）可能采用另一种制式。请审核者对照原始战史确认。',
+  }
+- {
+    id: geo-wiki,
+    kind: reference,
+    citation: 滩头、角点、圣母教堂镇、飞马桥、梅维尔炮台、卡朗唐、巴约的坐标取自英文维基百科对应条目的信息框。,
+    url: 'https://en.wikipedia.org',
+    license: CC BY-SA 4.0；坐标属事实信息,
+    note: 滩头坐标是整段滩头的中心点，不是任何一个具体的登陆点。,
+  }
+- {
+    id: geo-osm,
+    kind: reference,
+    citation:
+      其余村镇的坐标经 OpenStreetMap Nominatim 检索（乌伊斯特勒昂、利翁苏梅尔、朗格斯苏梅尔、勒阿梅尔、贝桑港、圣科姆迪蒙、伊尼、朗维尔、科勒维尔、维耶维尔、卡昂、塔兰特拉什顿等）。©
+      OpenStreetMap contributors,
+    url: 'https://www.openstreetmap.org/copyright',
+    license: ODbL 1.0,
+    note: 取的是今日村镇中心点，与当年的具体据点、炮台、桥梁的位置可能相差数百米到数公里。,
+  }
+- {
+    id: geo-estimate,
+    kind: reference,
+    citation:
+      作者（起草者）依据条目文字描述所作的估计坐标与时刻：舰队航渡与换乘区、登陆艇的出发点、各降落区中心、若干“示意”点位。全部按 approximate
+      或 conjectural 处理。,
+    note: 审核时应逐点替换为有出处的位置（如美国陆军军事历史中心的战史地图、英国官方战史地图）。,
+  }

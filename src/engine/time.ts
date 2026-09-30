@@ -126,7 +126,8 @@ export function toHistTime(ms: number): string {
 export function formatHistTimeZh(ms: number, precision: TimePrecision = 'day'): string {
   const d = new Date(ms)
   const y = d.getUTCFullYear()
-  const year = y <= 0 ? `公元前${1 - y}年` : `${y}年`
+  // 古代年份加“公元”，避免 “200年” 被误读成别的意思
+  const year = y <= 0 ? `公元前${1 - y}年` : y < 1000 ? `公元${y}年` : `${y}年`
   if (precision === 'year') return year
   const month = `${d.getUTCMonth() + 1}月`
   if (precision === 'month' || precision === 'season') return `${year}${month}`
@@ -147,3 +148,16 @@ export function formatHistTimeShortZh(ms: number, precision: TimePrecision = 'da
 
 export const HOUR_MS = MS.hour
 export const DAY_MS = MS.day
+
+/** 时间步长的中文读法：30分钟 / 一小时 / 6小时 / 一天 / 3天 / 一个月 */
+export function formatStepZh(stepDays: number): string {
+  const minutes = Math.round(stepDays * 1440)
+  if (minutes < 60) return `${minutes}分钟`
+  if (minutes < 1440) {
+    const h = minutes / 60
+    return Number.isInteger(h) ? (h === 1 ? '一小时' : `${h}小时`) : `${minutes}分钟`
+  }
+  if (stepDays === 1) return '一天'
+  if (stepDays === 30) return '一个月'
+  return `${stepDays}天`
+}

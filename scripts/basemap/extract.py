@@ -4,7 +4,9 @@
 
     pip install pmtiles requests
     python scripts/basemap/extract.py 20260928 public/tiles/basemap.pmtiles \
-        --bbox 101.5,24.5,108.5,29.5 --maxzoom 10
+        --bbox=101.5,24.5,108.5,29.5 --bbox=112.6,32.7,118.3,37.0 --bbox=-2.7,48.95,0.4,51.0 --maxzoom 10
+
+可以重复 --bbox，多个区域合并进同一个文件。写成 --bbox=西,南,东,北（带等号），否则西经/南纬的负数会被当成命令行选项（每个战役一个区域，见 docs/basemap.md 的区域清单）。
 
 只通过 HTTP Range 请求读取需要的瓦片，不下载整个（上百 GB 的）星球文件。
 """
@@ -32,12 +34,16 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("build", help="构建日期，如 20260928（https://build.protomaps.com/<日期>.pmtiles）")
     ap.add_argument("out")
-    ap.add_argument("--bbox", required=True, help="西,南,东,北")
+    ap.add_argument("--bbox", required=True, action="append", help="西,南,东,北；可重复，多个区域取并集")
     ap.add_argument("--maxzoom", type=int, default=10)
     ap.add_argument("--workers", type=int, default=16)
     args = ap.parse_args()
 
-    west, south, east, north = map(float, args.bbox.split(","))
+    boxes = [tuple(map(float, b.split(","))) for b in args.bbox]
+    west = min(b[0] for b in boxes)
+    south = min(b[1] for b in boxes)
+    east = max(b[2] for b in boxes)
+    north = max(b[3] for b in boxes)
     url = f"https://build.protomaps.com/{args.build}.pmtiles"
     session = requests.Session()
     cache, lock = {}, Lock()
@@ -60,12 +66,15 @@ def main():
     metadata = reader.metadata()
     print("源：", url, "| 压缩:", src_header["tile_compression"], "| 类型:", src_header["tile_type"], file=sys.stderr)
 
-    coords = []
-    for z in range(0, args.maxzoom + 1):
-        x0, y1 = lonlat_to_tile(west, south, z)  # y 向下增长：南边 y 大
-        x1, y0 = lonlat_to_tile(east, north, z)
-        coords += [(z, x, y) for x in range(x0, x1 + 1) for y in range(y0, y1 + 1)]
-    print(f"待读取瓦片 {len(coords)} 个", file=sys.stderr)
+    # 各区域的瓦片取并集（低缩放级别下相邻区域会共用同一批瓦片）
+    coord_set = set()
+    for bw, bs, be, bn in boxes:
+        for z in range(0, args.maxzoom + 1):
+            x0, y1 = lonlat_to_tile(bw, bs, z)  # y 向下增长：南边 y 大
+            x1, y0 = lonlat_to_tile(be, bn, z)
+            coord_set.update((z, x, y) for x in range(x0, x1 + 1) for y in range(y0, y1 + 1))
+    coords = sorted(coord_set)
+    print(f"待读取瓦片 {len(coords)} 个（{len(boxes)} 个区域）", file=sys.stderr)
 
     def fetch(zxy):
         return zxy, reader.get(*zxy)

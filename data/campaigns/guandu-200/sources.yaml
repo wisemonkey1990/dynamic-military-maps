@@ -1,0 +1,73 @@
+# sources.yaml — 官渡之战 数据草稿 v0（待审核，见 REVIEW.md）
+- {
+    id: sgz-wudi,
+    kind: primary,
+    citation: 陈寿：《三国志·魏书·武帝纪》（卷一），含裴松之注。据中文维基文库整理本（公有领域古籍）查阅原文。,
+    url: 'https://zh.wikisource.org/wiki/三國志/卷01',
+    license: 古籍原文（公有领域）,
+    note: 官渡之战最接近当时的记载。裴注对兵力等有质疑，本战役据以避免采信具体兵力数字。,
+  }
+- {
+    id: sgz-yuanshao,
+    kind: primary,
+    citation: 陈寿：《三国志·魏书·董二袁刘传》（卷六）袁绍传，含裴松之注。据中文维基文库整理本查阅原文。,
+    url: 'https://zh.wikisource.org/wiki/三國志/卷06',
+    license: 古籍原文（公有领域）,
+  }
+- {
+    id: sgz-yujin,
+    kind: primary,
+    citation: 陈寿：《三国志·魏书·张乐于张徐传》（卷十七）于禁传等。据中文维基文库整理本查阅原文。,
+    url: 'https://zh.wikisource.org/wiki/三國志/卷17',
+    license: 古籍原文（公有领域）,
+    note: 于禁守延津、屯原武的记载只有事件顺序，没有月份，本战役中相关月份均为推定。,
+  }
+- {
+    id: zztj,
+    kind: secondary,
+    citation: 司马光：《资治通鉴》卷六十二、六十三（汉纪五十四、五十五，建安四年至五年）。据中文维基文库整理本查阅原文。,
+    url: 'https://zh.wikisource.org/wiki/資治通鑑/卷063',
+    license: 古籍原文（公有领域）,
+    note: 北宋编年体史书，叙事比《三国志》详细，并给出较多月份与细节；维基文库该卷标注文字质量约 50%，引用时须回查刊本。,
+  }
+- {
+    id: geo-wiki-guandu,
+    kind: reference,
+    citation: 维基百科（中文）「官渡之战」条目，2026 年 9 月访问，仅用于核对古地名的今址（黎阳、白马、阳武、乌巢）。,
+    url: 'https://zh.wikipedia.org/wiki/官渡之战',
+    license: CC BY-SA 4.0（条目文字）,
+  }
+- {
+    id: cal-sxtwl,
+    kind: reference,
+    citation:
+      农历到公历的折算：使用寿星万年历（sxtwl）的现代推算历法，取每个农历月“月中”所在的公历月。以《资治通鉴》“九月，庚午朔，日有食之”为锚点校验：推算得建安五年九月初一恰为庚午日（公历
+      200 年 9 月 26 日），干支吻合。,
+    note: 东汉实行四分历，与现代推算的朔日可能相差数日；本战役只用月精度，不受影响，但处于月初/月末的事件可能落到相邻公历月，请审核者留意。,
+  }
+- {
+    id: geo-wiki,
+    kind: reference,
+    citation: 部分地名坐标取自中文维基百科对应条目（官渡镇、应举镇、许昌市）。,
+    url: 'https://zh.wikipedia.org',
+    license: CC
+      BY-SA 4.0；坐标属事实信息,
+  }
+- {
+    id: geo-osm,
+    kind: reference,
+    citation:
+      部分地名坐标经 OpenStreetMap Nominatim 检索（黎阳镇、延津县、原武镇、临漳县、古邳镇、沛县、汝南县、阳谷县等）。©
+      OpenStreetMap contributors,
+    url: 'https://www.openstreetmap.org/copyright',
+    license: ODbL 1.0,
+    note: 取的是今日地名点位，与汉末古城、渡口的实际位置可能相差数公里到十几公里。,
+  }
+- {
+    id: geo-estimate,
+    kind: reference,
+    citation:
+      作者（起草者）依据古地名“今址”描述所作的估计坐标：白马（今滑县东北）、阳武（今原阳县东南）；乌巢、仓亭的具体位置本身有争议。未经查证，全部按
+      approximate 或 conjectural 处理。,
+    note: 审核时须逐点替换为有出处的坐标（如《中国历史地图集》东汉分册）。,
+  }

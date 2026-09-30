@@ -4,6 +4,7 @@ import {
   TimeParseError,
   formatHistTimeShortZh,
   formatHistTimeZh,
+  formatStepZh,
   parseHistTime,
   toHistTime,
 } from './time'
@@ -64,6 +65,18 @@ describe('formatHistTimeZh', () => {
   })
 })
 
+describe('formatStepZh', () => {
+  it('把步长（天）读成中文', () => {
+    expect(formatStepZh(1 / 96)).toBe('15分钟')
+    expect(formatStepZh(1 / 24)).toBe('一小时')
+    expect(formatStepZh(6 / 24)).toBe('6小时')
+    expect(formatStepZh(1.5 / 24)).toBe('90分钟')
+    expect(formatStepZh(1)).toBe('一天')
+    expect(formatStepZh(3)).toBe('3天')
+    expect(formatStepZh(30)).toBe('一个月')
+  })
+})
+
 describe('toHistTime', () => {
   it('与 parseHistTime 往返一致，含公元前与 1–99 年', () => {
     for (const s of [
@@ -84,5 +97,21 @@ describe('formatHistTimeShortZh', () => {
     expect(formatHistTimeShortZh(ms, 'day')).toBe('6月6日')
     expect(formatHistTimeShortZh(ms, 'month')).toBe('6月')
     expect(formatHistTimeShortZh(ms, 'year')).toBe('1944年')
+  })
+})
+
+describe('古代年份的显示', () => {
+  it('公元 1000 年以前加“公元”前缀，1000 年以后不加，公元前不变', () => {
+    expect(formatHistTimeZh(parseHistTime('0200-05').start, 'month')).toBe('公元200年5月')
+    expect(formatHistTimeZh(parseHistTime('0200-05-16').start, 'day')).toBe('公元200年5月16日')
+    expect(formatHistTimeZh(parseHistTime('1935-01').start, 'month')).toBe('1935年1月')
+    expect(formatHistTimeZh(parseHistTime('-0215-08-02').start, 'day')).toBe('公元前216年8月2日')
+  })
+
+  it('月精度的时间点区间是整月，中点在月中', () => {
+    const s = parseHistTime('0200-05')
+    expect(s.precision).toBe('month')
+    expect(new Date(s.start).toISOString().slice(0, 10)).toBe('0200-05-01')
+    expect(new Date(s.end).toISOString().slice(0, 10)).toBe('0200-06-01')
   })
 })

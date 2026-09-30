@@ -1,0 +1,89 @@
+# arrows.yaml — 官渡之战 数据草稿 v0（待审核，见 REVIEW.md）
+- id: arrow-east-campaign
+  side: cao
+  kind: advance
+  from: 0200-02
+  to: 0200-02
+  path:
+    - [114.0843, 34.7336]
+    - [117.874, 34.119]
+  label: 东征刘备
+  confidence: approximate
+  sources: [sgz-wudi]
+- id: arrow-yuan-liyang
+  side: yuan
+  kind: advance
+  from: 0200-03
+  to: 0200-03
+  path:
+    - [114.5976, 36.3342]
+    - [114.5678, 35.6794]
+  label: 袁绍进军黎阳
+  confidence: approximate
+  sources: [sgz-wudi, zztj]
+- id: arrow-yanjin-feint
+  side: cao
+  kind: feint
+  from: 0200-05
+  to: 0200-05
+  path:
+    - [114.0843, 34.7336]
+    - [114.1946, 35.1491]
+  label: 佯渡延津，牵动袁军西应
+  confidence: approximate
+  sources: [sgz-wudi, zztj]
+- id: arrow-baima-strike
+  side: cao
+  kind: advance
+  from: 0200-05
+  to: 0200-05
+  path:
+    - [114.1946, 35.1491]
+    - [114.6, 35.62]
+  label: 兼行奔袭白马
+  confidence: approximate
+  sources: [sgz-wudi, zztj]
+- id: arrow-retreat-west
+  side: cao
+  kind: retreat
+  from: 0200-05
+  to: 0200-05
+  path:
+    - [114.6, 35.62]
+    - [114.1946, 35.1491]
+  label: 徙民循河而西
+  confidence: approximate
+  sources: [sgz-wudi, zztj]
+- id: arrow-yuan-chase
+  side: yuan
+  kind: advance
+  from: 0200-05
+  to: 0200-05
+  path:
+    - [114.5678, 35.6794]
+    - [114.1946, 35.1491]
+  label: 袁绍渡河追击
+  confidence: approximate
+  sources: [sgz-wudi, zztj]
+- id: arrow-wuchao-raid
+  side: cao
+  kind: advance
+  from: 0200-11
+  to: 0200-11
+  path:
+    - [114.0843, 34.7336]
+    - [114.2923, 35.1018]
+  label: 夜袭乌巢
+  confidence: approximate
+  sources: [sgz-wudi, zztj]
+- id: arrow-yuan-retreat
+  side: yuan
+  kind: retreat
+  from: 0200-11
+  to: 0200-12
+  path:
+    - [114.0843, 34.7336]
+    - [114.5678, 35.6794]
+  label: 溃退渡河
+  confidence: approximate
+  sources: [sgz-yuanshao, zztj]

@@ -11,6 +11,33 @@ describe('schema', () => {
     const c = makeCampaign()
     expect(c.defaultHoursPerSecond).toBe(24)
     expect(c.units[0]!.kind).toBe('infantry')
+    // 时间尺度相关的默认值保持四渡赤水（以天计）的行为
+    expect(c.displayPrecision).toBe('day')
+    expect(c.stepDays).toBe(1)
+    expect(c.trailDays).toBe(3)
+    expect(c.lingerDays).toBe(1)
+  })
+
+  it('章节的 scale 可以只覆盖一部分，且拒绝非法值', () => {
+    const ok = makeCampaign({
+      chapters: [
+        {
+          id: 'c1',
+          title: 'c1',
+          start: '1935-01-01',
+          end: '1935-01-02',
+          scale: { stepDays: 1 / 24 },
+        },
+      ],
+    })
+    expect(ok.chapters[0]!.scale).toEqual({ stepDays: 1 / 24 })
+    const bad = (scale: object) =>
+      makeCampaign({
+        chapters: [{ id: 'c1', title: 'c1', start: '1935-01-01', end: '1935-01-02', scale }],
+      })
+    expect(() => bad({ displayPrecision: 'year' })).toThrow()
+    expect(() => bad({ stepDays: 0 })).toThrow()
+    expect(() => bad({ trailDays: -1 })).toThrow()
   })
 
   it('拒绝非法时间、颜色、id', () => {
@@ -129,5 +156,30 @@ describe('validateCampaign', () => {
   it('已登记但未被引用的来源给 warning', () => {
     const c = makeCampaign({ sources: [{ id: 'unused', citation: '某书' }] })
     expect(warnings(c).some((i) => /没有被引用/.test(i.message))).toBe(true)
+  })
+
+  it('空降部队的速度上限远高于步兵：飞行 200 公里用一个多小时不告警，步兵则告警', () => {
+    const base = makeCampaign()
+    const fly = (kind: 'airborne' | 'infantry') =>
+      Campaign.parse({
+        ...base,
+        units: [
+          {
+            id: 'u1',
+            side: 'a',
+            kind,
+            name: 'U',
+            track: {
+              waypoints: [
+                { t: '1935-01-01T00:00', pos: [-1, -1], confidence: 'approximate' },
+                { t: '1935-01-01T01:20', pos: [0.5, 0.5], confidence: 'approximate' },
+              ],
+            },
+          },
+        ],
+      })
+    const speedWarnings = (c: Campaign) => warnings(c).filter((w) => w.message.includes('行军速度'))
+    expect(speedWarnings(fly('airborne'))).toEqual([])
+    expect(speedWarnings(fly('infantry'))).toHaveLength(1)
   })
 })

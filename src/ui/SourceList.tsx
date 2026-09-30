@@ -1,7 +1,7 @@
 import { text, type Campaign, type Source } from '../schema/campaign'
 
-/** 约定：id 以 geo- 开头的来源是“坐标出处”，与史料来源分开显示 */
-const isGeoSource = (id: string) => id.startsWith('geo-')
+/** 约定：id 以 geo-（坐标出处）或 cal-（历法折算）开头的是“折算依据”，与史料来源分开、默认折叠 */
+const isGeoSource = (id: string) => id.startsWith('geo-') || id.startsWith('cal-')
 
 function Items({ items }: { items: Source[] }) {
   return (
@@ -32,7 +32,7 @@ export function SourceList({ ids, campaign }: { ids: readonly string[]; campaign
       {main.length > 0 ? <Items items={main} /> : <p className="muted">暂无史料来源。</p>}
       {geo.length > 0 && (
         <details className="geo-sources">
-          <summary>坐标来源（{geo.length}）</summary>
+          <summary>坐标与日期折算（{geo.length}）</summary>
           <Items items={geo} />
         </details>
       )}

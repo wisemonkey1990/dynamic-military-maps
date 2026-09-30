@@ -399,6 +399,12 @@ h1 {
 .kind-march {
   --ev: #b56a00;
 }
+.kind-landing {
+  --ev: #0f7c8a;
+}
+.kind-airdrop {
+  --ev: #5b6bbf;
+}
 .kind-other {
   --ev: #666;
 }
@@ -893,4 +899,50 @@ h1 {
   white-space: nowrap;
   color: var(--muted);
   font-variant-numeric: tabular-nums;
+}
+
+/* ---------- 底图提示（如古今河道不同） ---------- */
+
+.map-note {
+  position: absolute;
+  z-index: 4;
+  top: 0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+  width: max-content;
+  max-width: min(40rem, calc(100% - 12rem));
+  margin: 0;
+  padding: 0.45rem 0.6rem 0.45rem 0.8rem;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-left: 3px solid #c46200;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.map-note button {
+  flex: none;
+  padding: 0 0.3rem;
+  font-size: 1.1rem;
+  line-height: 1.2;
+  color: var(--muted);
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+@media (max-width: 800px) {
+  .map-note {
+    top: 3.6rem;
+    left: 0.5rem;
+    right: 0.5rem;
+    max-width: none;
+    width: auto;
+    transform: none;
+  }
 }
