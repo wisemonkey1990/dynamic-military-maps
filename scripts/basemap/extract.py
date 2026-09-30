@@ -4,9 +4,9 @@
 
     pip install pmtiles requests
     python scripts/basemap/extract.py 20260928 public/tiles/basemap.pmtiles \
-        --bbox 101.5,24.5,108.5,29.5 --bbox 112.6,32.7,118.3,37.0 --maxzoom 10
+        --bbox=101.5,24.5,108.5,29.5 --bbox=112.6,32.7,118.3,37.0 --bbox=-2.7,48.95,0.4,51.0 --maxzoom 10
 
-可以重复 --bbox，多个区域合并进同一个文件（每个战役一个区域，见 docs/basemap.md 的区域清单）。
+可以重复 --bbox，多个区域合并进同一个文件。写成 --bbox=西,南,东,北（带等号），否则西经/南纬的负数会被当成命令行选项（每个战役一个区域，见 docs/basemap.md 的区域清单）。
 
 只通过 HTTP Range 请求读取需要的瓦片，不下载整个（上百 GB 的）星球文件。
 """

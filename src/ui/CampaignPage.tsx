@@ -1,13 +1,13 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import {
   DAY_MS,
-  HOUR_MS,
   chapterAt,
   compileCampaign,
   formatHistTimeZh,
   getSnapshot,
   latestEvent,
   parseHistTime,
+  timeSettingsAt,
   toHistTime,
   type CompiledCampaign,
 } from '../engine'
@@ -61,23 +61,15 @@ export function CampaignPage({
   campaign: Campaign
   params: URLSearchParams
 }) {
-  // 尾迹、箭头停留、事件停留都随战役的时间尺度缩放（四渡赤水以天计，官渡以月计）
-  const compiled = useMemo(
-    () => compileCampaign(campaign, { eventLingerMs: campaign.lingerDays * 12 * HOUR_MS }),
-    [campaign],
-  )
-  const snapshotOptions = useMemo(
-    () => ({ trailMs: campaign.trailDays * DAY_MS, arrowLingerMs: campaign.lingerDays * DAY_MS }),
-    [campaign],
-  )
+  // 尾迹、箭头停留、事件停留、读数精度与步长都随（章节的）时间尺度缩放：
+  // 四渡赤水以天计，官渡以月计，诺曼底 D 日以分钟计
+  const compiled = useMemo(() => compileCampaign(campaign), [campaign])
   const { clock, pause, toggle, seekTo, setSpeed } = usePlayback(
     compiled,
     initialTime(compiled, params.get('t')),
   )
-  const snapshot = useMemo(
-    () => getSnapshot(compiled, clock.t, snapshotOptions),
-    [compiled, clock.t, snapshotOptions],
-  )
+  const snapshot = useMemo(() => getSnapshot(compiled, clock.t), [compiled, clock.t])
+  const stepDays = timeSettingsAt(compiled, clock.t).stepDays
 
   // 分享链接里的视野与选中项（选中项必须真实存在，否则忽略）
   const [shared] = useState(() => {
@@ -225,12 +217,12 @@ export function CampaignPage({
       if (e.key === ' ') {
         e.preventDefault()
         toggle()
-      } else if (e.key === 'ArrowRight') seekTo(clock.t + campaign.stepDays * DAY_MS)
-      else if (e.key === 'ArrowLeft') seekTo(clock.t - campaign.stepDays * DAY_MS)
+      } else if (e.key === 'ArrowRight') seekTo(clock.t + stepDays * DAY_MS)
+      else if (e.key === 'ArrowLeft') seekTo(clock.t - stepDays * DAY_MS)
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-  }, [toggle, seekTo, clock.t, campaign.stepDays])
+  }, [toggle, seekTo, clock.t, stepDays])
 
   const toggleSide = (id: string) =>
     setHiddenSides((prev) => {

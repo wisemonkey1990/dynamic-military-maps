@@ -4,6 +4,7 @@ import {
   TimeParseError,
   formatHistTimeShortZh,
   formatHistTimeZh,
+  formatStepZh,
   parseHistTime,
   toHistTime,
 } from './time'
@@ -61,6 +62,18 @@ describe('formatHistTimeZh', () => {
     expect(formatHistTimeZh(ms, 'day')).toBe('1944年6月6日')
     expect(formatHistTimeZh(ms, 'month')).toBe('1944年6月')
     expect(formatHistTimeZh(ms, 'year')).toBe('1944年')
+  })
+})
+
+describe('formatStepZh', () => {
+  it('把步长（天）读成中文', () => {
+    expect(formatStepZh(1 / 96)).toBe('15分钟')
+    expect(formatStepZh(1 / 24)).toBe('一小时')
+    expect(formatStepZh(6 / 24)).toBe('6小时')
+    expect(formatStepZh(1.5 / 24)).toBe('90分钟')
+    expect(formatStepZh(1)).toBe('一天')
+    expect(formatStepZh(3)).toBe('3天')
+    expect(formatStepZh(30)).toBe('一个月')
   })
 })
 

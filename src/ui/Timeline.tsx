@@ -1,4 +1,4 @@
-import { formatHistTimeZh, type CompiledCampaign } from '../engine'
+import { formatHistTimeZh, formatStepZh, timeSettingsAt, type CompiledCampaign } from '../engine'
 import { text } from '../schema/campaign'
 
 const SPEEDS = [0.5, 1, 2, 4]
@@ -27,9 +27,10 @@ export function Timeline({
   onSpeed,
 }: Props) {
   const { tStart, tEnd } = compiled
-  const { displayPrecision, stepDays } = compiled.campaign
+  // 读数精度与步长随当前章节变化（如诺曼底：D 日按分钟，之后按天）
+  const { displayPrecision, stepDays } = timeSettingsAt(compiled, t)
   const stepMs = stepDays * DAY
-  const stepLabel = stepDays === 1 ? '一天' : stepDays === 30 ? '一个月' : `${stepDays}天`
+  const stepLabel = formatStepZh(stepDays)
   const span = tEnd - tStart
   const pct = (ms: number) => `${(((ms - tStart) / span) * 100).toFixed(3)}%`
   const chapter = compiled.chapters.find((c) => c.chapter.id === chapterId)?.chapter

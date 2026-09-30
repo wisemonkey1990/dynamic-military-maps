@@ -4,6 +4,7 @@ import type {
   Campaign,
   Chapter,
   Confidence,
+  DisplayPrecision,
   HistEvent,
   Localized,
   Unit,
@@ -20,6 +21,24 @@ export interface SnapshotOptions {
   arrowLingerMs: number
   /** 部队尾迹长度；0 表示不计算 */
   trailMs: number
+}
+
+/** 某一时刻生效的时间尺度：战役的默认值，被所在章节的 `scale` 逐项覆盖 */
+export interface TimeSettings {
+  displayPrecision: DisplayPrecision
+  stepDays: number
+  trailDays: number
+  lingerDays: number
+}
+
+export function timeSettingsFor(campaign: Campaign, chapter?: Chapter): TimeSettings {
+  const s = chapter?.scale
+  return {
+    displayPrecision: s?.displayPrecision ?? campaign.displayPrecision,
+    stepDays: s?.stepDays ?? campaign.stepDays,
+    trailDays: s?.trailDays ?? campaign.trailDays,
+    lingerDays: s?.lingerDays ?? campaign.lingerDays,
+  }
 }
 
 export const DEFAULT_SNAPSHOT_OPTIONS: SnapshotOptions = {
@@ -68,11 +87,28 @@ export interface CompiledCampaign {
   chapters: CompiledChapter[]
 }
 
+/** 章节：边界处取后一章 */
+function findChapter(chapters: CompiledChapter[], t: number): Chapter | undefined {
+  let found: Chapter | undefined
+  for (const ch of chapters) if (t >= ch.start && t <= ch.end) found = ch.chapter
+  return found
+}
+
+/**
+ * 编译战役。事件的最短停留时长默认取“事件开始时所在章节”的 lingerDays（半个 lingerDays）；
+ * 传入 opts.eventLingerMs 则一律使用该值。
+ */
 export function compileCampaign(
   campaign: Campaign,
   opts: Partial<SnapshotOptions> = {},
 ): CompiledCampaign {
-  const { eventLingerMs } = { ...DEFAULT_SNAPSHOT_OPTIONS, ...opts }
+  const chapters = campaign.chapters
+    .map((chapter) => ({
+      chapter,
+      start: parseHistTime(chapter.start).start,
+      end: parseHistTime(chapter.end).end,
+    }))
+    .sort((a, b) => a.start - b.start)
   const units = campaign.units.map((unit) => {
     const track = compileTrack(unit.track.waypoints)
     const { from, to } = unit.lifespan ?? {}
@@ -89,9 +125,12 @@ export function compileCampaign(
   const events = campaign.events
     .map((event) => {
       const span = parseHistTime(event.t, event.precision)
+      const lingerMs =
+        opts.eventLingerMs ??
+        timeSettingsFor(campaign, findChapter(chapters, span.start)).lingerDays * 12 * HOUR_MS
       const until = event.until
         ? parseHistTime(event.until).end
-        : Math.max(span.end, span.start + eventLingerMs)
+        : Math.max(span.end, span.start + lingerMs)
       return { event, start: span.start, until }
     })
     .sort((a, b) => a.start - b.start)
@@ -111,13 +150,6 @@ export function compileCampaign(
       .map((k) => ({ t: parseHistTime(k.t).start, geometry: k.geometry }))
       .sort((a, b) => a.t - b.t),
   }))
-  const chapters = campaign.chapters
-    .map((chapter) => ({
-      chapter,
-      start: parseHistTime(chapter.start).start,
-      end: parseHistTime(chapter.end).end,
-    }))
-    .sort((a, b) => a.start - b.start)
   return {
     campaign,
     tStart: parseHistTime(campaign.period.start).start,
@@ -180,9 +212,12 @@ export interface Snapshot {
 
 /** 章节：边界处取后一章 */
 export function chapterAt(c: CompiledCampaign, t: number): Chapter | undefined {
-  let found: Chapter | undefined
-  for (const ch of c.chapters) if (t >= ch.start && t <= ch.end) found = ch.chapter
-  return found
+  return findChapter(c.chapters, t)
+}
+
+/** 时刻 t 生效的时间尺度（读数精度、步长、尾迹、停留） */
+export function timeSettingsAt(c: CompiledCampaign, t: number): TimeSettings {
+  return timeSettingsFor(c.campaign, chapterAt(c, t))
 }
 
 /**
@@ -194,7 +229,14 @@ export function getSnapshot(
   t: number,
   options: Partial<SnapshotOptions> = {},
 ): Snapshot {
-  const opts = { ...DEFAULT_SNAPSHOT_OPTIONS, ...options }
+  // 尾迹与箭头停留默认随 t 所在章节的时间尺度；调用方传入的选项优先
+  const settings = timeSettingsAt(c, t)
+  const opts = {
+    ...DEFAULT_SNAPSHOT_OPTIONS,
+    trailMs: settings.trailDays * DAY_MS,
+    arrowLingerMs: settings.lingerDays * DAY_MS,
+    ...options,
+  }
 
   const units = c.units.map(({ unit, track, strength, visFrom, visTo }): UnitState => {
     const s = stateAt(track, t)

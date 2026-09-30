@@ -76,6 +76,7 @@ export const UNIT_KINDS = [
   'artillery',
   'headquarters',
   'mixed',
+  'airborne',
   'fleet',
   'other',
 ] as const
@@ -118,6 +119,8 @@ export const EVENT_KINDS = [
   'conference',
   'occupation',
   'march',
+  'landing',
+  'airdrop',
   'other',
 ] as const
 
@@ -171,6 +174,23 @@ export const Area = z.object({
 })
 export type Area = z.infer<typeof Area>
 
+/** 时间读数精度：分钟/小时/日/月（季、年精度只用于单个时间点，不作读数精度） */
+export const DISPLAY_PRECISIONS = ['minute', 'hour', 'day', 'month'] as const
+export type DisplayPrecision = (typeof DISPLAY_PRECISIONS)[number]
+
+/** 时间尺度设置。战役里给默认值，章节可以逐项覆盖（例如 D 日按分钟，之后按天） */
+export const TimeScale = z.object({
+  /** 时间读数的精度：史料只到“月”的战役用 month，界面就不会显示编造出来的“日” */
+  displayPrecision: z.enum(DISPLAY_PRECISIONS),
+  /** 时间轴“前进/后退一步”的天数，可以是小数（1/24 = 一小时） */
+  stepDays: z.number().positive(),
+  /** 部队尾迹的长度（天）；应与时间尺度匹配 */
+  trailDays: z.number().positive(),
+  /** 箭头画完后继续显示的天数，也是事件最短停留时长（半个该值）的基数 */
+  lingerDays: z.number().positive(),
+})
+export type TimeScale = z.infer<typeof TimeScale>
+
 export const Chapter = z.object({
   id: Id,
   title: Localized,
@@ -178,6 +198,8 @@ export const Chapter = z.object({
   end: HistTime,
   /** 本章播放速度：每真实秒经过的历史小时数（1× 时）；缺省用战役默认值 */
   hoursPerSecond: z.number().positive().optional(),
+  /** 本章的时间尺度，缺省的项沿用战役的设置 */
+  scale: TimeScale.partial().optional(),
   narration: Localized.optional(),
   camera: z
     .object({
@@ -206,14 +228,11 @@ export const CampaignMeta = z.object({
   /** 战场范围 [西, 南, 东, 北]，用于校验坐标与初始视野 */
   bbox: z.tuple([z.number(), z.number(), z.number(), z.number()]),
   defaultHoursPerSecond: z.number().positive().default(24),
-  /** 时间读数的精度：史料只到“月”的战役用 month，界面就不会显示编造出来的“日” */
-  displayPrecision: z.enum(['day', 'month']).default('day'),
-  /** 时间轴“前进/后退一步”的天数 */
-  stepDays: z.number().positive().default(1),
-  /** 部队尾迹的长度（天）；应与战役的时间尺度匹配 */
-  trailDays: z.number().positive().default(3),
-  /** 箭头画完后继续显示的天数，也是事件最短停留时长（半个该值）的基数 */
-  lingerDays: z.number().positive().default(1),
+  /** 战役的默认时间尺度；章节的 `scale` 可以逐项覆盖 */
+  displayPrecision: TimeScale.shape.displayPrecision.default('day'),
+  stepDays: TimeScale.shape.stepDays.default(1),
+  trailDays: TimeScale.shape.trailDays.default(3),
+  lingerDays: TimeScale.shape.lingerDays.default(1),
   camera: z.object({ center: LngLat, zoom: z.number().min(0).max(22) }),
   sides: z.array(Side).min(1),
   chapters: z.array(Chapter).default([]),

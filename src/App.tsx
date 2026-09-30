@@ -1,6 +1,6 @@
 import { lazy, Suspense, useEffect, useState } from 'react'
 import { formatHistTimeZh, parseHistTime } from './engine'
-import { text, type Localized } from './schema/campaign'
+import { text, type DisplayPrecision, type Localized } from './schema/campaign'
 import { useCampaign } from './ui/useCampaign'
 
 // 地图页连同 MapLibre 一起按需加载，首页不必下载 1MB+ 的地图代码
@@ -14,7 +14,7 @@ interface CampaignSummary {
   title: Localized
   subtitle?: Localized
   period: { start: string; end: string }
-  displayPrecision: 'day' | 'month'
+  displayPrecision: DisplayPrecision
   counts: { units: number; events: number; sources: number }
 }
 
@@ -26,9 +26,11 @@ const STATUS_LABEL: Record<CampaignSummary['status'], string> = {
 
 function periodLabel(
   { start, end }: CampaignSummary['period'],
-  precision: 'day' | 'month',
+  precision: DisplayPrecision,
 ): string {
-  const fmt = (iso: string) => formatHistTimeZh(parseHistTime(iso).start, precision)
+  // 首页只显示到日：小时/分钟精度的战役也只列出起止日期
+  const p = precision === 'month' ? 'month' : 'day'
+  const fmt = (iso: string) => formatHistTimeZh(parseHistTime(iso).start, p)
   return `${fmt(start)} — ${fmt(end)}`
 }
 

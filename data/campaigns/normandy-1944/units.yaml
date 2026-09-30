@@ -1,0 +1,536 @@
+# units.yaml — 诺曼底登陆 数据草稿 v0（待审核，见 REVIEW.md）
+- id: fleet-u
+  side: us
+  name: 美军犹他海上编队（U 编队）
+  short: U
+  kind: fleet
+  description: 运送第 4 步兵师的 U 编队，条目称其舰船 6 月 3 日、4 日自普利茅斯出发。“航渡”与“换乘区”两个点都是示意，只在 D 日当天显示。
+  track:
+    waypoints:
+      - t: 1944-06-05T21:00
+        pos: [-0.95, 50.55]
+        confidence: conjectural
+        place: 怀特岛东南（示意）
+        note: 各船队在此集结后横渡海峡；此点的时刻只是本页的起点。
+        sources: [wp-utah]
+      - t: 1944-06-06T03:30
+        pos: [-1.16, 49.62]
+        confidence: conjectural
+        place: 犹他外海换乘区（示意）
+        note: 航渡路线与时刻纯属示意：条目只说明各船队在怀特岛东南的“皮卡迪利广场”集结后横渡海峡，没有给出航迹。
+        sources: [wp-utah]
+  lifespan: { to: '1944-06-06' }
+  sources: [wp-utah, wp-landings, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: fleet-o
+  side: us
+  name: 美军奥马哈海上编队（O 特混编队）
+  short: O
+  kind: fleet
+  commander: 约翰·L·霍尔少将
+  description: O 特混编队负责运送并登陆奥马哈的部队（条目）；航渡与换乘区位置为示意，只在 D 日当天显示。
+  track:
+    waypoints:
+      - t: 1944-06-05T21:00
+        pos: [-0.95, 50.55]
+        confidence: conjectural
+        place: 怀特岛东南（示意）
+        note: 各船队在此集结后横渡海峡；此点的时刻只是本页的起点。
+        sources: [wp-utah]
+      - t: 1944-06-06T03:30
+        pos: [-0.87, 49.55]
+        confidence: conjectural
+        place: 奥马哈外海换乘区（示意）
+        note: 航渡路线与时刻纯属示意：条目只说明各船队在怀特岛东南的“皮卡迪利广场”集结后横渡海峡，没有给出航迹。
+        sources: [wp-omaha]
+  lifespan: { to: '1944-06-06' }
+  sources: [wp-omaha, wp-landings, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: fleet-g
+  side: uk
+  name: 英军金滩海上编队
+  short: 金
+  kind: fleet
+  description: 运送金滩部队；炮火支援由 K 炮击编队（“Bombarding Force K”，约十八艘巡洋舰与驱逐舰）担任（条目）。位置为示意，只在 D 日当天显示。
+  track:
+    waypoints:
+      - t: 1944-06-05T21:00
+        pos: [-0.95, 50.55]
+        confidence: conjectural
+        place: 怀特岛东南（示意）
+        note: 各船队在此集结后横渡海峡；此点的时刻只是本页的起点。
+        sources: [wp-utah]
+      - t: 1944-06-06T05:00
+        pos: [-0.57, 49.52]
+        confidence: conjectural
+        place: 金滩外海换乘区（示意）
+        note: 航渡路线与时刻纯属示意：条目只说明各船队在怀特岛东南的“皮卡迪利广场”集结后横渡海峡，没有给出航迹。
+        sources: [wp-gold]
+  lifespan: { to: '1944-06-06' }
+  sources: [wp-gold, wp-landings, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: fleet-j
+  side: ca
+  name: 加军朱诺海上编队（J 编队）
+  short: J
+  kind: fleet
+  description: J 编队负责用舰炮和登陆艇炮火轰击朱诺的德军阵地（条目）；位置为示意，只在 D 日当天显示。
+  track:
+    waypoints:
+      - t: 1944-06-05T21:00
+        pos: [-0.95, 50.55]
+        confidence: conjectural
+        place: 怀特岛东南（示意）
+        note: 各船队在此集结后横渡海峡；此点的时刻只是本页的起点。
+        sources: [wp-utah]
+      - t: 1944-06-06T05:00
+        pos: [-0.42, 49.52]
+        confidence: conjectural
+        place: 朱诺外海换乘区（示意）
+        note: 航渡路线与时刻纯属示意：条目只说明各船队在怀特岛东南的“皮卡迪利广场”集结后横渡海峡，没有给出航迹。
+        sources: [wp-juno]
+  lifespan: { to: '1944-06-06' }
+  sources: [wp-juno, wp-landings, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: fleet-s
+  side: uk
+  name: 英军剑滩海上编队
+  short: 剑
+  kind: fleet
+  description: 运送剑滩部队；位置为示意，只在 D 日当天显示。
+  track:
+    waypoints:
+      - t: 1944-06-05T21:00
+        pos: [-0.95, 50.55]
+        confidence: conjectural
+        place: 怀特岛东南（示意）
+        note: 各船队在此集结后横渡海峡；此点的时刻只是本页的起点。
+        sources: [wp-utah]
+      - t: 1944-06-06T05:00
+        pos: [-0.32, 49.5]
+        confidence: conjectural
+        place: 剑滩外海换乘区（示意）
+        note: 航渡路线与时刻纯属示意：条目只说明各船队在怀特岛东南的“皮卡迪利广场”集结后横渡海峡，没有给出航迹。
+        sources: [wp-sword]
+  lifespan: { to: '1944-06-06' }
+  sources: [wp-sword, wp-landings, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: uk-ox-bucks
+  side: uk
+  name: 牛津郡和白金汉郡轻步兵团第 2 营 D 连（滑翔机突击队）
+  short: 牛
+  kind: airborne
+  commander: 约翰·霍华德少校
+  description: 乘六架霍萨滑翔机由塔兰特拉什顿机场起飞，任务是夺取卡昂运河桥（后称“飞马桥”）和奥恩河桥。飞行路线按起终点画成直线，仅为示意。
+  track:
+    waypoints:
+      - t: 1944-06-05T22:56
+        pos: [-2.0905, 50.8522]
+        confidence: documented
+        place: 塔兰特拉什顿机场
+        note: 22:56 起，六架哈利法克斯拖曳六架霍萨滑翔机起飞。
+        sources: [wp-tonga]
+      - t: 1944-06-06T00:16
+        pos: [-0.2744, 49.2422]
+        confidence: documented
+        place: 卡昂运河桥与奥恩河桥
+        note: 五架滑翔机在 00:15–00:20 间降落，约十分钟内夺下两座桥；第六架因导航错误降在别处。
+        sources: [wp-tonga, wp-pegasus, wp-landings]
+      - t: 1944-06-06T19:00
+        pos: [-0.2744, 49.2422]
+        confidence: documented
+        place: 飞马桥
+        note: 坚守至 19:00 第 3 步兵师先头部队到达；接替约在 7 日 01:00 完成。
+        sources: [wp-tonga]
+  lifespan: { to: '1944-06-07T01:00' }
+  sources: [wp-tonga, wp-pegasus, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: uk-6th-airborne
+  side: uk
+  name: 英军第 6 空降师（伞兵与滑翔机部队）
+  short: 空
+  kind: airborne
+  commander: 理查德·盖尔少将
+  description: 任务：夺取奥恩河桥、炸毁迪沃河上的五座桥、摧毁梅维尔炮台。领航员被吹偏，许多伞兵降在预定区域以东，有的数小时甚至数天后才归建。只标出师主力的大致位置。
+  track:
+    waypoints:
+      - t: 1944-06-06T00:50
+        pos: [-0.2565, 49.2323]
+        confidence: approximate
+        place: 朗维尔一带（降落区）
+        note: 00:50 起空降；部队严重分散，位置取降落区中心为示意。
+        sources: [wp-tonga, wp-landings]
+      - t: 1944-06-06T03:30
+        pos: [-0.2565, 49.2323]
+        confidence: approximate
+        place: 朗维尔一带
+        note: 师长盖尔乘第三批滑翔机约 03:20–03:30 到达，带来反坦克炮和吉普车。
+        sources: [wp-tonga, wp-landings]
+      - t: '1944-06-07'
+        pos: [-0.2565, 49.2323]
+        confidence: approximate
+        place: 朗维尔一带
+        note: 继续守卫奥恩河东岸桥头阵地；此后行动未收录。
+        sources: [wp-tonga]
+  lifespan: { from: '1944-06-06T00:50', to: '1944-06-07' }
+  sources: [wp-tonga, wp-landings, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: uk-9th-para
+  side: uk
+  name: 第 9 伞兵营（梅维尔炮台突击队）
+  short: 九
+  kind: airborne
+  commander: 特伦斯·奥特韦中校
+  description: 600 人的营，集结点只到了 160 人左右；奥特韦仍决定出发，因为炮台必须在天亮前摧毁，以免打击剑滩的舰队和登陆部队。
+  track:
+    waypoints:
+      - t: 1944-06-06T01:30
+        pos: [-0.185, 49.255]
+        confidence: approximate
+        place: 梅维尔一带降落区
+        note: 01:30 奥特韦抵达降落区；随后陆续有人归队。
+        sources: [wp-tonga]
+      - t: 1944-06-06T04:00
+        pos: [-0.1978, 49.2694]
+        confidence: documented
+        place: 梅维尔炮台
+        note: 04:00 抵达炮台；04:30 装有工兵的滑翔机到达，突击开始。
+        sources: [wp-tonga, wp-landings]
+  lifespan: { from: '1944-06-06T01:30', to: '1944-06-06T06:00' }
+  sources: [wp-tonga, wp-landings, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: us-101st
+  side: us
+  name: 美军第 101 空降师
+  short: '101'
+  kind: airborne
+  commander: 马克斯韦尔·D·泰勒少将
+  description: 任务：控制犹他海滩后方的堤道，炸毁杜夫河上的公路与铁路桥。C-47 编队在浓云中无法保持队形，许多伞兵落在预定区域之外；24 小时后只有约三分之一的空降兵归师长指挥。
+  track:
+    waypoints:
+      - t: 1944-06-06T01:30
+        pos: [-1.23, 49.38]
+        confidence: approximate
+        place: 犹他海滩后方（降落区）
+        note: 约 01:30 开始空降；部队散落很广，位置取降落区大致中心。
+        sources: [wp-landings, wp-utah]
+      - t: '1944-06-08'
+        pos: [-1.2742, 49.3355]
+        confidence: documented
+        place: 圣科姆迪蒙
+        note: 8 日夺取圣科姆迪蒙（卡朗唐战役条目）。
+        sources: [wp-carentan]
+      - t: '1944-06-09'
+        pos: [-1.262, 49.32]
+        confidence: approximate
+        place: 杜夫河北岸（卡朗唐以北）
+        note: 9 日整理完毕：502 团守上杜夫河右翼，506 团横跨卡朗唐公路，327 团在左翼沿杜夫河。位置为示意。
+        sources: [wp-carentan]
+      - t: '1944-06-11'
+        pos: [-1.25, 49.315]
+        confidence: approximate
+        place: 卡朗唐北郊
+        note: 10 日起沿堤道和杜夫河强攻卡朗唐，11 日仍被挡在城外。位置为示意。
+        sources: [wp-carentan]
+      - t: '1944-06-12'
+        pos: [-1.2494, 49.305]
+        confidence: documented
+        place: 卡朗唐
+        note: 12 日德军因弹药耗尽撤出，美军夺取卡朗唐。
+        sources: [wp-carentan]
+  sources: [wp-landings, wp-carentan, wp-utah, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: us-82nd
+  side: us
+  name: 美军第 82 空降师
+  short: '82'
+  kind: airborne
+  commander: 马修·李奇微少将
+  description: 任务：夺取默德雷河上的两座桥、炸毁杜夫河上的两座桥。东岸的团较集中，很快夺下圣母教堂镇；西岸的两个团极为分散，夺取但没能守住拉菲耶尔桥，桥头的战斗持续数日。
+  track:
+    waypoints:
+      - t: 1944-06-06T02:30
+        pos: [-1.34, 49.405]
+        confidence: approximate
+        place: 默德雷河两岸（降落区）
+        note: 约 02:30 开始空降；位置取降落区大致中心，实际分散极广。
+        sources: [wp-landings]
+      - t: 1944-06-06T04:30
+        pos: [-1.3181, 49.4089]
+        confidence: reconstructed
+        place: 圣母教堂镇
+        note: 约在空降后两小时内夺取该镇路口（入侵中首个解放的城镇）；时刻为据“两小时内”推定。
+        sources: [wp-landings, wp-stmere]
+      - t: '1944-06-08'
+        pos: [-1.3478, 49.4065]
+        confidence: approximate
+        place: 拉菲耶尔（默德雷河桥头）
+        note: 桥头战斗持续数日，确切结束日期未收录；位置为示意。
+        sources: [wp-landings]
+  lifespan: { to: '1944-06-08' }
+  sources: [wp-landings, wp-stmere, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: us-4th-div
+  side: us
+  name: 美军第 4 步兵师（犹他海滩）
+  short: '4'
+  kind: infantry
+  commander: 雷蒙德·O·巴顿少将
+  description: 首批上岸的是第 8 步兵团，06:30 登陆；海流把他们推到预定登陆点以南，那里反而只有一个据点、且被轰炸破坏得更厉害。助理师长小西奥多·罗斯福准将是最先上岸的高级军官，决定“就从这里开始这场战争”，后续部队随之改道。
+  track:
+    waypoints:
+      - t: 1944-06-06T06:30
+        pos: [-1.1764, 49.4181]
+        confidence: documented
+        place: 犹他海滩
+        note: 06:30 首波登陆；被海流带到预定位置以南。滩头位置取滩段中心，实际登陆点偏南。
+        sources: [wp-utah, wp-landings]
+      - t: 1944-06-06T09:00
+        pos: [-1.19, 49.395]
+        confidence: documented
+        place: 犹他滩后方
+        note: 约 09:00 起战斗队沿唯一的公路撤离海滩，有的步兵涉过被淹没的田野；位置为示意。
+        sources: [wp-utah, wp-landings]
+      - t: '1944-06-07'
+        pos: [-1.3181, 49.4089]
+        confidence: approximate
+        place: 圣母教堂镇
+        note: 7 日下午，来自犹他海滩的坦克抵达圣母教堂镇，与空降兵会合；此后行动未收录。
+        sources: [wp-stmere]
+  lifespan: { to: '1944-06-07' }
+  sources: [wp-utah, wp-landings, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: us-29th-div
+  side: us
+  name: 美军第 29 步兵师（奥马哈西段）
+  short: '29'
+  kind: infantry
+  description: 奥马哈由第 1、第 29 步兵师担任突击，对面是预料之外的德军第 352 步兵师。29 师在西半段登陆；海流把许多登陆艇推向东面或延误，不少艇搁浅在沙洲上，士兵涉水上岸。
+  track:
+    waypoints:
+      - t: 1944-06-06T06:30
+        pos: [-0.888, 49.3715]
+        confidence: documented
+        place: 奥马哈西段
+        note: 06:30 H 时刻；位置为西段的示意点，不是具体某条冲沟。
+        sources: [wp-omaha, wp-landings]
+      - t: 1944-06-06T09:00
+        pos: [-0.9041, 49.3745]
+        confidence: approximate
+        place: 维耶维尔一带崖顶
+        note: 上午起小股部队沿冲沟登上崖顶（约 09:00 已有 600 多人到达高地，条目对时刻的说法为“上午晚些时候”与 09:00，略有出入）；位置为示意。
+        sources: [wp-omaha, wp-landings]
+  lifespan: { to: '1944-06-06' }
+  sources: [wp-omaha, wp-landings, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: us-1st-div
+  side: us
+  name: 美军第 1 步兵师（奥马哈东段）
+  short: '1'
+  kind: infantry
+  description: 第 1 步兵师在奥马哈东半段登陆。海滩障碍物大多未被轰炸摧毁，出滩只能经五条设防的冲沟。
+  track:
+    waypoints:
+      - t: 1944-06-06T06:30
+        pos: [-0.85, 49.369]
+        confidence: documented
+        place: 奥马哈东段
+        note: 06:30 H 时刻；位置为东段示意点。
+        sources: [wp-omaha, wp-landings]
+      - t: 1944-06-06T12:00
+        pos: [-0.848, 49.362]
+        confidence: approximate
+        place: 奥马哈东段崖顶
+        note: 至正午，德军弹药开始告急，美军清出数条通路并开始清理冲沟；位置为示意。
+        sources: [wp-landings]
+  lifespan: { to: '1944-06-06' }
+  sources: [wp-omaha, wp-landings, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: us-2nd-rangers
+  side: us
+  name: 第 2 游骑兵营（角点突击队）
+  short: 游
+  kind: infantry
+  commander: 詹姆斯·拉德尔中校
+  description: 约二百人乘十艘登陆艇进攻角点，任务是攀上悬崖摧毁炮台。前往途中一艘艇沉没、一艘进水，登陆比计划晚了约 40 分钟；后续的大队游骑兵因信号来得太晚，转到奥马哈登陆。
+  track:
+    waypoints:
+      - t: 1944-06-06T05:45
+        pos: [-0.985, 49.428]
+        confidence: conjectural
+        place: 角点外海（示意）
+        note: 航渡路线与起点时刻为示意。
+        sources: [wp-pointe]
+      - t: 1944-06-06T07:10
+        pos: [-0.9889, 49.3958]
+        confidence: documented
+        place: 角点崖脚
+        note: 07:10 登陆艇抵达崖脚，人数约为出发时的一半。
+        sources: [wp-pointe, wp-landings]
+      - t: '1944-06-07'
+        pos: [-0.9889, 49.3958]
+        confidence: documented
+        place: 角点
+        note: 7 日拂晓，拉德尔手下只剩约 90 人能作战。
+        sources: [wp-pointe, wp-landings]
+      - t: '1944-06-08'
+        pos: [-0.9889, 49.3958]
+        confidence: documented
+        place: 角点
+        note: 8 日第 743 坦克营等部到达解围；此时游骑兵弹药耗尽，在用缴获的德军武器。
+        sources: [wp-pointe, wp-landings]
+  lifespan: { from: '1944-06-06T05:45', to: '1944-06-08' }
+  sources: [wp-pointe, wp-landings, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: uk-50th-div
+  side: uk
+  name: 英军第 50（诺森伯兰）步兵师（金滩）
+  short: '50'
+  kind: infantry
+  commander: 道格拉斯·格雷厄姆少将
+  description: 金滩的突击师，一支久经沙场的老部队。目标：向西夺取阿罗芒什并与奥马哈的美军会合，夺取巴约和贝桑港，向东与朱诺的加军会合。
+  track:
+    waypoints:
+      - t: 1944-06-06T07:25
+        pos: [-0.5717, 49.3453]
+        confidence: documented
+        place: 金滩
+        note: 07:25 开始登陆；大风使 DD 坦克在近岸甚至直接在滩上放出。
+        sources: [wp-gold, wp-landings]
+      - t: '1944-06-07'
+        pos: [-0.7028, 49.2794]
+        confidence: documented
+        place: 巴约
+        note: 7 日解放巴约，抵抗轻微；D 日当天因德军第 352 师的顽强抵抗未能拿下。
+        sources: [wp-bayeux, wp-gold]
+  lifespan: { to: '1944-06-07' }
+  sources: [wp-gold, wp-bayeux, wp-landings, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: ca-3rd-div
+  side: ca
+  name: 加拿大第 3 步兵师（朱诺）
+  short: 加3
+  kind: infantry
+  commander: 罗德·凯勒少将
+  description: 原定 D 日目标：夺取卡尔皮凯机场、抵达卡昂—巴约铁路线，并与两侧英军滩头连成一片。首批因海况被迫推迟到 07:35 登陆，步兵先于装甲部队上岸，伤亡较大。
+  track:
+    waypoints:
+      - t: 1944-06-06T07:35
+        pos: [-0.4153, 49.3353]
+        confidence: documented
+        place: 朱诺海滩
+        note: 07:35 首波上岸（推迟）；07 团、08 团的预备队约 08:30 起投入，第 9 旅约 11:40 投入。
+        sources: [wp-juno, wp-landings]
+      - t: 1944-06-06T18:00
+        pos: [-0.445, 49.215]
+        confidence: approximate
+        place: 卡尔皮凯机场附近
+        note: 傍晚前第 9 旅一部推进到能望见卡尔皮凯机场处，但支援装甲弹药将尽，就地掘壕；条目未给出确切时刻，18:00 为推定。
+        sources: [wp-juno, wp-landings]
+      - t: '1944-06-07'
+        pos: [-0.445, 49.215]
+        confidence: approximate
+        place: 卡尔皮凯以北
+        note: 7 日第 9 旅前进时遇德军第 716 师、第 21 装甲师阵地，17:00 遭党卫军第 12 装甲师反击，退回 D 日阵地；此后行动未收录。
+        sources: [wp-juno]
+  lifespan: { to: '1944-06-07' }
+  sources: [wp-juno, wp-landings, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: uk-3rd-div
+  side: uk
+  name: 英军第 3 步兵师（剑滩）
+  short: '3'
+  kind: infantry
+  commander: T·G·雷尼少将
+  description: 剑滩的突击师：两个步兵营在 DD 坦克配合下打头阵，随后是突击队和师主力。海滩布满地雷和障碍，涨潮比预计快，滩头很快拥挤。
+  track:
+    waypoints:
+      - t: 1944-06-06T07:30
+        pos: [-0.3211, 49.3064]
+        confidence: documented
+        place: 剑滩
+        note: 步兵约 07:30 开始下船（计划 07:25）；25 辆首波 DD 坦克中 21 辆安全上岸。
+        sources: [wp-sword, wp-landings]
+      - t: 1944-06-06T20:15
+        pos: [-0.2984, 49.2769]
+        confidence: approximate
+        place: 科勒维尔一带
+        note: “希尔曼”据点（第 736 团团部）直到 20:15 才被攻克；位置为该村今址，仅为示意。
+        sources: [wp-sword]
+  lifespan: { to: '1944-06-06' }
+  sources: [wp-sword, wp-landings, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: uk-1st-ssb
+  side: uk
+  name: 英军第 1 特勤旅（突击队）
+  short: 突
+  kind: infantry
+  commander: 洛瓦特勋爵（西蒙·弗雷泽准将）
+  description: 随第二波在剑滩登陆，由私人风笛手比尔·米林吹着风笛上岸；随后赶往奥恩河桥与空降兵会合。
+  track:
+    waypoints:
+      - t: 1944-06-06T08:00
+        pos: [-0.3211, 49.3064]
+        confidence: approximate
+        place: 剑滩
+        note: 第二波上岸；条目未给出确切时刻，08:00 为推定。
+        sources: [wp-sword]
+      - t: 1944-06-06T13:00
+        pos: [-0.2744, 49.2422]
+        confidence: approximate
+        place: 奥恩河与卡昂运河桥
+        note: 与守桥的第 6 空降师会合。Sword 条目说“13:00 前”，主条目说“12:00 增援”，故标为大致。
+        sources: [wp-sword, wp-landings]
+  lifespan: { from: '1944-06-06T08:00', to: '1944-06-06T23:59' }
+  sources: [wp-sword, wp-landings, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: de-21st-panzer
+  side: de
+  name: 德军第 21 装甲师
+  short: '21'
+  kind: armor
+  commander: 埃德加·福伊希廷格中将
+  description: 驻卡昂一带的装甲预备队，按规定出动需经最高统帅部批准。02:00 第 716 师师长要求其出动，福伊希廷格直到将近 09:00 才得到命令，其间已自行组成战斗群（含坦克）去打奥恩河以东的英军空降兵。
+  track:
+    waypoints:
+      - t: 1944-06-06T02:00
+        pos: [-0.3636, 49.1813]
+        confidence: approximate
+        place: 卡昂一带
+        note: 02:00 接到第 716 师的出动要求，但须先请示；具体驻地未收录，取卡昂为示意。
+        sources: [wp-landings, wp-21pz]
+      - t: 1944-06-06T16:00
+        pos: [-0.365, 49.245]
+        confidence: approximate
+        place: 卡昂以北（反击出发处）
+        note: 下午发动反击，介于剑、朱诺两滩之间。时刻各书不一（主条目 16:00，Sword 条目“约 17:00”）；位置为示意。
+        sources: [wp-landings, wp-sword]
+      - t: 1944-06-06T20:00
+        pos: [-0.3155, 49.3006]
+        confidence: documented
+        place: 利翁苏梅尔（海岸）
+        note: 第 192 装甲掷弹兵团的一部于 20:00 前抵达海岸；遇第 3 师顽强抵抗后被召回。
+        sources: [wp-sword]
+      - t: 1944-06-06T22:00
+        pos: [-0.36, 49.23]
+        confidence: approximate
+        place: 卡昂—巴约一带
+        note: 被召回后转往卡昂与巴约之间；条目未给出时刻，22:00 为推定。
+        sources: [wp-landings, wp-sword]
+  lifespan: { to: '1944-06-06T23:59' }
+  sources: [wp-landings, wp-21pz, wp-sword, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: de-352nd
+  side: de
+  name: 德军第 352 步兵师
+  short: '352'
+  kind: infantry
+  description: 防守奥马哈的师，其兵力比盟军情报预料的一个团要多。06:00 前后海军炮击开始时，海岸据点已报告大批舰船；条目只提供防区，没有该师司令部的具体位置，标记取奥马哈后方，仅为示意。只标出 D 日。
+  track:
+    waypoints:
+      - t: 1944-06-06T06:00
+        pos: [-0.8686, 49.3689]
+        confidence: conjectural
+        place: 奥马哈后方（示意）
+        note: 防区包含奥马哈；具体位置未收录。
+        sources: [wp-352nd]
+  lifespan: { from: '1944-06-06T00:00', to: '1944-06-06T23:59' }
+  sources: [wp-352nd, wp-omaha, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: de-fjr6
+  side: de
+  name: 德军第 6 伞兵团（卡朗唐守军）
+  short: 伞6
+  kind: infantry
+  commander: 冯·德·海特
+  description: 受命“死守到最后一人”（隆美尔）；由第 914 掷弹兵团（第 352 师）的残部补充。12 日因弹药耗尽撤出，只留少量后卫。
+  track:
+    waypoints:
+      - t: '1944-06-09'
+        pos: [-1.2494, 49.305]
+        confidence: documented
+        place: 卡朗唐
+        note: 9 日前后进驻并防守该城；具体入城时间未收录。
+        sources: [wp-carentan]
+  lifespan: { from: '1944-06-09', to: '1944-06-12' }
+  sources: [wp-carentan, geo-wiki, geo-osm, geo-estimate, cal-timezone]

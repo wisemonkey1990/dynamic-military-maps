@@ -1,0 +1,109 @@
+# campaign.yaml — 诺曼底登陆 数据草稿 v0（待审核，见 REVIEW.md）
+id: normandy-1944
+schemaVersion: 1
+status: draft
+title: { zh: 诺曼底登陆, en: Normandy Landings }
+subtitle:
+  {
+    zh: 1944 年 6 月 5 日夜—12 日：D 日与滩头会师,
+    en: 'D-Day, 5–12 June 1944: the landings and the linking of the beachheads',
+  }
+summary:
+  1944 年 6 月 6 日（D 日），盟军在法国诺曼底发起“霸王行动”的登陆阶段（“海王行动”）。5 日夜里，英军第 6 空降师的滑翔机突击队夺下奥恩河桥，美军第 82、101 空降师空降在科唐坦半岛；拂晓前后，五个滩头——美军的犹他、奥马哈，英军的金、剑，加军的朱诺——依次登陆。德军的装甲预备队因请示延误，直到下午才发动反击，一度逼近海岸又被击退。之后的几天，盟军扩大滩头、夺取巴约和卡朗唐，12
+  日五个滩头连成一片。本页 D 日（6 月 5 日夜至 6 日）按分钟展示，之后按天展示。钟点取自所引英文维基条目，钟点制式条目未说明；海上航渡的航线与时刻纯属示意。数据为草稿，待审核。
+mapNote: 时刻取自所引英文维基条目，钟点制式条目未说明；各书对部分时刻说法不一（如空降、第 21 装甲师反击），已标为“大致”。海上航渡的航线与时刻纯属示意，不是舰队的实际航迹。
+period: { start: '1944-06-05T21:00', end: '1944-06-12' }
+bbox: [-2.7, 48.95, 0.4, 51.0]
+defaultHoursPerSecond: 6
+displayPrecision: day
+stepDays: 1
+trailDays: 1
+lingerDays: 1
+camera:
+  center: [-0.95, 50.0]
+  zoom: 7.2
+tags: [欧洲, 第二次世界大战, '1944', 登陆战]
+sides:
+  - id: us
+    name: { zh: 美军, en: US forces }
+    color: '#2f7d4f'
+    icon: circle
+  - id: uk
+    name: { zh: 英军, en: British forces }
+    color: '#1f4e9c'
+    icon: square
+  - id: ca
+    name: { zh: 加拿大军, en: Canadian forces }
+    color: '#c0392b'
+    icon: diamond
+  - id: de
+    name: { zh: 德军, en: German forces }
+    color: '#4a4a4a'
+    icon: triangle
+chapters:
+  - id: ch1-night
+    title: 夜：横渡海峡与空降
+    start: 1944-06-05T21:00
+    end: 1944-06-06T05:44
+    hoursPerSecond: 0.5
+    scale:
+      {
+        displayPrecision: minute,
+        stepDays: 0.020833333333333332,
+        trailDays: 0.125,
+        lingerDays: 0.125,
+      }
+    narration: 6 月 5 日夜，舰队横渡海峡；不到午夜，英军滑翔机突击队夺下奥恩河桥，随后美英三个空降师陆续空降在登陆区两翼。
+    camera:
+      center: [-1.05, 50.0]
+      zoom: 7.3
+  - id: ch2-h-hour
+    title: H 时刻：五个滩头
+    start: 1944-06-06T05:45
+    end: 1944-06-06T13:59
+    hoursPerSecond: 0.15
+    scale:
+      {
+        displayPrecision: minute,
+        stepDays: 0.010416666666666666,
+        trailDays: 0.041666666666666664,
+        lingerDays: 0.0625,
+      }
+    narration: 05:45 海军炮击开始。美军 06:30 在犹他、奥马哈登陆，英军约 07:25 在金、07:30 在剑登陆，加军 07:35 在朱诺登陆；奥马哈损失最重。
+    camera:
+      center: [-0.75, 49.4]
+      zoom: 9.0
+  - id: ch3-dday-pm
+    title: D 日下午与夜晚：向内陆推进
+    start: 1944-06-06T14:00
+    end: 1944-06-06T23:59
+    hoursPerSecond: 0.25
+    scale:
+      {
+        displayPrecision: minute,
+        stepDays: 0.041666666666666664,
+        trailDays: 0.125,
+        lingerDays: 0.08333333333333333,
+      }
+    narration: 德军装甲预备队直到下午才发动反击，一度逼近海岸，又被击退。夜幕降临时，盟军在五个滩头都站住了脚，但卡昂等目标仍在德军手中。
+    camera:
+      center: [-0.6, 49.3]
+      zoom: 9.0
+  - id: ch4-expand
+    title: 6 月 7—9 日：巩固滩头
+    start: '1944-06-07'
+    end: '1944-06-09'
+    hoursPerSecond: 6
+    narration: 巴约、贝桑港被攻占；游骑兵在角点被解围；圣科姆迪蒙易手；德军在加军前线发动反击。
+    camera:
+      center: [-0.95, 49.33]
+      zoom: 8.6
+  - id: ch5-link-up
+    title: 6 月 10—12 日：夺取卡朗唐，滩头连成一片
+    start: '1944-06-10'
+    end: '1944-06-12'
+    hoursPerSecond: 6
+    narration: 第 101 空降师沿堤道强攻卡朗唐，12 日德军因弹药耗尽撤走；五个滩头至此连成一片。
+    camera:
+      center: [-1.15, 49.33]
+      zoom: 9.6

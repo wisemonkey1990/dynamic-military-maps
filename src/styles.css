@@ -399,6 +399,12 @@ h1 {
 .kind-march {
   --ev: #b56a00;
 }
+.kind-landing {
+  --ev: #0f7c8a;
+}
+.kind-airdrop {
+  --ev: #5b6bbf;
+}
 .kind-other {
   --ev: #666;
 }

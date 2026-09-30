@@ -1,0 +1,477 @@
+# events.yaml — 诺曼底登陆 数据草稿 v0（待审核，见 REVIEW.md）
+- id: e-air-bombing
+  t: 1944-06-06T00:00
+  pos: [-0.75, 49.36]
+  kind: battle
+  title: 空袭海岸
+  body: 约在午夜前后，二千二百余架英、加、美轰炸机开始轰炸沿海及纵深目标；奥马哈一带因云层低、担心误伤己方，多数轰炸机推迟投弹，滩头防御大多没有被炸中。位置为示意，时刻“约午夜”。
+  confidence: approximate
+  sources: [wp-landings, wp-omaha, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: e-tonga-takeoff
+  t: 1944-06-05T22:56
+  pos: [-2.0905, 50.8522]
+  kind: airdrop
+  title: 滑翔机突击队起飞
+  body: 22:56，六架哈利法克斯轰炸机拖曳六架霍萨滑翔机从塔兰特拉什顿机场起飞，载着夺桥的突击队；随后 23:00–23:20，六架阿尔比马尔运输机载着为师主力标示降落区的引导员起飞。
+  confidence: documented
+  units: [uk-ox-bucks]
+  sources: [wp-tonga, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: e-us-pathfinders
+  t: 1944-06-06T00:15
+  pos: [-1.34, 49.405]
+  kind: airdrop
+  title: 美军引导员空降
+  body: 00:15，美军引导员抵达。浓云使导航困难，五个伞兵降落区中只有一个被雷达信号和信号灯准确标出。运输机为避开舰队，自西越过科唐坦半岛飞入，再从犹他海滩上空飞出。位置为示意。
+  confidence: approximate
+  units: [us-101st, us-82nd]
+  sources: [wp-landings, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: e-pegasus-bridge
+  t: 1944-06-06T00:16
+  until: 1944-06-06T01:30
+  pos: [-0.2744, 49.2422]
+  kind: airdrop
+  title: 夺取飞马桥与奥恩河桥
+  body: 盟军在 D 日的第一个行动：约 00:16，六架滑翔机中的五架降落在两座桥附近（00:15–00:20），突击队出其不意，约十分钟内夺下卡昂运河桥（后称“飞马桥”）和奥恩河桥（后称“霍萨桥”），轻微伤亡。第六架因导航错误降在约七英里外。
+  confidence: documented
+  units: [uk-ox-bucks]
+  sources: [wp-tonga, wp-pegasus, wp-landings, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: e-minesweepers
+  t: 1944-06-06T00:00
+  pos: [-0.85, 49.6]
+  kind: other
+  title: 扫雷舰清扫航道
+  body: 主条目称扫雷舰在午夜后不久开始为舰队清扫航道，至天亮后才完成，没有遇到敌人；Utah 条目则称“6 月 5 日傍晚”开始，两说不一，取“午夜前后”，位置为示意。
+  confidence: approximate
+  sources: [wp-landings, wp-utah, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: e-6ab-drop
+  t: 1944-06-06T00:50
+  pos: [-0.2565, 49.2323]
+  kind: airdrop
+  title: 英军第 6 空降师主力空降
+  body: 00:50，英军伞兵开始降落。为其标示降落区的引导员被吹偏，把导航标志设在过于偏东处，许多伞兵也被吹得太远，有的数小时甚至数天后才归建。第 3 伞兵旅炸毁了迪沃河上的五座桥。位置取朗维尔一带为示意。
+  confidence: documented
+  units: [uk-6th-airborne]
+  sources: [wp-tonga, wp-landings, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: e-german-alert
+  t: 1944-06-06T02:00
+  pos: [-0.3636, 49.1813]
+  kind: other
+  title: 德军的最初反应
+  body:
+    01:20，德军第 7 集团军接到伞兵空降的报告，但伦德施泰特起初不相信这是大规模入侵；02:00 前后德军才发现逼近的舰队（沿岸雷达站在前一周已被炸毁）。同一时间，第 716 师师长要求福伊希廷格出动第 21
+    装甲师，但后者属装甲预备队，须先请示最高统帅部。位置取卡昂为示意。
+  confidence: approximate
+  units: [de-21st-panzer]
+  sources: [wp-landings, wp-21pz, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: e-101st-drop
+  t: 1944-06-06T01:30
+  pos: [-1.23, 49.38]
+  kind: airdrop
+  title: 第 101 空降师空降
+  body:
+    约 01:30 起，第 101 空降师开始在犹他海滩后方空降，任务是控制堤道、炸毁杜夫河桥梁。C-47 在浓云中无法保持队形，低飞受到高射炮和机枪射击；一些伞兵摔死或淹死在被淹没的田野里，聚拢成建制部队因缺电台和树篱地形而很难；有的营直到下午才到达目标，此时几条堤道已被第
+    4 步兵师从海滩上夺取。
+  confidence: documented
+  units: [us-101st]
+  sources: [wp-landings, wp-utah, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: e-82nd-drop
+  t: 1944-06-06T02:30
+  pos: [-1.34, 49.405]
+  kind: airdrop
+  title: 第 82 空降师空降
+  body: 约 02:30 起，第 82 空降师开始空降，首要目标是默德雷河上的两座桥并炸毁杜夫河上的两座桥。东岸的空降兵大多降在目标区附近，西岸两个团则极为分散，许多降在沼泽里；他们夺取但没能守住拉菲耶尔桥。位置取降落区大致中心为示意。
+  confidence: documented
+  units: [us-82nd]
+  sources: [wp-landings, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: e-6ab-gliders
+  t: 1944-06-06T03:30
+  pos: [-0.2565, 49.2323]
+  kind: airdrop
+  title: 师部与反坦克炮乘滑翔机到达
+  body: 第二批滑翔机（六十五架霍萨与四架哈米尔卡）约 03:20 降落，运来师部和一个反坦克炮连；师长盖尔在第三批滑翔机中约 03:30 抵达（两条目对批次的说法略有出入）。
+  confidence: documented
+  units: [uk-6th-airborne]
+  sources: [wp-tonga, wp-landings, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: e-stmere
+  t: 1944-06-06T04:30
+  pos: [-1.3181, 49.4089]
+  kind: occupation
+  title: 夺取圣母教堂镇
+  body: 第 82 空降师东岸的团在空降后约两小时内夺取了这个重要路口，它是入侵中首个解放的城镇之一。时刻为据“两小时内”推定。
+  confidence: reconstructed
+  units: [us-82nd]
+  sources: [wp-landings, wp-stmere, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: e-merville
+  t: 1944-06-06T04:30
+  until: 1944-06-06T06:00
+  pos: [-0.1978, 49.2694]
+  kind: battle
+  title: 梅维尔炮台之战
+  body:
+    04:00 奥特韦带约 150 名伞兵抵达炮台，04:30 装有工兵的滑翔机到达，突击开始；炮台的火炮被塑胶炸药破坏，代价是 75 人伤亡。炮内是 75 毫米炮，而不是预料的 150 毫米重炮。摧毁的时限各书不一（Tonga
+    条目称 05:30，主条目称 06:00）。
+  confidence: documented
+  units: [uk-9th-para]
+  sources: [wp-tonga, wp-landings, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: e-bombardment
+  t: 1944-06-06T05:45
+  until: 1944-06-06T06:30
+  pos: [-0.9, 49.47]
+  kind: battle
+  title: 海军炮击开始
+  body: 05:45，舰炮开始轰击海岸后方目标，05:50 天色够亮后转向预定的滩头目标。犹他、奥马哈的登陆比英军滩头早一小时，因此这两处只获得约 40 分钟海军炮击；犹他的空中轰炸预定 06:09–06:27。位置为示意。
+  confidence: documented
+  sources: [wp-landings, wp-utah, wp-omaha, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: e-longues
+  t: 1944-06-06T06:20
+  until: 1944-06-06T07:15
+  pos: [-0.6976, 49.3357]
+  kind: battle
+  title: 朗格斯炮台被炮火压制
+  body: 06:20，巡洋舰的直接命中使朗格斯苏梅尔炮台四门炮中的三门失效；第四门下午间歇开火，其守军 7 日投降。位置取村镇中心，炮台在其附近。
+  confidence: documented
+  sources: [wp-gold, wp-landings, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: e-utah-landing
+  t: 1944-06-06T06:30
+  until: 1944-06-06T07:30
+  pos: [-1.1764, 49.4181]
+  kind: landing
+  title: 犹他海滩登陆
+  body:
+    06:30 H 时刻，第 4 步兵师第 8 步兵团分四波上岸。强流把登陆艇推到预定位置以南，这里反而只有一个据点，且被来自较低高度的轰炸破坏得更厉害；不少水下障碍物也已被冲到岸上。罗斯福准将决定“就从这里开始这场战争”，后续部队随之改道。DD
+    坦克和工兵、爆破队随后到达，在海堤炸开缺口。
+  confidence: documented
+  units: [us-4th-div]
+  sources: [wp-utah, wp-landings, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: e-omaha-landing
+  t: 1944-06-06T06:30
+  until: 1944-06-06T07:30
+  pos: [-0.8686, 49.3689]
+  kind: landing
+  title: 奥马哈海滩登陆
+  body:
+    06:30 H 时刻。奥马哈防御最强，对面是第 352 步兵师。强流把许多登陆艇推向东面或延误；美军轰炸机怕误伤登陆艇而推迟投弹，滩上障碍物大多完好。许多艇搁浅在沙洲上，士兵在没颈的水中涉水上岸。两个连的 DD
+    坦克在离岸处放出，32 辆中有 27 辆进水沉没。
+  confidence: documented
+  units: [us-29th-div, us-1st-div]
+  sources: [wp-omaha, wp-landings, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: e-omaha-wave2
+  t: 1944-06-06T07:00
+  until: 1944-06-06T08:00
+  pos: [-0.8686, 49.3689]
+  kind: landing
+  title: 奥马哈第二波登陆
+  body: 07:00，规模更大的第二波带来增援、支援武器和指挥部，面对的困难与第一波几乎相同，只是德军火力被分散了些；07:35 前后德军第 726 团第 3 营已报告 100–200 名美军突破防线。
+  confidence: documented
+  sources: [wp-omaha, wp-landings, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: e-pointe-landing
+  t: 1944-06-06T07:10
+  until: 1944-06-06T08:30
+  pos: [-0.9889, 49.3958]
+  kind: landing
+  title: 游骑兵在角点崖脚登陆
+  body:
+    登陆艇因途中损失延误约 40 分钟，07:10 才抵达崖脚，人数约为出发时的一半。攀上悬崖后发现火炮已被撤走；游骑兵在南面果园找到了这些炮，并用炸药或燃烧手榴弹毁坏。7 日拂晓拉德尔只剩约 90 人可战，8
+    日才有援兵到达。
+  confidence: documented
+  units: [us-2nd-rangers]
+  sources: [wp-pointe, wp-landings, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: e-gold-landing
+  t: 1944-06-06T07:25
+  until: 1944-06-06T08:25
+  pos: [-0.5717, 49.3453]
+  kind: landing
+  title: 金滩登陆
+  body:
+    海军炮击自 05:30 开始，两栖登陆 07:25 开始；DD 坦克预定 07:20 先到。大风使登陆艇难以操作，DD 坦克在近岸甚至直接在滩上放出。勒阿梅尔据点面朝东、有厚混凝土墙，空袭未能命中，其 75
+    毫米炮一直打到 16:00；拉里维耶尔的 88 毫米炮 07:30 被坦克压制。
+  confidence: documented
+  units: [uk-50th-div]
+  sources: [wp-gold, wp-landings, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: e-sword-landing
+  t: 1944-06-06T07:30
+  until: 1944-06-06T08:30
+  pos: [-0.3211, 49.3064]
+  kind: landing
+  title: 剑滩登陆
+  body: 步兵约 07:30 开始下船（预定 07:25）。25 辆首波 DD 坦克中 21 辆抵达；海滩布满地雷与障碍，涨潮比预期快，滩头很快拥挤。洛瓦特的第 1 特勤旅在第二波上岸，第 4 突击队穿过乌伊斯特勒昂从后面攻击岸炮台；菲利普·基弗指挥的自由法国突击队清剿了里瓦贝拉赌场的据点。
+  confidence: documented
+  units: [uk-3rd-div, uk-1st-ssb]
+  sources: [wp-sword, wp-landings, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: e-juno-landing
+  t: 1944-06-06T07:35
+  until: 1944-06-06T08:35
+  pos: [-0.4153, 49.3353]
+  kind: landing
+  title: 朱诺海滩登陆
+  body: 因海况，首波推迟到 07:35 上岸，步兵先于装甲，登岸时伤亡不小；大部分海上炮击没有命中德军阵地。库尔瑟勒、圣欧班、贝尔尼埃的据点须逐屋清剿。约两小时内，兵力、协调的炮火与装甲中队清除了大部分沿海防御。
+  confidence: documented
+  units: [ca-3rd-div]
+  sources: [wp-juno, wp-landings, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: e-omaha-cota
+  t: 1944-06-06T07:50
+  until: 1944-06-06T09:00
+  pos: [-0.888, 49.3715]
+  kind: battle
+  title: 科塔带头突破
+  body: 07:50，第 29 师助理师长科塔准将在多格白滩，用爆破筒和剪线钳破开铁丝网，带头冲出海滩；二十分钟后第 5 游骑兵营加入。零散的、常来自不同连甚至不同师的小股人马，在被“鼓励或逼迫”之下向崖上推进。
+  confidence: documented
+  units: [us-29th-div]
+  sources: [wp-omaha, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: e-omaha-halt
+  t: 1944-06-06T08:30
+  until: 1944-06-06T09:30
+  pos: [-0.8686, 49.3689]
+  kind: other
+  title: 奥马哈暂停车辆登陆
+  body: 清障困难，海滩指挥官在 08:30 下令暂停车辆继续登陆；这时有一批驱逐舰赶到，以火力支援，登陆得以恢复。
+  confidence: documented
+  sources: [wp-landings, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: e-juno-reserves
+  t: 1944-06-06T08:30
+  until: 1944-06-06T09:30
+  pos: [-0.4153, 49.3353]
+  kind: landing
+  title: 朱诺预备队投入
+  body: 第 7、8 旅的预备队与皇家海军陆战队自 08:30 起投入，第 9 旅约 11:40 起投入；海滩及附近街道大半天塞满车辆，难以向内陆开进。
+  confidence: documented
+  units: [ca-3rd-div]
+  sources: [wp-juno, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: e-utah-exit
+  t: 1944-06-06T09:00
+  until: 1944-06-06T10:00
+  pos: [-1.19, 49.395]
+  kind: march
+  title: 犹他战斗队离开海滩
+  body: 约 09:00，战斗队开始离开海滩，有的步兵涉过被淹没的田野而不走唯一的公路；一路上与德军第 919 掷弹兵团的一部交火。主要据点与南面另一个据点约在正午被压制。位置为示意。
+  confidence: documented
+  units: [us-4th-div]
+  sources: [wp-utah, wp-landings, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: e-omaha-bluff
+  t: 1944-06-06T09:00
+  until: 1944-06-06T10:00
+  pos: [-0.8686, 49.3689]
+  kind: battle
+  title: 登上奥马哈崖顶
+  body: 游骑兵、第 116 团的小股人马和其他部队陆续攻上崖顶，到约 09:00 有六百多名美军已在高地上（主条目称“上午晚些时候”，故时刻标为大致）；他们拿下 WN-70 后开始向内陆推进。此前海滩上的伤员在涨潮中溺亡，登陆艇被炮火击中起火。
+  confidence: approximate
+  sources: [wp-omaha, wp-landings, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: e-sword-exits
+  t: 1944-06-06T09:30
+  until: 1944-06-06T10:30
+  pos: [-0.3211, 49.3064]
+  kind: march
+  title: 剑滩出口基本打通
+  body: 09:30，工兵已清出海滩八个出口中的七个，内陆推进得以展开。
+  confidence: documented
+  units: [uk-3rd-div]
+  sources: [wp-sword, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: e-omaha-lanes
+  t: 1944-06-06T12:00
+  until: 1944-06-06T13:00
+  pos: [-0.8686, 49.3689]
+  kind: battle
+  title: 奥马哈清出数条通路
+  body: 到正午，德军炮火造成损失并开始缺乏弹药，美军得以在滩上清出一些通路，并开始清理冲沟里的德军防御，使车辆得以离滩。
+  confidence: documented
+  sources: [wp-landings, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: e-commandos-link
+  t: 1944-06-06T13:00
+  until: 1944-06-06T14:00
+  pos: [-0.2744, 49.2422]
+  kind: march
+  title: 突击队与空降兵在桥边会合
+  body: 第 1 特勤旅赶到奥恩河桥与卡昂运河桥，与第 6 空降师会合。Sword 条目称“13:00 前”，主条目称“12:00 增援”，故时刻标为大致。
+  confidence: approximate
+  units: [uk-1st-ssb, uk-6th-airborne]
+  sources: [wp-sword, wp-landings, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: e-21pz-counter
+  t: 1944-06-06T16:00
+  until: 1944-06-06T20:00
+  pos: [-0.37, 49.27]
+  kind: battle
+  title: 第 21 装甲师反击
+  body:
+    下午，第 21 装甲师趁剑、朱诺两滩之间的缺口发动反击，几乎打到海峡边，但遭第 3 师顽强抵抗，随后被召回去援助卡昂与巴约之间的地区。发动时间各书不一：主条目为 16:00，Sword 条目称“约 17:00
+    分两路”（奥恩河东西各一路）。位置为示意。
+  confidence: approximate
+  units: [de-21st-panzer]
+  sources: [wp-landings, wp-sword, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: e-lehamel
+  t: 1944-06-06T16:00
+  until: 1944-06-06T17:00
+  pos: [-0.5883, 49.3409]
+  kind: battle
+  title: 勒阿梅尔据点被攻克
+  body: 一辆 AVRE 工程坦克把大型爆破弹打进据点后门，终于使这个据点的 75 毫米炮停止射击。
+  confidence: documented
+  units: [uk-50th-div]
+  sources: [wp-gold, wp-landings, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: e-bridges-relieved
+  t: 1944-06-06T19:00
+  until: 1944-06-06T20:00
+  pos: [-0.2744, 49.2422]
+  kind: march
+  title: 第 3 师先头部队接替守桥
+  body: 19:00，英军第 3 步兵师先头部队抵达并开始接替守桥的空降兵，至 7 日 01:00 前后完成。期间守桥部队一直挡住了从 05:00–07:00 开始、逐渐增强的德军零散反击，10:00 德国空军还试图炸毁卡昂桥。
+  confidence: documented
+  units: [uk-ox-bucks]
+  sources: [wp-tonga, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: e-hillman
+  t: 1944-06-06T20:15
+  until: 1944-06-06T21:00
+  pos: [-0.2984, 49.2769]
+  kind: battle
+  title: “希尔曼”据点被攻克
+  body: “希尔曼”是第 736 团的团部，一个复杂的防御工事群，上午的轰击几乎没有损伤它，直到 20:15 才被攻克；附近的“摩根”据点约用一小时攻克。位置取科勒维尔村今址，仅为示意。
+  confidence: documented
+  units: [uk-3rd-div]
+  sources: [wp-sword, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: e-lion
+  t: 1944-06-06T20:00
+  until: 1944-06-06T21:00
+  pos: [-0.3155, 49.3006]
+  kind: battle
+  title: 德军逼近利翁苏梅尔海岸
+  body: 利用剑、朱诺之间的缺口，第 192 装甲掷弹兵团的一部于 20:00 前到达利翁苏梅尔的海岸，随后被击退。空军支援很弱，只有少数德军飞机做了 D 日罕见的日间出动。
+  confidence: documented
+  units: [de-21st-panzer]
+  sources: [wp-sword, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: e-mallard
+  t: 1944-06-06T21:00
+  until: 1944-06-06T22:00
+  pos: [-0.2565, 49.2323]
+  kind: airdrop
+  title: “马拉德”行动：第 6 空运旅滑翔机降落
+  body: 21:00，第 6 空运旅乘滑翔机在朗维尔一带降落（“马拉德”行动），增援已守桥一整天的空降师。
+  confidence: documented
+  units: [uk-6th-airborne]
+  sources: [wp-landings, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: e-halt-2100
+  t: 1944-06-06T21:00
+  until: 1944-06-06T22:00
+  pos: [-0.445, 49.215]
+  kind: other
+  title: 英加战线下令停止前进
+  body: 21:00，英军—加军全线奉命停止前进。此时加拿大第 3 师比 D 日任何其他登陆部队都推进得更深，且朱诺、金两个滩头已连成一片；但卡昂等 D 日目标并未达成，卡昂到 7 月 21 日才完全攻占。
+  confidence: documented
+  units: [ca-3rd-div]
+  sources: [wp-juno, wp-landings, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: e-bayeux
+  t: '1944-06-07'
+  pos: [-0.7028, 49.2794]
+  kind: occupation
+  title: 巴约解放
+  body: 英军第 50（诺森伯兰）步兵师解放了巴约，抵抗轻微；它是诺曼底战役中第一座被解放的城市。D 日当天因德军第 352 师的顽强抵抗没能拿下。
+  confidence: documented
+  units: [uk-50th-div]
+  sources: [wp-bayeux, wp-gold, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: e-port-en-bessin
+  t: '1944-06-07'
+  pos: [-0.7527, 49.3458]
+  kind: occupation
+  title: 贝桑港被攻占
+  body: 第 47（皇家海军陆战队）突击队在 7 日夺取小港贝桑港（贝桑港之战）。主条目称其“次日”攻克，即 7 日。
+  confidence: documented
+  sources: [wp-gold, wp-landings, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: e-longues-surrender
+  t: '1944-06-07'
+  pos: [-0.6976, 49.3357]
+  kind: occupation
+  title: 朗格斯炮台投降
+  body: 第四门炮的守军在 7 日投降。
+  confidence: documented
+  sources: [wp-gold, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: e-stmere-tanks
+  t: '1944-06-07'
+  pos: [-1.3181, 49.4089]
+  kind: march
+  title: 犹他的坦克到达圣母教堂镇
+  body: 7 日下午，来自犹他海滩的坦克抵达，增援了自 6 日起靠轻武器守住该镇的空降兵。
+  confidence: documented
+  units: [us-4th-div, us-82nd]
+  sources: [wp-stmere, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: e-12ss
+  t: 1944-06-07T17:00
+  pos: [-0.445, 49.215]
+  kind: battle
+  title: 党卫军第 12 装甲师反击加军
+  body:
+    7 日，加拿大第 9 旅与谢尔布鲁克燧发枪团开始推进，遭德军第 716 师、第 21 装甲师阵地阻击；17:00 又被党卫军第 12 装甲师（指挥官库尔特·迈耶）反击，被迫退回 D 日阵地，伤亡比朱诺任何一支部队
+    D 日都多。第 12 党卫装甲师的动员命令直到 D 日下午才下达。反击的地点条目未明说，位置取加军 D 日最深入处，仅为示意。
+  confidence: approximate
+  sources: [wp-juno, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: e-pointe-siege
+  t: '1944-06-07'
+  until: '1944-06-08'
+  pos: [-0.9889, 49.3958]
+  kind: battle
+  title: 游骑兵孤守角点，8 日获救
+  body: 游骑兵挡住了德军第 914 掷弹兵团的多次反击；7 日拂晓拉德尔只剩约 90 人可战；8 日第 743 坦克营等部到达解围。此时游骑兵弹药耗尽，用缴获的德军武器作战，有人因德军武器的特殊声响被误认为敌人而被打死。
+  confidence: documented
+  units: [us-2nd-rangers]
+  sources: [wp-pointe, wp-landings, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: e-stcome
+  t: '1944-06-08'
+  pos: [-1.2742, 49.3355]
+  kind: occupation
+  title: 第 101 空降师夺取圣科姆迪蒙
+  body: 8 日，村庄被第 101 空降师夺取；此后该师转向卡朗唐。
+  confidence: documented
+  units: [us-101st]
+  sources: [wp-carentan, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: e-isigny
+  t: '1944-06-09'
+  pos: [-1.0992, 49.3055]
+  kind: battle
+  title: 德军第 914 掷弹兵团在伊尼战败
+  body: 德军第 914 掷弹兵团（第 352 师）于 9 日在伊尼战败，残部被补入卡朗唐的第 6 伞兵团。条目没有说明是盟军哪支部队取胜，待核。
+  confidence: approximate
+  sources: [wp-carentan, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: e-omaha-objectives
+  t: '1944-06-09'
+  pos: [-0.8686, 49.3689]
+  kind: occupation
+  title: 奥马哈的 D 日目标最终达成
+  body: 奥马哈滩头在此后几天向内扩展，D 日目标于 9 日前达成（条目：“by 9 June”，故日期标为大致）。
+  confidence: approximate
+  sources: [wp-landings, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: e-purple-heart-lane
+  t: '1944-06-10'
+  until: '1944-06-11'
+  pos: [-1.262, 49.32]
+  kind: battle
+  title: “紫心巷”：沿堤道进攻卡朗唐
+  body: 10 日，第 101 空降师 502 团 3 营沿卡朗唐—圣母教堂镇公路的堤道发起进攻，这段公路因伤亡而得名“紫心巷”；327 团也在凌晨渡过杜夫河下游。11 日德军仍守住城外。位置取堤道中段为示意。
+  confidence: documented
+  units: [us-101st]
+  sources: [wp-carentan, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: e-cole-charge
+  t: 1944-06-11T06:15
+  until: '1944-06-12'
+  pos: [-1.25, 49.315]
+  kind: battle
+  title: 科尔的冲锋
+  body: 11 日 06:15，在烟幕掩护下，科尔中校（据条目，属第 502 团 3 营）向全营传令：必须冲锋，才能消灭阻挡前进的德军阵地。德军第 6 伞兵团当夜因弹药几乎用尽撤走，只留少量后卫。冲锋的确切地点条目未逐一说明，位置取卡朗唐北郊为示意。
+  confidence: documented
+  units: [us-101st]
+  sources: [wp-carentan, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: e-carentan
+  t: '1944-06-12'
+  pos: [-1.2494, 49.305]
+  kind: occupation
+  title: 夺取卡朗唐
+  body:
+    12 日，德军第 6 伞兵团因弹药耗尽而撤出，第 101 空降师夺取卡朗唐：506 团两个营 02:00 沿堤道通过 502 团 2 营，越野奔向 30 号高地，05:00 前占领。卡朗唐是连接犹他与奥马哈两个美军滩头的关键；13
+    日党卫军第 17 装甲掷弹兵师曾反击，已超出本页范围。
+  confidence: documented
+  units: [us-101st, de-fjr6]
+  sources: [wp-carentan, geo-wiki, geo-osm, geo-estimate, cal-timezone]
+- id: e-beachheads-joined
+  t: '1944-06-12'
+  pos: [-1.0992, 49.3055]
+  kind: other
+  title: 五个滩头连成一片
+  body: 计划要求 D 日夺取卡朗唐、圣洛、卡昂、巴约，并使除犹他外的各滩头连成一线，这些目标都没有在 D 日达成；五个滩头直到 12 日才连成一片，此时盟军已占有一条连续的滩头阵地。位置取伊尼一带为示意。
+  confidence: documented
+  sources: [wp-landings, geo-wiki, geo-osm, geo-estimate, cal-timezone]
